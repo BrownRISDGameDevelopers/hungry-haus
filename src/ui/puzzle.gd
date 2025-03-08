@@ -2,9 +2,12 @@ extends Control
 
 class_name Puzzle
 
+const APPEAR_DURATION_SEC : int = 0.5
+const COLOR_VISIBLE : Color = Color(1,1,1,1)
+const COLOR_TRANSPARENT : Color = Color(1,1,1,0)
+
 var puzzle_active : bool = false
-var opaque : Color = Color(1,1,1,1)
-var clear : Color = Color(1,1,1,0)
+
 
 func _ready():
 	modulate = Color(1,1,1,0)
@@ -17,8 +20,8 @@ func _input(event):
 
 func ToggleVisibility():
 	if puzzle_active:
-		modulate = clear
+		Global.safe_tween(self).tween_property(self, "modulate", COLOR_TRANSPARENT, APPEAR_DURATION_SEC)
 		puzzle_active = false
 	else:
-		modulate = opaque
+		Global.safe_tween(self).tween_property(self, "modulate", COLOR_VISIBLE, APPEAR_DURATION_SEC)
 		puzzle_active = true
