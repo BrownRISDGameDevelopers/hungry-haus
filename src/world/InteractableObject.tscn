@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://cg1n73al25pv1"]
+
+[ext_resource type="Script" uid="uid://dgouba7ideh4c" path="res://src/world/interactable_object.gd" id="1_oqx3m"]
+[ext_resource type="Material" uid="uid://cq0kvcqskxt08" path="res://src/world/outline/outline.tres" id="2_oqx3m"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_l5jqu"]
+material = ExtResource("2_oqx3m")
+
+[sub_resource type="BoxMesh" id="BoxMesh_oqx3m"]
+
+[node name="InteractableObject" type="Node3D"]
+script = ExtResource("1_oqx3m")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_l5jqu")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("BoxMesh_oqx3m")

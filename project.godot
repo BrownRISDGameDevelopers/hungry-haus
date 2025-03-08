@@ -14,6 +14,10 @@ config/name="Hungry Haus"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GlobalState="*res://src/GlobalState.gd"
+
 [display]
 
 window/size/viewport_width=1920
