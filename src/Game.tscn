@@ -47,6 +47,7 @@ size_2d_override_stretch = true
 render_target_update_mode = 4
 
 [node name="Puzzle" parent="SubViewportContainer/2DViewport" instance=ExtResource("2_lqjwq")]
+unique_name_in_owner = true
 
 [node name="ColorRect" type="ColorRect" parent="SubViewportContainer/2DViewport/Puzzle"]
 modulate = Color(1, 1, 1, 0.627451)

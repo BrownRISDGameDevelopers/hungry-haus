@@ -18,6 +18,8 @@ var walk_vel: Vector3 # Walking velocity
 var grav_vel: Vector3 # Gravity velocity 
 var jump_vel: Vector3 # Jumping velocity
 
+var can_move: bool = true
+
 @onready var camera: Camera3D = $Camera3D
 
 func _ready() -> void:
@@ -25,9 +27,8 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
-		print("mousemoving")
 		look_dir = event.relative * 0.001
-		_rotate_camera()
+		if can_move: _rotate_camera()
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed(&"jump"): jumping = true
@@ -36,6 +37,8 @@ func _physics_process(delta: float) -> void:
 
 func capture_mouse() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+func release_mouse() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
 
 func _rotate_camera(sens_mod: float = 1.0) -> void:
 	camera.rotation.y -= look_dir.x * camera_sens * sens_mod
@@ -46,8 +49,17 @@ func _walk(delta: float) -> Vector3:
 	var _forward: Vector3 = camera.global_transform.basis * Vector3(move_dir.x, 0, move_dir.y)
 	var walk_dir: Vector3 = Vector3(_forward.x, 0, _forward.z).normalized()
 	walk_vel = walk_vel.move_toward(walk_dir * speed * move_dir.length(), acceleration * delta)
-	return walk_vel
+	return walk_vel if can_move else Vector3.ZERO
 
 func _gravity(delta: float) -> Vector3:
 	grav_vel = Vector3.ZERO if is_on_floor() else grav_vel.move_toward(Vector3(0, velocity.y - gravity, 0), gravity * delta)
 	return grav_vel
+
+func start_puzzle():
+	can_move = false
+	release_mouse()
+	
+func end_puzzle():
+	can_move = true
+	capture_mouse()
+	

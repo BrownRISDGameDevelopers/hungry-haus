@@ -42,7 +42,7 @@ transform = Transform3D(2.2618, 0, 0, 0, 0.163915, 0, 0, 0, 1.42296, 0, 1.16567,
 mesh = SubResource("BoxMesh_1k4gi")
 skeleton = NodePath("../../..")
 
-[node name="Player" parent="." instance=ExtResource("2_6fy3g")]
+[node name="Player" parent="." groups=["player"] instance=ExtResource("2_6fy3g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.26706, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
