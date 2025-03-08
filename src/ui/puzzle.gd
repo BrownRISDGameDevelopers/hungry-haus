@@ -2,7 +2,7 @@ extends Control
 
 class_name Puzzle
 
-const APPEAR_DURATION_SEC : int = 0.5
+const APPEAR_DURATION_SEC : float = 0.5
 const COLOR_VISIBLE : Color = Color(1,1,1,1)
 const COLOR_TRANSPARENT : Color = Color(1,1,1,0)
 
