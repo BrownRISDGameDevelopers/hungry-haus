@@ -1,4 +1,4 @@
-extends Node
+class_name Global
 
 static var existing_tweens = {}
 
