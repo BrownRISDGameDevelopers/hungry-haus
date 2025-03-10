@@ -1,10 +1,10 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cq0kvcqskxt08"]
 
-[ext_resource type="Shader" uid="uid://gn3mcvoupe45" path="res://src/world/outline/outline.gdshader" id="1_bpwun"]
+[ext_resource type="Shader" uid="uid://gn3mcvoupe45" path="res://src/world/outline/outline.gdshader" id="1_f0bg5"]
 
 [resource]
 render_priority = 0
-shader = ExtResource("1_bpwun")
+shader = ExtResource("1_f0bg5")
 shader_parameter/outline_color = Color(0.491239, 0.416446, 0.0591842, 1)
 shader_parameter/outline_width = 0.714
 shader_parameter/fade_start = 10.0
