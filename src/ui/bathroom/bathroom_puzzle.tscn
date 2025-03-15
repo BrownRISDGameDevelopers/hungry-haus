@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfnojvvc0fc2h"]
+
+[ext_resource type="PackedScene" uid="uid://cl6ia52rquthd" path="res://src/ui/puzzle.tscn" id="1_nymm8"]
+[ext_resource type="Script" uid="uid://c7b3mpxs4w5ft" path="res://src/ui/bathroom/bathroom_puzzle.gd" id="2_w10vh"]
+
+[node name="BathroomPuzzle" instance=ExtResource("1_nymm8")]
+script = ExtResource("2_w10vh")

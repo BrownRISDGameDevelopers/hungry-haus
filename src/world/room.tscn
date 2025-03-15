@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7d183kvilajh"]
+
+[ext_resource type="Script" uid="uid://cw3npsrvth2tv" path="res://src/world/room.gd" id="1_biyb1"]
+
+[node name="Room" type="Node3D"]
+script = ExtResource("1_biyb1")

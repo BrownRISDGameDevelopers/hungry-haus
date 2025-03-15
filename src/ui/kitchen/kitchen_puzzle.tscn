@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://chg877he58hdh"]
 
-[ext_resource type="Script" uid="uid://d08gdlqj02bom" path="res://src/ui/kitchen_puzzle.gd" id="1_i8rvj"]
+[ext_resource type="Script" uid="uid://d08gdlqj02bom" path="res://src/ui/kitchen/kitchen_puzzle.gd" id="1_i8rvj"]
 
 [node name="KitchenPuzzle" type="Control"]
 layout_mode = 3
