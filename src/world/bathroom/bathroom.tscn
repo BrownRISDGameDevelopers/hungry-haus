@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cbhixqh442rce"]
+[gd_scene load_steps=6 format=3 uid="uid://cbhixqh442rce"]
 
 [ext_resource type="PackedScene" uid="uid://b7d183kvilajh" path="res://src/world/room.tscn" id="1_07c2d"]
 [ext_resource type="Script" uid="uid://bq5kwa4ugf3dr" path="res://src/world/door.gd" id="2_wb6bg"]
+[ext_resource type="PackedScene" uid="uid://csy8dn8sjvd5p" path="res://src/world/bathroom/bathroom_model.tscn" id="3_b6y1o"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_07c2d"]
 
@@ -23,13 +24,11 @@ shape = SubResource("BoxShape3D_wb6bg")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.08614, 1.47176, -3.10214)
 light_energy = 4.556
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="." index="2"]
-transform = Transform3D(2.2618, 0, 0, 0, 0.163915, 0, 0, 0, 1.42296, 0, 1.16567, 0)
-mesh = SubResource("BoxMesh_07c2d")
-skeleton = NodePath("../../..")
-
-[node name="Door" type="MeshInstance3D" parent="." index="3"]
-transform = Transform3D(-9.88664e-08, 0.163915, 0, -2.2618, -7.16495e-09, 0, 0, 0, 1.42296, 0, 1.16567, -1.92455)
+[node name="Door" type="MeshInstance3D" parent="." index="2"]
+transform = Transform3D(-9.88664e-08, 0.163915, 0, -2.2618, -7.16495e-09, 0, 0, 0, 1.42296, -1.84708, 1.16567, -1.92455)
 mesh = SubResource("BoxMesh_07c2d")
 skeleton = NodePath("../../..")
 script = ExtResource("2_wb6bg")
+
+[node name="BathroomModel" parent="." index="3" instance=ExtResource("3_b6y1o")]
+transform = Transform3D(13, 0, 0, 0, 13, 0, 0, 0, 13, 0.841921, 0.616552, -3.96229)

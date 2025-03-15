@@ -2,6 +2,13 @@ extends Node3D
 
 class_name Room
 
+enum Type {
+	KITCHEN,
+	BEDROOM,
+	BATHROOM,
+	END,
+}
+
 ## Emitted when all puzzles in this room are completed.
 signal puzzles_completed
 
@@ -32,3 +39,4 @@ func complete_one_puzzle():
 	completed_count += 1
 	if completed_count == puzzles.size():
 		puzzles_completed.emit()
+		GlobalState.move_to_next_room()
