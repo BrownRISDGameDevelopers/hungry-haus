@@ -1,0 +1,75 @@
+[gd_scene load_steps=3 format=3 uid="uid://rxjhjaphbkps"]
+
+[ext_resource type="Script" uid="uid://pb2j5k4qucj4" path="res://src/ui/bedroom/bedroom_lock.gd" id="1_ujuyf"]
+[ext_resource type="PackedScene" uid="uid://bnl1vwjp1jfxc" path="res://src/ui/bedroom/lock_button.tscn" id="2_gjvml"]
+
+[node name="BedroomLock" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ujuyf")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0.627451)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 6.0
+offset_right = -5.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.133196, 0.133196, 0.133196, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -420.5
+offset_top = -113.0
+offset_right = 420.5
+offset_bottom = 113.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LockButton" parent="ColorRect/HBoxContainer" instance=ExtResource("2_gjvml")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LockButton2" parent="ColorRect/HBoxContainer" instance=ExtResource("2_gjvml")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LockButton3" parent="ColorRect/HBoxContainer" instance=ExtResource("2_gjvml")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LockButton4" parent="ColorRect/HBoxContainer" instance=ExtResource("2_gjvml")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LockButton5" parent="ColorRect/HBoxContainer" instance=ExtResource("2_gjvml")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -105.0
+offset_top = -165.0
+offset_right = 100.0
+offset_bottom = -85.0
+grow_horizontal = 2
+grow_vertical = 0
