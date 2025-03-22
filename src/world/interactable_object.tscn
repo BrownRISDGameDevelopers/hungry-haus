@@ -1,11 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cg1n73al25pv1"]
+[gd_scene load_steps=3 format=3 uid="uid://dyme7ibgsk62e"]
 
 [ext_resource type="Script" uid="uid://dgouba7ideh4c" path="res://src/world/interactable_object.gd" id="1_nd0h1"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_oqx3m"]
+[sub_resource type="BoxMesh" id="BoxMesh_nd0h1"]
 
-[node name="InteractableObject" type="Node3D"]
+[node name="InteractableObject" type="MeshInstance3D"]
+mesh = SubResource("BoxMesh_nd0h1")
 script = ExtResource("1_nd0h1")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_oqx3m")
