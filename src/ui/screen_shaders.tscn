@@ -1,0 +1,115 @@
+[gd_scene load_steps=12 format=3 uid="uid://drhdjb18rwo1i"]
+
+[ext_resource type="Shader" uid="uid://brp08onfji2bx" path="res://src/shaders/red_tint.gdshader" id="1_a2tfa"]
+[ext_resource type="Script" uid="uid://bt4qginfqn8nt" path="res://src/ui/screen_shaders.gd" id="1_fa4sb"]
+[ext_resource type="Shader" uid="uid://cs6lol61gn8sl" path="res://src/ui/vhs.gdshader" id="2_fa4sb"]
+[ext_resource type="Shader" uid="uid://d3oclhdp3lutq" path="res://src/shaders/pixelate.gdshader" id="4_n2iuw"]
+
+[sub_resource type="Curve" id="Curve_w6j1x"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.251656, 0.296327), 4.68161, 4.68161, 0, 0, Vector2(0.498896, 0.589316), 1.42714, 1.42714, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Curve" id="Curve_r168i"]
+_limits = [0.0, 3.55, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.245033, 2.66398), 0.0, 0.0, 0, 0, Vector2(0.315673, 2.3558), 0.0, 0.0, 0, 0, Vector2(0.353201, 3.2033), 0.0, 0.0, 0, 0, Vector2(1, 1.00512), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="Curve" id="Curve_6cn2g"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.502646, 0.752826), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_ftps8"]
+_limits = [0.0, 2.15, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.261905, 1.84838), 0.0, 0.0, 0, 0, Vector2(0.37037, 2.04946), -0.66209, -0.66209, 0, 0, Vector2(1, 0.995138), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n2iuw"]
+shader = ExtResource("1_a2tfa")
+shader_parameter/brightness = 0.0
+shader_parameter/contrast = 1.0
+shader_parameter/saturation = 1.0
+shader_parameter/redVal = 1.0
+shader_parameter/greenVal = 1.0
+shader_parameter/blueVal = 1.0
+shader_parameter/tint_color = Color(1, 0, 0, 1)
+shader_parameter/tint_effect_factor = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q4wlj"]
+shader = ExtResource("2_fa4sb")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.0
+shader_parameter/scanlines_width = 0.0
+shader_parameter/grille_opacity = 0.0
+shader_parameter/resolution = Vector2(1280, 720)
+shader_parameter/pixelate = false
+shader_parameter/roll = false
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 0.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.019
+shader_parameter/noise_opacity = 0.0
+shader_parameter/noise_speed = 0.025
+shader_parameter/static_noise_intensity = 0.049
+shader_parameter/aberration = 0.00500005
+shader_parameter/brightness = 1.335
+shader_parameter/discolor = false
+shader_parameter/warp_amount = 0.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.135
+shader_parameter/vignette_opacity = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_22ul5"]
+shader = ExtResource("4_n2iuw")
+shader_parameter/quantize_size = 5.0
+shader_parameter/handle_scale = false
+shader_parameter/handle_subpixels = true
+
+[node name="ScreenShaders" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fa4sb")
+enable_curve = SubResource("Curve_w6j1x")
+enable_pixelate_curve = SubResource("Curve_r168i")
+disable_curve = SubResource("Curve_6cn2g")
+disable_pixelate_curve = SubResource("Curve_ftps8")
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="."]
+rect = Rect2(0, 0, 1280, 720)
+
+[node name="RedShader" type="ColorRect" parent="BackBufferCopy"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_n2iuw")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackBufferCopy2" type="BackBufferCopy" parent="."]
+rect = Rect2(0, 0, 1280, 720)
+
+[node name="VHSShader" type="ColorRect" parent="BackBufferCopy2"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_q4wlj")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackBufferCopy3" type="BackBufferCopy" parent="."]
+rect = Rect2(0, 0, 1280, 720)
+
+[node name="PixelateShader" type="ColorRect" parent="BackBufferCopy3"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_22ul5")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

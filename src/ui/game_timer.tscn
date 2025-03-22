@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ck7mx8jcot42g" path="res://src/ui/game_timer.gd" id="1_y0yih"]
 
 [node name="GameTimer" type="Label" groups=["gametimer"]]
+text = "0:00"
 script = ExtResource("1_y0yih")
 
 [node name="Timer" type="Timer" parent="."]

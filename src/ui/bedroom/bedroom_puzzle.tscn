@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ucb4ni385yxx"]
 
 [ext_resource type="PackedScene" uid="uid://cl6ia52rquthd" path="res://src/ui/puzzle.tscn" id="1_mb3a5"]
-[ext_resource type="Script" uid="uid://xi7c6ifqm0rl" path="res://src/ui/bedroom/bedroom_puzzle.gd" id="2_yn5g8"]
+[ext_resource type="Script" uid="uid://dwlke5d7l8ait" path="res://src/ui/bedroom/bedroom_puzzle.gd" id="2_yn5g8"]
 
 [node name="BedroomPuzzle" instance=ExtResource("1_mb3a5")]
 script = ExtResource("2_yn5g8")
