@@ -5,7 +5,6 @@ class_name KitchenPuzzle
 const GRID_SIZE : int = 40
 const NUM_ROWS : int = 4
 const NUM_COLUMNS : int = 3
-#const SLIDE_PUZZLE_PIECE
 
 # TODO sliding puzzle logic
 var puzzle_array : Array[Array] = []

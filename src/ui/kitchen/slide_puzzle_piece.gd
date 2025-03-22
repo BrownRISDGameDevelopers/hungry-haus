@@ -2,6 +2,18 @@ extends TextureButton
 
 class_name SlidePuzzlePiece
 
+#enum FridgeItem {
+	#JELLO,
+	#ORANGE_JUICE,
+	#HAM,
+	#PRODUCE,
+	#EGGS,
+	#PICKLES,
+	#MILK,
+	#PASTA,
+	#BAKING SODA,
+#}
+
 signal button_pressed_signal(button)
 
 @export var texture_normal_ : Texture2D
