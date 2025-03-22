@@ -34,7 +34,6 @@ func _input(event: InputEvent) -> void:
 		if can_move: _rotate_camera()
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed(&"jump"): jumping = true
 	velocity = _walk(delta) + _gravity(delta)
 	move_and_slide()
 
@@ -59,10 +58,12 @@ func _gravity(delta: float) -> Vector3:
 	return grav_vel
 
 func open_puzzle():
+	print("open called")
 	can_move = false
 	release_mouse()
 	
 func close_puzzle():
+	print("close called")
 	can_move = true
 	capture_mouse()
 	

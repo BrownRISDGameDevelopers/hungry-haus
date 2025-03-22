@@ -21,7 +21,7 @@ camera_attributes = SubResource("CameraAttributesPractical_jte2u")
 compositor = SubResource("Compositor_bsf3i")
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("2_6fy3g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.26706, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0567207, 1.06735, 1.0102)
 
 [node name="Bathroom" parent="." instance=ExtResource("3_43c6p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.64668, 0, -1.26955)

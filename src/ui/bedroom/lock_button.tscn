@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnl1vwjp1jfxc"]
+
+[ext_resource type="Script" uid="uid://b8nt1dh38so6w" path="res://src/ui/bedroom/lock_button.gd" id="1_tj02q"]
+
+[node name="LockButton" type="Button"]
+offset_right = 42.0
+offset_bottom = 53.0
+text = "0"
+script = ExtResource("1_tj02q")

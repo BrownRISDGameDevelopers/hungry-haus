@@ -7,6 +7,7 @@ class_name Puzzle
 signal completed
 #endregion Signals
 
+var room_type : Room.Type
 
 @onready var player: Player = get_tree().get_first_node_in_group("player")
 
@@ -23,18 +24,17 @@ func _ready():
 func _input(event):
 	if event.is_action_pressed("interact"):
 		toggle_puzzle_active()
-	else:
-		pass
 
 func toggle_puzzle_active():
-	if !puzzle_active:
-		Global.safe_tween(self).tween_property(self, "modulate", COLOR_VISIBLE, APPEAR_DURATION_SEC)
-		puzzle_active = true
-		player.open_puzzle()
-	else:
-		Global.safe_tween(self).tween_property(self, "modulate", COLOR_TRANSPARENT, APPEAR_DURATION_SEC)
-		puzzle_active = false
-		player.close_puzzle()
+	if room_type == GlobalState.current_room:
+		if !puzzle_active:
+			Global.safe_tween(self).tween_property(self, "modulate", COLOR_VISIBLE, APPEAR_DURATION_SEC)
+			puzzle_active = true
+			player.open_puzzle()
+		else:
+			Global.safe_tween(self).tween_property(self, "modulate", COLOR_TRANSPARENT, APPEAR_DURATION_SEC)
+			puzzle_active = false
+			player.close_puzzle()
 
 func complete():
 	if not already_complete: # Can only be completed once
