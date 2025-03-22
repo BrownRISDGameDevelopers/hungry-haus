@@ -68,10 +68,15 @@ func close_puzzle():
 	capture_mouse()
 	
 const thresh_radians: float = 18/180.0 * 3.1415926
+const clipping_distance: float = 3.5
 func is_looking_at(obj: Node3D):
 	var player_looking : Vector3 = camera.global_transform.basis * Vector3(0, 0, -1)
-	var distance = obj.global_position - self.global_position
-	return distance.angle_to(player_looking) < thresh_radians
+	var displacement = obj.global_position - self.global_position
+	var distance_modifier = clipping_distance - displacement.length()
+	if (distance_modifier < 0):
+		return false
+	
+	return displacement.angle_to(player_looking) < thresh_radians * (1 + 2.4 * distance_modifier / clipping_distance - 0.4)
 	
 	
 	
