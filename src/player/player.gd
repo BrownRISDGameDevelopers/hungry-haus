@@ -7,6 +7,8 @@ class_name Player
 
 @export_range(0.1, 3.0, 0.1, "or_greater") var camera_sens: float = 1
 
+static var player: Player
+
 var jumping: bool = false
 
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -24,6 +26,7 @@ var can_move: bool = true
 
 func _ready() -> void:
 	capture_mouse()
+	player = self
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
@@ -62,4 +65,12 @@ func open_puzzle():
 func close_puzzle():
 	can_move = true
 	capture_mouse()
+	
+const thresh_radians: float = 18/180.0 * 3.1415926
+func is_looking_at(obj: Node3D):
+	var player_looking : Vector3 = camera.global_transform.basis * Vector3(0, 0, -1)
+	var distance = obj.global_position - self.global_position
+	return distance.angle_to(player_looking) < thresh_radians
+	
+	
 	

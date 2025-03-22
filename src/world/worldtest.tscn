@@ -1,0 +1,36 @@
+[gd_scene load_steps=9 format=3 uid="uid://27c22y5jgb4s"]
+
+[ext_resource type="PackedScene" uid="uid://bp36emxlxtkhg" path="res://src/player/player.tscn" id="2_8xup3"]
+[ext_resource type="PackedScene" uid="uid://cbhixqh442rce" path="res://src/world/bathroom/bathroom.tscn" id="3_cvwy7"]
+[ext_resource type="PackedScene" uid="uid://dhlbgrr3xcf5r" path="res://src/world/kitchen/kitchen.tscn" id="4_3b60e"]
+[ext_resource type="PackedScene" uid="uid://b2ismqwsicjsb" path="res://src/world/bedroom/bedroom.tscn" id="5_63336"]
+[ext_resource type="PackedScene" uid="uid://dyme7ibgsk62e" path="res://src/world/interactable_object.tscn" id="6_cvwy7"]
+
+[sub_resource type="Environment" id="Environment_6fy3g"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_jte2u"]
+
+[sub_resource type="Compositor" id="Compositor_bsf3i"]
+
+[node name="World" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_6fy3g")
+camera_attributes = SubResource("CameraAttributesPractical_jte2u")
+compositor = SubResource("Compositor_bsf3i")
+
+[node name="Player" parent="." groups=["player"] instance=ExtResource("2_8xup3")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.26706, 0)
+
+[node name="Bathroom" parent="." instance=ExtResource("3_cvwy7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.64668, 0, -1.26955)
+
+[node name="Kitchen" parent="." instance=ExtResource("4_3b60e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.03069)
+
+[node name="Bedroom" parent="." instance=ExtResource("5_63336")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.123048)
+
+[node name="InteractableObject" parent="." instance=ExtResource("6_cvwy7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.43755, 0.774518, 0)
