@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://crd7sdb56bfme"]
+[gd_scene load_steps=5 format=3 uid="uid://dhsg5uesdkvql"]
 
 [ext_resource type="Texture2D" uid="uid://c0d6s56tfoyh" path="res://asset/puzzles/kitchen/placeholder_slide_piece_40x.png" id="1_1dgol"]
 [ext_resource type="Texture2D" uid="uid://c74q8wfosit0v" path="res://asset/puzzles/kitchen/placeholder_slide_piece_40x_hover.png" id="3_xmuow"]

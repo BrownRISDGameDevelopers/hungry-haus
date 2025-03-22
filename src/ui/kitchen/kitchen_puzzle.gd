@@ -6,8 +6,28 @@ const GRID_SIZE : int = 40
 const NUM_ROWS : int = 4
 const NUM_COLUMNS : int = 3
 
-# TODO sliding puzzle logic
+enum FridgeItem {
+	NONE,
+	JELLO,
+	ORANGE_JUICE,
+	HAM,
+	PRODUCE,
+	EGGS_LEFT,
+	EGGS_RIGHT,
+	PICKLES,
+	MILK,
+	PASTA,
+	BAKING_SODA,
+}
+
 var puzzle_array : Array[Array] = []
+
+const VICTORY_LAYOUT : Array[Array] = [
+	[FridgeItem.NONE, FridgeItem.JELLO, FridgeItem.NONE],
+	[FridgeItem.ORANGE_JUICE, FridgeItem.HAM, FridgeItem.PRODUCE],
+	[FridgeItem.EGGS_LEFT, FridgeItem.EGGS_RIGHT, FridgeItem.PICKLES],
+	[FridgeItem.MILK, FridgeItem.PASTA, FridgeItem.BAKING_SODA],
+]
 
 @onready var puzzle_container : Control = %PuzzleContainer
 
@@ -61,6 +81,9 @@ func slide_piece(piece : SlidePuzzlePiece):
 	# UPDATE PUZZLE ARRAY
 	puzzle_array[row][column] = null
 	puzzle_array[null_row][null_column] = piece
+	
+	# CHECK FOR VICTORY
+	check_victory()
 
 func get_null_neighbors(row : int, column : int) -> Vector2:
 	var positions : Array = [-1, 1]
@@ -76,3 +99,14 @@ func get_null_neighbors(row : int, column : int) -> Vector2:
 			if not puzzle_array[target_row][column]:
 				return Vector2i(target_row, column)
 	return Vector2(-1,-1)
+
+
+func check_victory():
+	for i in range(NUM_ROWS):
+		for j in range(NUM_COLUMNS):
+			var type = FridgeItem.NONE if not puzzle_array[i][j] else puzzle_array[i][j].type
+			if type != VICTORY_LAYOUT[i][j]:
+				print("not victory")
+				return false
+	print("victory!")
+	return true

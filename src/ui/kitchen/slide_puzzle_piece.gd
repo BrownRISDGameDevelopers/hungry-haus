@@ -2,17 +2,7 @@ extends TextureButton
 
 class_name SlidePuzzlePiece
 
-#enum FridgeItem {
-	#JELLO,
-	#ORANGE_JUICE,
-	#HAM,
-	#PRODUCE,
-	#EGGS,
-	#PICKLES,
-	#MILK,
-	#PASTA,
-	#BAKING SODA,
-#}
+@export var type : KitchenPuzzle.FridgeItem
 
 signal button_pressed_signal(button)
 

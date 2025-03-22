@@ -19,6 +19,7 @@ var puzzle_active : bool = false
 var already_complete := false
 
 func _ready():
+	visible = true
 	modulate = Color(1,1,1,0)
 
 func _input(event):

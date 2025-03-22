@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://chg877he58hdh"]
 
 [ext_resource type="Script" uid="uid://d08gdlqj02bom" path="res://src/ui/kitchen/kitchen_puzzle.gd" id="1_i8rvj"]
-[ext_resource type="PackedScene" path="res://src/ui/kitchen/slide_puzzle_piece.tscn" id="2_f5xa7"]
+[ext_resource type="PackedScene" uid="uid://dhsg5uesdkvql" path="res://src/ui/kitchen/slide_puzzle_piece.tscn" id="2_f5xa7"]
 
 [node name="KitchenPuzzle" type="Control"]
 texture_filter = 1
