@@ -41,3 +41,4 @@ script = ExtResource("3_0ds05")
 
 [node name="Fridge" parent="." index="4" instance=ExtResource("4_bms0r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.23794, 0.573102, 0)
+highlightSize = 0.2

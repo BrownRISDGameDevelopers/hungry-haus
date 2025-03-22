@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ykbefk0tdxm8"
-path="res://.godot/imported/placeholder_slide_piece_40x_press.png-8a2d5efd53bdc6572c433befd82f3647.ctex"
+uid="uid://cwfun5yjv4w2w"
+path="res://.godot/imported/haus_eggs_game-size.png-2a80df6d1b5b1e06989da37bc5e98f79.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/puzzles/kitchen/placeholder_slide_piece_40x_press.png"
-dest_files=["res://.godot/imported/placeholder_slide_piece_40x_press.png-8a2d5efd53bdc6572c433befd82f3647.ctex"]
+source_file="res://asset/puzzles/kitchen/haus_eggs_game-size.png"
+dest_files=["res://.godot/imported/haus_eggs_game-size.png-2a80df6d1b5b1e06989da37bc5e98f79.ctex"]
 
 [params]
 

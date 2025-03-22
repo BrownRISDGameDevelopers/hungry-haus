@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdejc5dgsppxk"
-path="res://.godot/imported/placeholder_slide_piece_32x_press.png-e23c3a79703e4a09fbb6bb4e27b1ab11.ctex"
+uid="uid://beufyfxopx4jm"
+path="res://.godot/imported/haus_pickles_.png-d6e1ee87dc7e053fa0cb498b4e3a3d60.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/puzzles/kitchen/placeholder_slide_piece_32x_press.png"
-dest_files=["res://.godot/imported/placeholder_slide_piece_32x_press.png-e23c3a79703e4a09fbb6bb4e27b1ab11.ctex"]
+source_file="res://asset/puzzles/kitchen/haus_pickles_.png"
+dest_files=["res://.godot/imported/haus_pickles_.png-d6e1ee87dc7e053fa0cb498b4e3a3d60.ctex"]
 
 [params]
 

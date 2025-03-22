@@ -6,7 +6,7 @@ var highlighted: bool
 @onready var puzzle: Puzzle = get_tree().get_first_node_in_group("kitchen_puzzle")
 
 @export var highlightColor: Vector4 = Vector4(1, 1, 0, 1)
-@export var highlightSize: float = 2
+@export var highlightSize: float = 1.01
 
 func _ready() -> void:
 	highlighted = false
@@ -27,5 +27,5 @@ func _input(event: InputEvent) -> void:
 
 ## Opens this interactable's puzzle if it's highlighted.
 func try_open_puzzle() -> void:
-	if highlighted:
+	if puzzle and highlighted and not puzzle.puzzle_active:
 		puzzle.toggle_puzzle_active()

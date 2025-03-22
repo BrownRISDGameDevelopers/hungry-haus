@@ -23,7 +23,7 @@ func _ready():
 	modulate = Color(1,1,1,0)
 
 func _input(event):
-	if event.is_action_pressed("interact"):
+	if event.is_action_pressed("dev_interact"):
 		toggle_puzzle_active()
 
 func toggle_puzzle_active():

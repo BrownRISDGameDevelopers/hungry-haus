@@ -1,7 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://chg877he58hdh"]
+[gd_scene load_steps=12 format=3 uid="uid://chg877he58hdh"]
 
 [ext_resource type="Script" uid="uid://d08gdlqj02bom" path="res://src/ui/kitchen/kitchen_puzzle.gd" id="1_i8rvj"]
 [ext_resource type="PackedScene" uid="uid://dhsg5uesdkvql" path="res://src/ui/kitchen/slide_puzzle_piece.tscn" id="2_f5xa7"]
+[ext_resource type="Texture2D" uid="uid://dbbuxa7snkyti" path="res://asset/puzzles/kitchen/haus_jello.png" id="3_vttc1"]
+[ext_resource type="Texture2D" uid="uid://dpglktom1n676" path="res://asset/puzzles/kitchen/haus_orange-juice.png" id="4_umncn"]
+[ext_resource type="Texture2D" uid="uid://24ksfbkhv37d" path="res://asset/puzzles/kitchen/haus_produce.png" id="5_xdyl4"]
+[ext_resource type="Texture2D" uid="uid://beufyfxopx4jm" path="res://asset/puzzles/kitchen/haus_pickles_.png" id="6_b75lg"]
+[ext_resource type="Texture2D" uid="uid://dyd54u4uyd743" path="res://asset/puzzles/kitchen/haus_baking-soda.png" id="7_oqk66"]
+[ext_resource type="Texture2D" uid="uid://cwfun5yjv4w2w" path="res://asset/puzzles/kitchen/haus_eggs_game-size.png" id="8_efnmr"]
+[ext_resource type="Texture2D" uid="uid://cdvuxcxm11cva" path="res://asset/puzzles/kitchen/haus_milk.png" id="9_wc7ko"]
+[ext_resource type="Texture2D" uid="uid://incd01kvmcm6" path="res://asset/puzzles/kitchen/haus_pasta-bowl.png" id="10_vv0va"]
+[ext_resource type="Texture2D" uid="uid://b86rj0a3clvrk" path="res://asset/puzzles/kitchen/haus_ham.png" id="11_4w3d7"]
 
 [node name="KitchenPuzzle" type="Control" groups=["kitchen_puzzle"]]
 texture_filter = 1
@@ -51,73 +60,116 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.494118)
 
-[node name="SlidePuzzlePiece" parent="Screen_Container/PuzzleContainer" instance=ExtResource("2_f5xa7")]
+[node name="Jello" parent="Screen_Container/PuzzleContainer" instance=ExtResource("2_f5xa7")]
 layout_mode = 0
 offset_left = 40.0
 offset_right = 80.0
 offset_bottom = 40.0
+texture_normal = ExtResource("3_vttc1")
+type = 1
+texture_normal_ = ExtResource("3_vttc1")
+texture_hover_ = null
+texture_pressed_ = null
 
-[node name="SlidePuzzlePiece11" parent="Screen_Container/PuzzleContainer" instance=ExtResource("2_f5xa7")]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="SlidePuzzlePiece3" parent="Screen_Container/PuzzleContainer" instance=ExtResource("2_f5xa7")]
-layout_mode = 0
-offset_top = 40.0
-offset_right = 40.0
-offset_bottom = 80.0
-
-[node name="SlidePuzzlePiece4" parent="Screen_Container/PuzzleContainer" instance=ExtResource("2_f5xa7")]
-layout_mode = 0
-offset_left = 80.0
-offset_top = 40.0
-offset_right = 120.0
-offset_bottom = 80.0
-
-[node name="SlidePuzzlePiece5" parent="Screen_Container/PuzzleContainer" instance=ExtResource("2_f5xa7")]
-layout_mode = 0
-offset_left = 40.0
-offset_top = 80.0
-offset_right = 80.0
-offset_bottom = 120.0
-
-[node name="SlidePuzzlePiece6" parent="Screen_Container/PuzzleContainer" instance=ExtResource("2_f5xa7")]
-layout_mode = 0
-offset_left = 80.0
-offset_top = 80.0
-offset_right = 120.0
-offset_bottom = 120.0
-
-[node name="SlidePuzzlePiece7" parent="Screen_Container/PuzzleContainer" instance=ExtResource("2_f5xa7")]
-layout_mode = 0
-offset_left = 80.0
-offset_top = 120.0
-offset_right = 120.0
-offset_bottom = 160.0
-
-[node name="SlidePuzzlePiece8" parent="Screen_Container/PuzzleContainer" instance=ExtResource("2_f5xa7")]
-layout_mode = 0
-offset_top = 80.0
-offset_right = 40.0
-offset_bottom = 120.0
-
-[node name="SlidePuzzlePiece9" parent="Screen_Container/PuzzleContainer" instance=ExtResource("2_f5xa7")]
-layout_mode = 0
-offset_top = 120.0
-offset_right = 40.0
-offset_bottom = 160.0
-
-[node name="SlidePuzzlePiece10" parent="Screen_Container/PuzzleContainer" instance=ExtResource("2_f5xa7")]
-layout_mode = 0
-offset_left = 40.0
-offset_top = 120.0
-offset_right = 80.0
-offset_bottom = 160.0
-
-[node name="SlidePuzzlePiece2" parent="Screen_Container/PuzzleContainer" instance=ExtResource("2_f5xa7")]
+[node name="Ham" parent="Screen_Container/PuzzleContainer" instance=ExtResource("2_f5xa7")]
 layout_mode = 0
 offset_left = 40.0
 offset_top = 40.0
 offset_right = 80.0
 offset_bottom = 80.0
+texture_normal = ExtResource("11_4w3d7")
+type = 3
+texture_normal_ = null
+texture_hover_ = null
+texture_pressed_ = null
+
+[node name="OrangeJuice" parent="Screen_Container/PuzzleContainer" instance=ExtResource("2_f5xa7")]
+layout_mode = 0
+offset_top = 40.0
+offset_right = 40.0
+offset_bottom = 80.0
+texture_normal = ExtResource("4_umncn")
+type = 2
+texture_normal_ = null
+texture_hover_ = null
+texture_pressed_ = null
+
+[node name="Produce" parent="Screen_Container/PuzzleContainer" instance=ExtResource("2_f5xa7")]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 40.0
+offset_right = 120.0
+offset_bottom = 80.0
+texture_normal = ExtResource("5_xdyl4")
+type = 4
+texture_normal_ = null
+texture_hover_ = null
+texture_pressed_ = null
+
+[node name="EggsRight" parent="Screen_Container/PuzzleContainer" instance=ExtResource("2_f5xa7")]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 80.0
+offset_right = 80.0
+offset_bottom = 120.0
+disabled = true
+type = 5
+
+[node name="EggsLeft" parent="Screen_Container/PuzzleContainer" instance=ExtResource("2_f5xa7")]
+layout_mode = 0
+offset_top = 80.0
+offset_right = 80.0
+offset_bottom = 120.0
+pivot_offset = Vector2(20, 20)
+texture_normal = ExtResource("8_efnmr")
+type = 5
+texture_normal_ = null
+texture_hover_ = null
+texture_pressed_ = null
+
+[node name="Pickles" parent="Screen_Container/PuzzleContainer" instance=ExtResource("2_f5xa7")]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 80.0
+offset_right = 120.0
+offset_bottom = 120.0
+texture_normal = ExtResource("6_b75lg")
+type = 6
+texture_normal_ = null
+texture_hover_ = null
+texture_pressed_ = null
+
+[node name="BakingSoda" parent="Screen_Container/PuzzleContainer" instance=ExtResource("2_f5xa7")]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 120.0
+offset_right = 120.0
+offset_bottom = 160.0
+texture_normal = ExtResource("7_oqk66")
+type = 9
+texture_normal_ = null
+texture_hover_ = null
+texture_pressed_ = null
+
+[node name="Milk" parent="Screen_Container/PuzzleContainer" instance=ExtResource("2_f5xa7")]
+layout_mode = 0
+offset_top = 120.0
+offset_right = 40.0
+offset_bottom = 160.0
+texture_normal = ExtResource("9_wc7ko")
+type = 7
+texture_normal_ = null
+texture_hover_ = null
+texture_pressed_ = null
+
+[node name="Pasta" parent="Screen_Container/PuzzleContainer" instance=ExtResource("2_f5xa7")]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 120.0
+offset_right = 80.0
+offset_bottom = 160.0
+texture_normal = ExtResource("10_vv0va")
+type = 8
+texture_normal_ = null
+texture_hover_ = null
+texture_pressed_ = null

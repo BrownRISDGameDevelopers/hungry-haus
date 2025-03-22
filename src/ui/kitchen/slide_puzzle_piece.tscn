@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://dhsg5uesdkvql"]
 
-[ext_resource type="Texture2D" uid="uid://c0d6s56tfoyh" path="res://asset/puzzles/kitchen/placeholder_slide_piece_40x.png" id="1_1dgol"]
-[ext_resource type="Texture2D" uid="uid://c74q8wfosit0v" path="res://asset/puzzles/kitchen/placeholder_slide_piece_40x_hover.png" id="3_xmuow"]
+[ext_resource type="Texture2D" uid="uid://c0d6s56tfoyh" path="res://asset/puzzles/kitchen/placeholder/placeholder_slide_piece_40x.png" id="1_1dgol"]
+[ext_resource type="Texture2D" uid="uid://c74q8wfosit0v" path="res://asset/puzzles/kitchen/placeholder/placeholder_slide_piece_40x_hover.png" id="3_xmuow"]
 [ext_resource type="Script" uid="uid://bysycloa1g2pt" path="res://src/ui/kitchen/slide_puzzle_piece.gd" id="4_1dgol"]
-[ext_resource type="Texture2D" uid="uid://ykbefk0tdxm8" path="res://asset/puzzles/kitchen/placeholder_slide_piece_40x_press.png" id="4_7i217"]
+[ext_resource type="Texture2D" uid="uid://ykbefk0tdxm8" path="res://asset/puzzles/kitchen/placeholder/placeholder_slide_piece_40x_press.png" id="4_7i217"]
 
 [node name="SlidePuzzlePiece" type="TextureButton"]
 offset_right = 32.0

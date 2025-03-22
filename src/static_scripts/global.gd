@@ -22,7 +22,8 @@ static func show_3d_outline(meshNode: MeshInstance3D, color: Vector4, size: floa
 		outlineObj.mesh = meshNode.mesh.duplicate(true)
 		outlineObj.mesh.material = outlineMat
 	outlineObj.mesh.material.set("shader_parameter/outline_color", color)
-	outlineObj.scale = Vector3(size, size, size)
+	var scaled_size = 1 + 0.1 * size
+	outlineObj.scale = Vector3(scaled_size, scaled_size, scaled_size)
 	outlineObj.visible = true
 
 static func hide_3d_outline(meshNode: MeshInstance3D):

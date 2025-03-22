@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c63pwafnlf1mj"
-path="res://.godot/imported/placeholder_slide_piece_32x.png-a74a10885ead9e0b40cb5331a2ec6cad.ctex"
+path="res://.godot/imported/placeholder_slide_piece_32x.png-6b94933f08272be5df2fde3225e8c4c8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/puzzles/kitchen/placeholder_slide_piece_32x.png"
-dest_files=["res://.godot/imported/placeholder_slide_piece_32x.png-a74a10885ead9e0b40cb5331a2ec6cad.ctex"]
+source_file="res://asset/puzzles/kitchen/placeholder/placeholder_slide_piece_32x.png"
+dest_files=["res://.godot/imported/placeholder_slide_piece_32x.png-6b94933f08272be5df2fde3225e8c4c8.ctex"]
 
 [params]
 
