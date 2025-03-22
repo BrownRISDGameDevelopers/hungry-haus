@@ -32,6 +32,7 @@ window/size/viewport_height=720
 
 player=""
 gametimer=""
+kitchen_puzzle=""
 
 [input]
 

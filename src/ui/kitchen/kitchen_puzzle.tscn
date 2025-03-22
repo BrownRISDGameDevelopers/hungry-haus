@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://d08gdlqj02bom" path="res://src/ui/kitchen/kitchen_puzzle.gd" id="1_i8rvj"]
 [ext_resource type="PackedScene" uid="uid://dhsg5uesdkvql" path="res://src/ui/kitchen/slide_puzzle_piece.tscn" id="2_f5xa7"]
 
-[node name="KitchenPuzzle" type="Control"]
+[node name="KitchenPuzzle" type="Control" groups=["kitchen_puzzle"]]
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 15

@@ -39,6 +39,7 @@ func _physics_process(delta: float) -> void:
 
 func capture_mouse() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
 func release_mouse() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
 
@@ -66,17 +67,17 @@ func close_puzzle():
 	print("close called")
 	can_move = true
 	capture_mouse()
-	
+
 @export var thresh_radians: float = 18/180.0 * 3.1415926
 @export var clipping_distance: float = 3.5
 func is_looking_at(obj: Node3D):
 	var player_looking : Vector3 = camera.global_transform.basis * Vector3(0, 0, -1)
 	var displacement = obj.global_position - self.global_position
 	var distance_modifier = clipping_distance - displacement.length()
-	if (distance_modifier < 0):
+	if distance_modifier < 0:
 		return false
 	
-	return displacement.angle_to(player_looking) < thresh_radians * (1 + 2.4 * distance_modifier / clipping_distance - 0.4)
+	return displacement.angle_to(player_looking) < thresh_radians * (0.6 + 2.4 * distance_modifier / clipping_distance)
 	
 	
 	
