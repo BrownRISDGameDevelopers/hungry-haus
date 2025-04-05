@@ -23,24 +23,40 @@ func _input(event: InputEvent) -> void:
 		toggle_blood_vision()
 
 func toggle_blood_vision():
+	send_signal_after_delay(not blood_vision_on)
 	if blood_vision_on:
 		toggle_blood_vision_off()
 	else:
 		toggle_blood_vision_on()
 
+var toggle_blood_vision_on_duration: float = 2.7
 func toggle_blood_vision_on():
 	if not blood_vision_on:
 		blood_vision_on = true
 		var tween = Global.safe_tween(self)
-		tween.tween_method(set_blood_vision_amount, blood_vision_amount, 1.0, 2.7).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+		tween.tween_method(set_blood_vision_amount, blood_vision_amount, 1.0, toggle_blood_vision_on_duration).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 
+var toggle_blood_vision_off_duration: float = 2.2
 func toggle_blood_vision_off():
 	if blood_vision_on:
 		blood_vision_on = false
 		var tween = Global.safe_tween(self)
-		tween.tween_method(set_blood_vision_amount, blood_vision_amount, 0.0, 2.2).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+		tween.tween_method(set_blood_vision_amount, blood_vision_amount, 0.0, toggle_blood_vision_off_duration).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 
-
+#@export var delay_before_asset_switch: float = 1
+func send_signal_after_delay(new_state: bool):
+	if (new_state):
+		await get_tree().create_timer(toggle_blood_vision_on_duration * .21).timeout
+	else:
+		await get_tree().create_timer(toggle_blood_vision_off_duration * .33).timeout
+	for obj in get_tree().get_nodes_in_group("enable_off_blood_vision"):
+		obj.set_process(not new_state)
+		obj.visible = not new_state
+	for obj in get_tree().get_nodes_in_group("enable_on_blood_vision"):
+		obj.set_process(new_state)
+		obj.visible = new_state
+	#toggle_blood_signal.emit(new_state)
+	
 
 func set_pixelate_amount(value: float):
 	red_mat.set_shader_parameter("tint_effect_factor", value)

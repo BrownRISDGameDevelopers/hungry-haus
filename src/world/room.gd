@@ -34,9 +34,13 @@ func _ready() -> void:
 			door = child
 	# Make door open when puzzles are all completed
 	puzzles_completed.connect(door.open)
+	
+	
 
 func complete_one_puzzle():
 	completed_count += 1
 	if completed_count == puzzles.size():
 		puzzles_completed.emit()
 		GlobalState.move_to_next_room()
+
+	

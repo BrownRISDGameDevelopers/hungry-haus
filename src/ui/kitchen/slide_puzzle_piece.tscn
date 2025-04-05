@@ -14,5 +14,7 @@ texture_normal_ = ExtResource("1_1dgol")
 texture_hover_ = ExtResource("3_xmuow")
 texture_pressed_ = ExtResource("4_7i217")
 
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="button_up" from="." to="." method="_on_button_up"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="pressed" from="." to="." method="_on_pressed"]
