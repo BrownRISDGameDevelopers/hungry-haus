@@ -34,7 +34,6 @@ func _ready() -> void:
 			door = child
 	# Make door open when puzzles are all completed
 	puzzles_completed.connect(door.open)
-	ScreenShaders.instance.toggle_blood_signal.connect(_blood_vision_switch_assets)
 	
 	
 
@@ -44,15 +43,4 @@ func complete_one_puzzle():
 		puzzles_completed.emit()
 		GlobalState.move_to_next_room()
 
-@export var bv_off_model: Node3D
-@export var bv_on_model: Node3D
-func _blood_vision_switch_assets(new_state: bool):
-	if (not bv_off_model or not bv_on_model):
-		print("NOTE: Room ", self.name, " does not have distinct models set for blood vision on&off")
-		return
-	bv_off_model.set_process(not new_state)
-	bv_off_model.visible = not new_state
-	bv_on_model.set_process(new_state)
-	bv_on_model.visible = new_state
-	
 	

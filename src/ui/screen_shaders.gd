@@ -6,8 +6,6 @@ class_name ScreenShaders
 var blood_vision_on := false
 var blood_vision_amount := 0.0
 
-signal toggle_blood_signal(new_state: bool)
-
 @onready var red_shader: ColorRect = %RedShader
 @onready var red_mat : ShaderMaterial = red_shader.material
 @onready var vhs_shader: ColorRect = %VHSShader
@@ -19,10 +17,6 @@ signal toggle_blood_signal(new_state: bool)
 @export var enable_pixelate_curve : Curve
 @export var disable_curve : Curve
 @export var disable_pixelate_curve : Curve
-
-static var instance: ScreenShaders
-func _init() -> void:
-	instance = self
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("toggle_blood_vision"):
@@ -55,7 +49,13 @@ func send_signal_after_delay(new_state: bool):
 		await get_tree().create_timer(toggle_blood_vision_on_duration * .21).timeout
 	else:
 		await get_tree().create_timer(toggle_blood_vision_off_duration * .33).timeout
-	toggle_blood_signal.emit(new_state)
+	for obj in get_tree().get_nodes_in_group("enable_off_blood_vision"):
+		obj.set_process(not new_state)
+		obj.visible = not new_state
+	for obj in get_tree().get_nodes_in_group("enable_on_blood_vision"):
+		obj.set_process(new_state)
+		obj.visible = new_state
+	#toggle_blood_signal.emit(new_state)
 	
 
 func set_pixelate_amount(value: float):

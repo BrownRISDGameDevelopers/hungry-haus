@@ -33,6 +33,8 @@ window/size/viewport_height=720
 player=""
 gametimer=""
 kitchen_puzzle=""
+enable_on_blood_vision=""
+enable_off_blood_vision=""
 
 [input]
 
