@@ -48,6 +48,7 @@ func complete_one_puzzle():
 @export var bv_on_models: Node3D
 func _blood_vision_switch_assets(new_state: bool):
 	if (not bv_off_models):
+		print("NOTE: Room ", self.name, " does not have distinct models set for blood vision on&off")
 		return
 	bv_off_models.set_process(not new_state)
 	bv_off_models.visible = not new_state
