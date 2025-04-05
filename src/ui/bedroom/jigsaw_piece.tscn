@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7khh4cstt43l"]
+
+[ext_resource type="Script" uid="uid://6wn4ly5gsrjx" path="res://src/ui/bedroom/jigsaw_piece.gd" id="1_s0w2x"]
+
+[node name="JigsawPiece" type="TextureRect"]
+custom_minimum_size = Vector2(40, 40)
+expand_mode = 1
+script = ExtResource("1_s0w2x")
+
+[node name="Panel" type="Panel" parent="."]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
