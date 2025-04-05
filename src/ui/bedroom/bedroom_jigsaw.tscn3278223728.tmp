@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://817buapfpxva"]
+[gd_scene load_steps=3 format=3 uid="uid://817buapfpxva"]
 
 [ext_resource type="Script" uid="uid://bfp82kbfgtktt" path="res://src/ui/bedroom/bedroom_jigsaw.gd" id="1_nawk6"]
-[ext_resource type="PackedScene" uid="uid://c7khh4cstt43l" path="res://src/ui/bedroom/jigsaw_piece.tscn" id="2_kp88f"]
-[ext_resource type="Texture2D" uid="uid://dv2ku8kgrbk0m" path="res://icon.svg" id="3_dfkgm"]
+[ext_resource type="PackedScene" uid="uid://c7butgd715mnm" path="res://src/ui/bedroom/jigsaw_piece.tscn" id="2_kp88f"]
 
 [node name="BedroomJigsaw" type="Control"]
 layout_mode = 3
@@ -49,24 +48,4 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.486275)
 
 [node name="JigsawPiece" parent="." instance=ExtResource("2_kp88f")]
-layout_mode = 0
-offset_left = 181.0
-offset_top = 94.0
-offset_right = 221.0
-offset_bottom = 134.0
-
-[node name="JigsawPiece2" parent="." instance=ExtResource("2_kp88f")]
-layout_mode = 0
-offset_left = 97.0
-offset_top = 65.0
-offset_right = 137.0
-offset_bottom = 105.0
-texture = ExtResource("3_dfkgm")
-
-[node name="JigsawPiece3" parent="." instance=ExtResource("2_kp88f")]
-layout_mode = 0
-offset_left = 167.0
-offset_top = 33.0
-offset_right = 207.0
-offset_bottom = 73.0
-texture = ExtResource("3_dfkgm")
+position = Vector2(44, 109)
