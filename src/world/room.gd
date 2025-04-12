@@ -29,12 +29,16 @@ func _ready() -> void:
 		if child is Puzzle:
 			puzzles.append(child)
 			# Make each puzzle increment a count when it's completed
-			child.completed.connect()
+			child.completed.connect(complete_one_puzzle)
 		if child is Door:
 			door = child
 	# Make door open when puzzles are all completed
 	puzzles_completed.connect(door.open)
-	
+
+# USE TO TEST IF DOORS OPEN
+# func _unhandled_input(event):
+# 	if event.is_action_pressed("jump"):
+# 		puzzles_completed.emit()
 	
 
 func complete_one_puzzle():

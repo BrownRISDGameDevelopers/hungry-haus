@@ -1,44 +1,26 @@
-[gd_scene load_steps=8 format=3 uid="uid://dhlbgrr3xcf5r"]
+[gd_scene load_steps=6 format=3 uid="uid://dhlbgrr3xcf5r"]
 
 [ext_resource type="PackedScene" uid="uid://b7d183kvilajh" path="res://src/world/room.tscn" id="1_vr71u"]
 [ext_resource type="Script" uid="uid://bwh71ad6dglss" path="res://src/world/kitchen/kitchen.gd" id="2_st74x"]
-[ext_resource type="Script" uid="uid://bq5kwa4ugf3dr" path="res://src/world/door.gd" id="3_0ds05"]
-[ext_resource type="PackedScene" uid="uid://cg1n73al25pv1" path="res://src/world/interactable_object.tscn" id="4_bms0r"]
+[ext_resource type="PackedScene" uid="uid://ccp4j0edesai1" path="res://src/world/door.tscn" id="4_7s0nr"]
+[ext_resource type="PackedScene" path="res://src/world/interactable_object.tscn" id="4_bms0r"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_st74x"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_0ds05"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_bms0r"]
 
 [node name="Kitchen" instance=ExtResource("1_vr71u")]
 script = ExtResource("2_st74x")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="0"]
-transform = Transform3D(5.70385, 0, 0, 0, 0.163915, 0, 0, 0, 7.19738, 0, 0, 0)
-mesh = SubResource("BoxMesh_st74x")
-skeleton = NodePath("../../..")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" index="0"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" index="0"]
-shape = SubResource("BoxShape3D_0ds05")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="." index="1"]
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.08614, 1.47176, -3.10214)
 light_energy = 4.556
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="." index="2"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." index="1"]
 transform = Transform3D(2.2618, 0, 0, 0, 0.163915, 0, 0, 0, 1.42296, 0, 1.16567, 2.47364)
 mesh = SubResource("BoxMesh_st74x")
 skeleton = NodePath("../../..")
 
-[node name="Door" type="MeshInstance3D" parent="." index="3"]
-transform = Transform3D(-9.88664e-08, 0.163915, 0, -2.2618, -7.16495e-09, 0, 0, 0, 1.42296, 0, 1.16567, -1.92455)
-mesh = SubResource("BoxMesh_bms0r")
-skeleton = NodePath("../../..")
-script = ExtResource("3_0ds05")
-
-[node name="Fridge" parent="." index="4" instance=ExtResource("4_bms0r")]
+[node name="Fridge" parent="." index="2" instance=ExtResource("4_bms0r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.23794, 0.573102, 0)
 highlightSize = 0.2
+
+[node name="Door" parent="." index="3" instance=ExtResource("4_7s0nr")]
