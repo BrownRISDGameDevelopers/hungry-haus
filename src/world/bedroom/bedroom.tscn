@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://b2ismqwsicjsb"]
+[gd_scene load_steps=8 format=3 uid="uid://nudkj8c1bvbk"]
 
 [ext_resource type="PackedScene" uid="uid://b7d183kvilajh" path="res://src/world/room.tscn" id="1_oyc66"]
 [ext_resource type="Script" uid="uid://61yiknqya65" path="res://src/world/bedroom/bedroom.gd" id="2_5h70c"]
-[ext_resource type="Script" uid="uid://bq5kwa4ugf3dr" path="res://src/world/door.gd" id="3_1qlg5"]
+[ext_resource type="Script" path="res://src/world/door.gd" id="3_1qlg5"]
+[ext_resource type="PackedScene" uid="uid://hqskkei4m5cj" path="res://asset/3d/bedroom/bedroom.fbx" id="4_s0n1g"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_5h70c"]
 
@@ -14,7 +15,7 @@
 script = ExtResource("2_5h70c")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." index="0"]
-transform = Transform3D(5.70385, 0, 0, 0, 0.163915, 0, 0, 0, 7.19738, 0, 0, 0)
+transform = Transform3D(15.7297, 0, 0, 0, 0.452033, 0, 0, 0, 19.8484, 0, -0.169961, 0)
 mesh = SubResource("BoxMesh_5h70c")
 skeleton = NodePath("../../..")
 
@@ -25,15 +26,29 @@ shape = SubResource("BoxShape3D_1qlg5")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.08614, 1.47176, -3.10214)
+visible = false
 light_energy = 4.556
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="." index="2"]
 transform = Transform3D(2.2618, 0, 0, 0, 0.163915, 0, 0, 0, 1.42296, 1.67607, 1.16567, 0)
+visible = false
 mesh = SubResource("BoxMesh_5h70c")
 skeleton = NodePath("../../..")
 
 [node name="Door" type="MeshInstance3D" parent="." index="3"]
 transform = Transform3D(-9.88664e-08, 0.163915, 0, -2.2618, -7.16495e-09, 0, 0, 0, 1.42296, 0, 1.16567, -1.92455)
+visible = false
 mesh = SubResource("BoxMesh_s0n1g")
 skeleton = NodePath("../../..")
 script = ExtResource("3_1qlg5")
+
+[node name="bedroom" parent="." index="4" instance=ExtResource("4_s0n1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.232444, 0.101141, -0.239876)
+
+[node name="BEDFRAME" parent="bedroom" index="3"]
+transform = Transform3D(0.025, 0, 0, 0, -4.17233e-09, -0.002, 0, 0.035, -2.38419e-10, 0.0466554, 0.679309, 4.89467)
+
+[node name="Chandelier_Light" parent="bedroom" index="8"]
+visible = false
+
+[editable path="bedroom"]
