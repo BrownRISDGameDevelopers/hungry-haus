@@ -9,7 +9,7 @@
 
 [sub_resource type="Environment" id="Environment_eu8jo"]
 fog_enabled = true
-fog_light_color = Color(0, 0, 0, 1)
+fog_light_color = Color(0.0652768, 0.0384776, 0.00182459, 1)
 fog_density = 0.3371
 volumetric_fog_density = 0.7961
 volumetric_fog_albedo = Color(0.36283, 0.362829, 0.362829, 1)
