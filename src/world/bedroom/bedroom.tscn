@@ -18,13 +18,18 @@ transform = Transform3D(0.52, 0, 0, 0, 0.52, 0, 0, 0, 0.52, 0.232444, 0.101141, 
 [node name="BEDFRAME" parent="bedroom" index="3"]
 transform = Transform3D(0.025, 0, 0, 0, -4.17233e-09, -0.002, 0, 0.035, -2.38419e-10, 0.0466554, 0.679309, 4.89467)
 
-[node name="Chandelier_Light" parent="bedroom" index="8"]
-visible = false
-
-[node name="Door" parent="bedroom" index="11"]
+[node name="Chandelier_Light" parent="bedroom" index="7"]
 visible = false
 
 [node name="Door" parent="." index="2" instance=ExtResource("4_y441m")]
-transform = Transform3D(0.443306, 0, -0.89637, 0, 1, 0, 0.89637, 0, 0.443306, -1.68824, 0, -2.57616)
+transform = Transform3D(-1.07974, 0, 9.43939e-08, 0, 1.07974, 0, -9.43939e-08, 0, -1.07974, 3.62756, 1.26949, 1.95033)
+
+[node name="Door_Aesthetic_Rotator" parent="Door" index="0"]
+visible = false
+
+[node name="closet2" parent="Door" index="3"]
+visible = true
 
 [editable path="bedroom"]
+[editable path="Door"]
+[editable path="Door/closet2"]
