@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://blna84bj33fox"]
+[gd_scene load_steps=10 format=3 uid="uid://blna84bj33fox"]
 
 [ext_resource type="PackedScene" uid="uid://cmylkhe7l8yw5" path="res://src/world/world.tscn" id="1_kqvf5"]
 [ext_resource type="PackedScene" uid="uid://drhdjb18rwo1i" path="res://src/ui/screen_shaders.tscn" id="2_dbp7n"]
@@ -6,6 +6,18 @@
 [ext_resource type="PackedScene" uid="uid://ucb4ni385yxx" path="res://src/ui/bedroom/bedroom_puzzle.tscn" id="4_eu8jo"]
 [ext_resource type="PackedScene" uid="uid://chg877he58hdh" path="res://src/ui/kitchen/kitchen_puzzle.tscn" id="5_dbp7n"]
 [ext_resource type="PackedScene" uid="uid://ufmxovknsxku" path="res://src/ui/game_timer.tscn" id="6_eu8jo"]
+
+[sub_resource type="Environment" id="Environment_eu8jo"]
+fog_enabled = true
+fog_light_color = Color(0, 0, 0, 1)
+fog_density = 0.3371
+volumetric_fog_density = 0.7961
+volumetric_fog_albedo = Color(0.36283, 0.362829, 0.362829, 1)
+volumetric_fog_ambient_inject = 16.0
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_dbp7n"]
+
+[sub_resource type="Compositor" id="Compositor_rgpsw"]
 
 [node name="Game" type="Node3D"]
 
@@ -21,6 +33,11 @@ handle_input_locally = false
 scaling_3d_scale = 2.0
 size = Vector2i(1280, 720)
 render_target_update_mode = 4
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/3DViewport"]
+environment = SubResource("Environment_eu8jo")
+camera_attributes = SubResource("CameraAttributesPractical_dbp7n")
+compositor = SubResource("Compositor_rgpsw")
 
 [node name="World" parent="SubViewportContainer/3DViewport" instance=ExtResource("1_kqvf5")]
 
