@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://ucb4ni385yxx"]
+[gd_scene load_steps=5 format=3 uid="uid://ucb4ni385yxx"]
 
 [ext_resource type="PackedScene" uid="uid://cl6ia52rquthd" path="res://src/ui/puzzle.tscn" id="1_mb3a5"]
 [ext_resource type="Script" uid="uid://dwlke5d7l8ait" path="res://src/ui/bedroom/bedroom_puzzle.gd" id="2_yn5g8"]
+[ext_resource type="PackedScene" uid="uid://ckv5trcshp17s" path="res://src/ui/bedroom/painting_slot.tscn" id="3_agx75"]
+[ext_resource type="PackedScene" uid="uid://cynboci3ydfgo" path="res://src/ui/bedroom/painting.tscn" id="4_lqruy"]
 
 [node name="BedroomPuzzle" instance=ExtResource("1_mb3a5")]
 script = ExtResource("2_yn5g8")
@@ -11,6 +13,23 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 21.0
+offset_top = 259.0
+offset_right = 21.0
+offset_bottom = 259.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0.650993, 0.570286, 0.294118)
+
+[node name="PaintingSlot" parent="." index="1" instance=ExtResource("3_agx75")]
+position = Vector2(28, 31)
+
+[node name="PaintingSlot2" parent="." index="2" instance=ExtResource("3_agx75")]
+position = Vector2(85, 31)
+
+[node name="Painting" parent="." index="3" instance=ExtResource("4_lqruy")]
+position = Vector2(112, 119)
+
+[node name="Painting2" parent="." index="4" instance=ExtResource("4_lqruy")]
+position = Vector2(328, 131)

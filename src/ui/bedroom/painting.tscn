@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://cynboci3ydfgo"]
+
+[ext_resource type="Script" uid="uid://dinjn1qn8qn6b" path="res://src/ui/bedroom/painting.gd" id="1_tt5e4"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_tt5e4"]
+size = Vector2(50, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tt5e4"]
+size = Vector2(50, 50)
+
+[node name="Painting" type="Sprite2D"]
+texture = SubResource("PlaceholderTexture2D_tt5e4")
+script = ExtResource("1_tt5e4")
+
+[node name="Scratches" type="AnimatedSprite2D" parent="."]
+
+[node name="Numbers" type="AnimatedSprite2D" parent="."]
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("RectangleShape2D_tt5e4")
+
+[connection signal="mouse_entered" from="Hitbox" to="." method="_on_hitbox_mouse_entered"]
+[connection signal="mouse_exited" from="Hitbox" to="." method="_on_hitbox_mouse_exited"]
