@@ -12,8 +12,9 @@ shape = SubResource("CapsuleShape3D_4anbu")
 debug_color = Color(0, 0.6, 0.701961, 1)
 
 [node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.518324, 0)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
+[node name="OmniLight3D" type="OmniLight3D" parent="Camera3D"]
 light_energy = 0.28
 omni_range = 8.042
 omni_attenuation = 0.603
