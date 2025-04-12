@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=3 uid="uid://drhdjb18rwo1i"]
 
-[ext_resource type="Shader" uid="uid://brp08onfji2bx" path="res://src/shaders/red_tint.gdshader" id="1_a2tfa"]
+[ext_resource type="Shader" path="res://src/shaders/red_tint.gdshader" id="1_a2tfa"]
 [ext_resource type="Script" uid="uid://bt4qginfqn8nt" path="res://src/ui/screen_shaders.gd" id="1_fa4sb"]
-[ext_resource type="Shader" uid="uid://cs6lol61gn8sl" path="res://src/ui/vhs.gdshader" id="2_fa4sb"]
+[ext_resource type="Shader" path="res://src/ui/vhs.gdshader" id="2_fa4sb"]
 [ext_resource type="Shader" uid="uid://d3oclhdp3lutq" path="res://src/shaders/pixelate.gdshader" id="4_n2iuw"]
 
 [sub_resource type="Curve" id="Curve_w6j1x"]
@@ -38,26 +38,26 @@ shader_parameter/tint_effect_factor = 0.0
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q4wlj"]
 shader = ExtResource("2_fa4sb")
 shader_parameter/overlay = true
-shader_parameter/scanlines_opacity = 0.0
-shader_parameter/scanlines_width = 0.0
-shader_parameter/grille_opacity = 0.0
-shader_parameter/resolution = Vector2(1280, 720)
-shader_parameter/pixelate = false
-shader_parameter/roll = false
+shader_parameter/scanlines_opacity = 0.138
+shader_parameter/scanlines_width = 0.5
+shader_parameter/grille_opacity = 0.134
+shader_parameter/resolution = Vector2(134.045, 113.335)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
 shader_parameter/roll_speed = 8.0
-shader_parameter/roll_size = 0.0
-shader_parameter/roll_variation = 1.8
-shader_parameter/distort_intensity = 0.019
+shader_parameter/roll_size = 8.601
+shader_parameter/roll_variation = 2.587
+shader_parameter/distort_intensity = 0.001
 shader_parameter/noise_opacity = 0.0
-shader_parameter/noise_speed = 0.025
-shader_parameter/static_noise_intensity = 0.049
-shader_parameter/aberration = 0.00500005
-shader_parameter/brightness = 1.335
-shader_parameter/discolor = false
-shader_parameter/warp_amount = 0.0
+shader_parameter/noise_speed = 9.415
+shader_parameter/static_noise_intensity = 0.022
+shader_parameter/aberration = 0.015
+shader_parameter/brightness = 2.29
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.089
 shader_parameter/clip_warp = false
-shader_parameter/vignette_intensity = 0.135
-shader_parameter/vignette_opacity = 1.0
+shader_parameter/vignette_intensity = 1.515
+shader_parameter/vignette_opacity = 0.259
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_22ul5"]
 shader = ExtResource("4_n2iuw")
@@ -99,10 +99,15 @@ material = SubResource("ShaderMaterial_q4wlj")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -42.0
+offset_top = -32.0
+offset_right = 42.0
+offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="BackBufferCopy3" type="BackBufferCopy" parent="."]
+visible = false
 rect = Rect2(0, 0, 1280, 720)
 
 [node name="PixelateShader" type="ColorRect" parent="BackBufferCopy3"]
