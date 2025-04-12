@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccp4j0edesai1"]
+
+[ext_resource type="Script" uid="uid://bq5kwa4ugf3dr" path="res://src/world/door.gd" id="1_qp2hx"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_w0rgm"]
+
+[node name="Door" type="Node3D"]
+script = ExtResource("1_qp2hx")
+
+[node name="Door_Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.167, 0, 0, 0, 2.232, 0, 0, 0, 1.238, 0.01, 1.08879, -0.581961)
+mesh = SubResource("BoxMesh_w0rgm")
+skeleton = NodePath("../../..")
