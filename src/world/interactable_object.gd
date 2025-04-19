@@ -11,7 +11,7 @@ var highlighted: bool
 func _ready() -> void:
 	highlighted = false
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	# Update highlighting
 	var looked: bool = Player.player.is_looking_at(self)
 	if highlighted != looked:
