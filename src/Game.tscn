@@ -339,7 +339,7 @@ visible = false
 offset_right = 0.0
 offset_bottom = 0.0
 
-[node name="BedroomPuzzle" parent="SubViewportContainer/2DViewport" instance=ExtResource("4_eu8jo")]
+[node name="BedroomPuzzle" parent="SubViewportContainer/2DViewport" groups=["bedroom_puzzle"] instance=ExtResource("4_eu8jo")]
 visible = false
 
 [node name="KitchenPuzzle" parent="SubViewportContainer/2DViewport" instance=ExtResource("5_dbp7n")]
