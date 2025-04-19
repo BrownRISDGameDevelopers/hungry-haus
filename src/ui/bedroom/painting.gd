@@ -7,6 +7,9 @@ extends Sprite2D
 # Has drag-and-drop, left click to rotate
 class_name Painting
 
+signal sent_to_inv
+
+signal rotated
 
 enum Rotation {
 	ROT_0,
@@ -15,6 +18,7 @@ enum Rotation {
 	ROT_270,
 }
 
+var rot_state : Rotation = Rotation.ROT_0
 
 enum Type {
 	IMG_0,
@@ -75,16 +79,29 @@ func begin_drag():
 func press():
 	holding = true
 	mouse_offset = get_local_mouse_position()
-	root_pos = global_position
+	root_pos = get_global_mouse_position()
 	print("pressing")
 
 ## On mouse release, if mouse travelled more than x pixels, drop; otherwise, rotate
 func release():
 	if dragging: 
 		drop()
+	else:
+		rotate_clockwise()
 	holding = false
 	dragging = false
 	print("released")
+
+func rotate_clockwise():
+	# Increment rotation state
+	rot_state = ((rot_state + 1) % 4) as Rotation
+	# Rotate visuals to current state using a tween
+	var goal_rot = int(rot_state) * (PI / 2)
+	var tween = Global.safe_tween(self)
+	tween.tween_property(self, "rotation", lerp_angle(rotation, goal_rot, 1.0), 0.3)\
+		.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	# Cause a check for victory
+	rotated.emit()
 
 ## Place the painting into a nearby slot, or back in inventory if none is in contact
 func drop():
@@ -92,11 +109,12 @@ func drop():
 	var closest_dist_sqrd := 999999.0
 	
 	# Search for closest painting slot to drop into
-	for slot : PaintingSlot in hitbox.get_overlapping_bodies():
-		var dist_sqrd = global_position.distance_squared_to(slot.global_position)
-		if dist_sqrd < closest_dist_sqrd:
-			closest_slot = slot
-			closest_dist_sqrd = dist_sqrd
+	for slot in hitbox.get_overlapping_areas():
+		if slot is PaintingSlot:
+			var dist_sqrd = global_position.distance_squared_to(slot.global_position)
+			if dist_sqrd < closest_dist_sqrd:
+				closest_slot = slot
+				closest_dist_sqrd = dist_sqrd
 	
 	# Drop into it if possible, otherwise 
 	if closest_slot:
@@ -108,24 +126,28 @@ func drop():
 		
 		# Tell the slot it has a new painting, swapping the currently held one to inventory
 		var old_painting = closest_slot.remove_painting()
-		if old_painting:
+		if old_painting and old_painting != self:
 			old_painting.interactable = false
 			var old_to_inv_tween = Global.safe_tween(old_painting)
 			old_to_inv_tween.tween_property(old_painting, "global_position", old_painting.inventory_pos, 0.3)\
 				.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 			old_to_inv_tween.tween_property(old_painting, "interactable", true, 0.0)
+			old_painting.sent_to_inv.emit()
+		sent_to_inv.emit()
+		closest_slot.receive_painting(self)
 	else: # Return it to the inventory
 		interactable = false
 		var drop_tween = Global.safe_tween(self)
 		drop_tween.tween_property(self, "global_position", inventory_pos, 0.3)\
 			.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 		drop_tween.tween_property(self, "interactable", true, 0.0)
+		sent_to_inv.emit()
 
 func _process(delta: float) -> void:
-	if not dragging and root_pos and global_position.distance_to(root_pos) > MIN_DRAG_DIST:
+	if holding and not dragging and root_pos and get_global_mouse_position().distance_to(root_pos) > MIN_DRAG_DIST:
 		begin_drag()
 	if dragging:
-		global_position = get_global_mouse_position() - mouse_offset
+		global_position = lerp(global_position, get_global_mouse_position() - mouse_offset, 50.0 * delta)
 
 func _input(event: InputEvent) -> void:
 	if interactable and hovering:

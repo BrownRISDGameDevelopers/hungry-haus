@@ -20,7 +20,7 @@ var already_complete := false
 
 func _ready():
 	visible = true
-	#modulate = Color(1,1,1,0)
+	#modulate = COLOR_TRANSPARENT
 
 func _input(event):
 	if event.is_action_pressed("dev_interact"):

@@ -6,30 +6,21 @@
 [ext_resource type="PackedScene" uid="uid://cynboci3ydfgo" path="res://src/ui/bedroom/painting.tscn" id="4_lqruy"]
 
 [node name="BedroomPuzzle" instance=ExtResource("1_mb3a5")]
+mouse_filter = 1
 script = ExtResource("2_yn5g8")
 
-[node name="ColorRect" type="ColorRect" parent="." index="0"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 21.0
-offset_top = 259.0
-offset_right = 21.0
-offset_bottom = 259.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0, 0.650993, 0.570286, 0.294118)
-
-[node name="PaintingSlot" parent="." index="1" instance=ExtResource("3_agx75")]
+[node name="PaintingSlot" parent="." index="0" instance=ExtResource("3_agx75")]
+z_index = 1
 position = Vector2(28, 31)
 
-[node name="PaintingSlot2" parent="." index="2" instance=ExtResource("3_agx75")]
+[node name="PaintingSlot2" parent="." index="1" instance=ExtResource("3_agx75")]
+z_index = 1
 position = Vector2(85, 31)
 
-[node name="Painting" parent="." index="3" instance=ExtResource("4_lqruy")]
-position = Vector2(112, 119)
+[node name="Painting" parent="." index="2" instance=ExtResource("4_lqruy")]
+z_index = 1
+position = Vector2(29, 91)
 
-[node name="Painting2" parent="." index="4" instance=ExtResource("4_lqruy")]
-position = Vector2(328, 131)
+[node name="Painting2" parent="." index="3" instance=ExtResource("4_lqruy")]
+z_index = 1
+position = Vector2(86, 90)

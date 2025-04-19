@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=3 uid="uid://drhdjb18rwo1i"]
 
-[ext_resource type="Shader" path="res://src/shaders/red_tint.gdshader" id="1_a2tfa"]
+[ext_resource type="Shader" uid="uid://brp08onfji2bx" path="res://src/shaders/red_tint.gdshader" id="1_a2tfa"]
 [ext_resource type="Script" uid="uid://bt4qginfqn8nt" path="res://src/ui/screen_shaders.gd" id="1_fa4sb"]
-[ext_resource type="Shader" path="res://src/ui/vhs.gdshader" id="2_fa4sb"]
+[ext_resource type="Shader" uid="uid://cs6lol61gn8sl" path="res://src/ui/vhs.gdshader" id="2_fa4sb"]
 [ext_resource type="Shader" uid="uid://d3oclhdp3lutq" path="res://src/shaders/pixelate.gdshader" id="4_n2iuw"]
 
 [sub_resource type="Curve" id="Curve_w6j1x"]
