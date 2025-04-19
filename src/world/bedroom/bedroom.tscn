@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://nudkj8c1bvbk"]
+[gd_scene load_steps=17 format=3 uid="uid://nudkj8c1bvbk"]
 
 [ext_resource type="PackedScene" uid="uid://b7d183kvilajh" path="res://src/world/room.tscn" id="1_oyc66"]
 [ext_resource type="Script" uid="uid://61yiknqya65" path="res://src/world/bedroom/bedroom.gd" id="2_5h70c"]
 [ext_resource type="PackedScene" uid="uid://hqskkei4m5cj" path="res://asset/3d/bedroom/bedroom.fbx" id="4_s0n1g"]
 [ext_resource type="PackedScene" uid="uid://ccp4j0edesai1" path="res://src/world/door.tscn" id="4_y441m"]
+[ext_resource type="PackedScene" uid="uid://3b6mrakryg8x" path="res://src/world/bedroom/painting_frame.tscn" id="5_y441m"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_s0n1g"]
 size = Vector3(0.442383, 6.69659, 5.42529)
@@ -119,6 +120,9 @@ shape = SubResource("BoxShape3D_ll2gp")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" index="10"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.09536, 2.8483, -0.707312)
 shape = SubResource("BoxShape3D_mlhbo")
+
+[node name="PaintingFrame" parent="." index="4" instance=ExtResource("5_y441m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.70374, 3.4249)
 
 [editable path="bedroom"]
 [editable path="Door"]
