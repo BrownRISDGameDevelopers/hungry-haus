@@ -76,5 +76,7 @@ func set_blood_vision_amount(value: float):
 	
 	var pixelate_amount = 5.0 + maxf(0, pixelate_curve_val - 1) * 15
 	pixelate_mat.set_shader_parameter("quantize_size", pixelate_amount)
+	var vhs_pixelate_amount = 130/(pixelate_amount/4.3)
+	vhs_mat.set_shader_parameter("resolution", Vector2(vhs_pixelate_amount, vhs_pixelate_amount))
 	var static_amount = 0.05 + maxf(0, pixelate_curve_val - 1) * 0.1
 	vhs_mat.set_shader_parameter("static_noise_intensity", static_amount)
