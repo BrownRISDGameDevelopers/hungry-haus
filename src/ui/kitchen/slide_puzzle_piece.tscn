@@ -1,18 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://dhsg5uesdkvql"]
+[gd_scene load_steps=2 format=3 uid="uid://dhsg5uesdkvql"]
 
-[ext_resource type="Texture2D" uid="uid://c0d6s56tfoyh" path="res://asset/puzzles/kitchen/placeholder/placeholder_slide_piece_40x.png" id="1_1dgol"]
-[ext_resource type="Texture2D" uid="uid://c74q8wfosit0v" path="res://asset/puzzles/kitchen/placeholder/placeholder_slide_piece_40x_hover.png" id="3_xmuow"]
 [ext_resource type="Script" uid="uid://bysycloa1g2pt" path="res://src/ui/kitchen/slide_puzzle_piece.gd" id="4_1dgol"]
-[ext_resource type="Texture2D" uid="uid://ykbefk0tdxm8" path="res://asset/puzzles/kitchen/placeholder/placeholder_slide_piece_40x_press.png" id="4_7i217"]
 
 [node name="SlidePuzzlePiece" type="TextureButton"]
 offset_right = 32.0
 offset_bottom = 32.0
-texture_normal = ExtResource("1_1dgol")
 script = ExtResource("4_1dgol")
-texture_normal_ = ExtResource("1_1dgol")
-texture_hover_ = ExtResource("3_xmuow")
-texture_pressed_ = ExtResource("4_7i217")
 
 [connection signal="button_down" from="." to="." method="_on_button_down"]
 [connection signal="button_up" from="." to="." method="_on_button_up"]

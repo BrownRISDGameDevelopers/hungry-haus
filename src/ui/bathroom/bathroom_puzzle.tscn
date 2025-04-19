@@ -1,10 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://bfnojvvc0fc2h"]
+[gd_scene load_steps=7 format=3 uid="uid://bfnojvvc0fc2h"]
 
 [ext_resource type="PackedScene" uid="uid://cl6ia52rquthd" path="res://src/ui/puzzle.tscn" id="1_nymm8"]
 [ext_resource type="Script" uid="uid://c7b3mpxs4w5ft" path="res://src/ui/bathroom/bathroom_puzzle.gd" id="2_w10vh"]
+[ext_resource type="Texture2D" uid="uid://c0d6s56tfoyh" path="res://asset/puzzles/kitchen/placeholder/placeholder_slide_piece_40x.png" id="3_g6l7g"]
+[ext_resource type="Texture2D" uid="uid://bdejc5dgsppxk" path="res://asset/puzzles/kitchen/placeholder/placeholder_slide_piece_32x_press.png" id="4_sool8"]
+[ext_resource type="Texture2D" uid="uid://ykbefk0tdxm8" path="res://asset/puzzles/kitchen/placeholder/placeholder_slide_piece_40x_press.png" id="5_r2145"]
+[ext_resource type="Script" uid="uid://bng7v40kuono2" path="res://src/ui/bathroom/pipe_puzzle_piece.gd" id="6_sool8"]
 
 [node name="BathroomPuzzle" instance=ExtResource("1_nymm8")]
-script = ExtResource("2_w10vh")
+offset_right = -960.0
+offset_bottom = -540.0
+script = null
 
 [node name="ColorRect" type="ColorRect" parent="." index="0"]
 layout_mode = 1
@@ -13,4 +19,58 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.732242, 0.31942, 1, 0.294118)
+color = Color(1, 1, 1, 0.294118)
+
+[node name="BathroomPuzzleContainer" type="Control" parent="." index="1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.0
+offset_top = -80.0
+offset_right = 140.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_w10vh")
+
+[node name="TextureButton" type="TextureButton" parent="BathroomPuzzleContainer" index="0"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 80.0
+offset_right = 80.0
+offset_bottom = 120.0
+texture_normal = ExtResource("3_g6l7g")
+texture_pressed = ExtResource("4_sool8")
+texture_hover = ExtResource("5_r2145")
+stretch_mode = 0
+script = ExtResource("6_sool8")
+
+[node name="TextureButton3" type="TextureButton" parent="BathroomPuzzleContainer" index="1"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 40.0
+offset_right = 160.0
+offset_bottom = 80.0
+texture_normal = ExtResource("3_g6l7g")
+texture_pressed = ExtResource("4_sool8")
+texture_hover = ExtResource("5_r2145")
+stretch_mode = 0
+script = ExtResource("6_sool8")
+
+[node name="TextureButton4" type="TextureButton" parent="BathroomPuzzleContainer" index="2"]
+offset_left = 160.0
+offset_top = 120.0
+offset_right = 200.0
+offset_bottom = 160.0
+texture_normal = ExtResource("3_g6l7g")
+texture_pressed = ExtResource("4_sool8")
+texture_hover = ExtResource("5_r2145")
+stretch_mode = 0
+script = ExtResource("6_sool8")
+
+[connection signal="pressed" from="BathroomPuzzleContainer/TextureButton" to="BathroomPuzzleContainer/TextureButton" method="_on_pressed"]
+[connection signal="pressed" from="BathroomPuzzleContainer/TextureButton3" to="BathroomPuzzleContainer/TextureButton3" method="_on_pressed"]
+[connection signal="pressed" from="BathroomPuzzleContainer/TextureButton4" to="BathroomPuzzleContainer/TextureButton4" method="_on_pressed"]
