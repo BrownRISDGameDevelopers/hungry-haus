@@ -5,7 +5,7 @@ var highlighted: bool
 ## The puzzle opened by this object on click.
 @onready var puzzle: Puzzle = get_tree().get_first_node_in_group("kitchen_puzzle")
 
-@export var highlightColor: Vector4 = Vector4(1, 1, 0, 1)
+@export var highlightColor: Vector4 = Vector4(1, 1, 1, 1)
 @export var highlightSize: float = 1.01
 
 func _ready() -> void:
