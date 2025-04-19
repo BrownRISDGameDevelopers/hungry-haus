@@ -68,8 +68,6 @@ offset_bottom = 40.0
 texture_normal = ExtResource("3_vttc1")
 type = 1
 texture_normal_ = ExtResource("3_vttc1")
-texture_hover_ = null
-texture_pressed_ = null
 
 [node name="Ham" parent="Screen_Container/PuzzleContainer" instance=ExtResource("2_f5xa7")]
 layout_mode = 0
@@ -79,9 +77,6 @@ offset_right = 80.0
 offset_bottom = 80.0
 texture_normal = ExtResource("11_4w3d7")
 type = 3
-texture_normal_ = null
-texture_hover_ = null
-texture_pressed_ = null
 
 [node name="OrangeJuice" parent="Screen_Container/PuzzleContainer" instance=ExtResource("2_f5xa7")]
 layout_mode = 0
@@ -90,9 +85,6 @@ offset_right = 40.0
 offset_bottom = 80.0
 texture_normal = ExtResource("4_umncn")
 type = 2
-texture_normal_ = null
-texture_hover_ = null
-texture_pressed_ = null
 
 [node name="Produce" parent="Screen_Container/PuzzleContainer" instance=ExtResource("2_f5xa7")]
 layout_mode = 0
@@ -102,9 +94,6 @@ offset_right = 120.0
 offset_bottom = 80.0
 texture_normal = ExtResource("5_xdyl4")
 type = 4
-texture_normal_ = null
-texture_hover_ = null
-texture_pressed_ = null
 
 [node name="EggsRight" parent="Screen_Container/PuzzleContainer" instance=ExtResource("2_f5xa7")]
 layout_mode = 0
@@ -123,9 +112,6 @@ offset_bottom = 120.0
 pivot_offset = Vector2(20, 20)
 texture_normal = ExtResource("8_efnmr")
 type = 5
-texture_normal_ = null
-texture_hover_ = null
-texture_pressed_ = null
 
 [node name="Pickles" parent="Screen_Container/PuzzleContainer" instance=ExtResource("2_f5xa7")]
 layout_mode = 0
@@ -135,9 +121,6 @@ offset_right = 120.0
 offset_bottom = 120.0
 texture_normal = ExtResource("6_b75lg")
 type = 6
-texture_normal_ = null
-texture_hover_ = null
-texture_pressed_ = null
 
 [node name="BakingSoda" parent="Screen_Container/PuzzleContainer" instance=ExtResource("2_f5xa7")]
 layout_mode = 0
@@ -147,9 +130,6 @@ offset_right = 120.0
 offset_bottom = 160.0
 texture_normal = ExtResource("7_oqk66")
 type = 9
-texture_normal_ = null
-texture_hover_ = null
-texture_pressed_ = null
 
 [node name="Milk" parent="Screen_Container/PuzzleContainer" instance=ExtResource("2_f5xa7")]
 layout_mode = 0
@@ -158,9 +138,6 @@ offset_right = 40.0
 offset_bottom = 160.0
 texture_normal = ExtResource("9_wc7ko")
 type = 7
-texture_normal_ = null
-texture_hover_ = null
-texture_pressed_ = null
 
 [node name="Pasta" parent="Screen_Container/PuzzleContainer" instance=ExtResource("2_f5xa7")]
 layout_mode = 0
@@ -170,6 +147,3 @@ offset_right = 80.0
 offset_bottom = 160.0
 texture_normal = ExtResource("10_vv0va")
 type = 8
-texture_normal_ = null
-texture_hover_ = null
-texture_pressed_ = null
