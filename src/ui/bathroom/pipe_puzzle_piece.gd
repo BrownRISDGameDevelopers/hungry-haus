@@ -26,7 +26,7 @@ func rotate_clockwise():
 	# Rotate visuals to current state using a tween
 	var goal_rot = int(rot_state) * (PI / 2)
 	var tween = Global.safe_tween(self)
-	tween.tween_property(self, "rotation", goal_rot, 0.3)\
+	tween.tween_property(self, "rotation", lerp_angle(rotation, goal_rot, 1.0), 0.3)\
 		.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 	# Cause a check for victory
 	rotated.emit()
@@ -37,3 +37,6 @@ func rotate_randomly():
 	var num_rotations = randi_range(1, 3)
 	for i in range(num_rotations):
 		rotate_clockwise()
+
+func _on_pressed():
+	rotate_clockwise()
