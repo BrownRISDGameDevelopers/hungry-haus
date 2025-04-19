@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=4 uid="uid://3b6mrakryg8x"]
 
 [ext_resource type="PackedScene" uid="uid://bqgmjio5xjri2" path="res://asset/3d/bedroom/painting_frame.fbx" id="1_6fi8l"]
-[ext_resource type="Script" uid="uid://dgouba7ideh4c" path="res://src/world/interactable_object.gd" id="2_l1jqj"]
 [ext_resource type="Texture2D" uid="uid://c0d6s56tfoyh" path="res://asset/puzzles/kitchen/placeholder/placeholder_slide_piece_40x.png" id="2_mbhjv"]
 [ext_resource type="Texture2D" uid="uid://dphcfr6hkpndj" path="res://asset/3d/bedroom/painting_frame.fbm/wood_dith_painting.png" id="2_mk1gd"]
+[ext_resource type="Script" uid="uid://bocjcut8iny8p" path="res://src/world/bedroom/painting_3d.gd" id="3_mk1gd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cnwap"]
 resource_name = "Material.001"
@@ -47,14 +47,15 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ho8u7")
 
-[node name="PaintingFrame" instance=ExtResource("1_6fi8l")]
+[node name="PaintingFrame" node_paths=PackedStringArray("mesh") instance=ExtResource("1_6fi8l")]
+script = ExtResource("3_mk1gd")
+mesh = NodePath("Cube")
 
 [node name="Cube" parent="." index="0"]
 transform = Transform3D(-2.34073e-06, 53.5497, -4.87032e-13, 6.38363e-06, 4.87032e-13, 53.5497, 53.5497, 2.34073e-06, -6.38362e-06, 0, 0, 0.0179994)
 mesh = SubResource("ArrayMesh_5tggj")
-script = ExtResource("2_l1jqj")
 
 [node name="PaintingSprite" type="Sprite3D" parent="." index="1"]
-transform = Transform3D(2.33104, 0, 0, 0, 2.33104, 0, 0, 0, 2.33104, 0, 0, 0.0595002)
+transform = Transform3D(2.33104, -1.01644e-20, -1.42109e-13, 4.40457e-20, 2.33104, 2.55795e-13, 1.42109e-13, 1.7053e-13, 2.33104, -1.33227e-15, 2.22045e-15, 0.0595002)
 texture_filter = 0
 texture = ExtResource("2_mbhjv")

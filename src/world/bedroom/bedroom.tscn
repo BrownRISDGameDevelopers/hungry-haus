@@ -121,7 +121,9 @@ shape = SubResource("BoxShape3D_ll2gp")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.09536, 2.8483, -0.707312)
 shape = SubResource("BoxShape3D_mlhbo")
 
-[node name="PaintingFrame" parent="." index="4" instance=ExtResource("5_y441m")]
+[node name="PaintingFrames" type="Node3D" parent="." index="4"]
+
+[node name="PaintingFrame" parent="PaintingFrames" index="0" instance=ExtResource("5_y441m")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.70374, 3.4249)
 
 [editable path="bedroom"]
