@@ -1,9 +1,13 @@
-extends MeshInstance3D
+extends Node3D
+
+class_name InteractableObject
 
 var highlighted: bool
 
+@export var mesh : MeshInstance3D
+
 ## The puzzle opened by this object on click.
-@onready var puzzle: Puzzle = get_tree().get_first_node_in_group("kitchen_puzzle")
+@onready var puzzle: Puzzle = get_tree().get_first_node_in_group("bedroom_puzzle")
 
 @export var highlightColor: Vector4 = Vector4(1, 1, 1, 1)
 @export var highlightSize: float = 1.01
@@ -13,19 +17,19 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	# Update highlighting
-	var looked: bool = Player.player.is_looking_at(self)
+	var looked: bool = Player.player.is_looking_at(mesh)
 	if highlighted != looked:
 		if highlighted:
-			Global.hide_3d_outline(self)
+			Global.hide_3d_outline(mesh)
 		else:
-			Global.show_3d_outline(self, highlightColor, highlightSize)
+			Global.show_3d_outline(mesh, highlightColor, highlightSize)
 		highlighted = looked
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
-		try_open_puzzle()
+		interact()
 
 ## Opens this interactable's puzzle if it's highlighted.
-func try_open_puzzle() -> void:
+func interact() -> void:
 	if puzzle and highlighted and not puzzle.puzzle_active:
 		puzzle.toggle_puzzle_active()
