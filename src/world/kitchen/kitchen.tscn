@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://dhlbgrr3xcf5r"]
+[gd_scene load_steps=9 format=3 uid="uid://dhlbgrr3xcf5r"]
 
 [ext_resource type="PackedScene" uid="uid://b7d183kvilajh" path="res://src/world/room.tscn" id="1_vr71u"]
 [ext_resource type="Script" uid="uid://bwh71ad6dglss" path="res://src/world/kitchen/kitchen.gd" id="2_st74x"]
 [ext_resource type="PackedScene" uid="uid://ccp4j0edesai1" path="res://src/world/door.tscn" id="4_7s0nr"]
-[ext_resource type="PackedScene" uid="uid://bwyila67o0yny" path="res://asset/3d/kitchen/KitchenBAD.fbx" id="4_p01gq"]
 [ext_resource type="PackedScene" uid="uid://bchv0cg0yiouh" path="res://asset/3d/kitchen/KitchenGOOD.fbx" id="5_2ojf6"]
+[ext_resource type="PackedScene" uid="uid://bwyila67o0yny" path="res://asset/3d/kitchen/KitchenBAD.fbx" id="6_03f3n"]
 [ext_resource type="PackedScene" uid="uid://dlu0auruydqbi" path="res://asset/3d/kitchen/KitchenNormal.fbx" id="6_dmhet"]
+[ext_resource type="Texture2D" uid="uid://dq3y0fc00hkhk" path="res://asset/3d/kitchen/BLOODSPLATTERS.png" id="7_2ojf6"]
+[ext_resource type="PackedScene" uid="uid://dowei7cbhw1wm" path="res://asset/3d/kitchen/KitchenLights.fbx" id="7_xj3t0"]
 
 [node name="Kitchen" instance=ExtResource("1_vr71u")]
 script = ExtResource("2_st74x")
@@ -13,23 +15,41 @@ script = ExtResource("2_st74x")
 [node name="Door" parent="." index="0" instance=ExtResource("4_7s0nr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.25716, 0)
 
-[node name="KitchenBAD" parent="." index="1" instance=ExtResource("4_p01gq")]
+[node name="KitchenNormal" parent="." index="1" instance=ExtResource("6_dmhet")]
+
+[node name="KitchenGOOD" parent="." index="2" groups=["enable_off_blood_vision"] instance=ExtResource("5_2ojf6")]
+
+[node name="KitchenLights" parent="." index="3" instance=ExtResource("7_xj3t0")]
+
+[node name="Point" parent="KitchenLights" index="0"]
+light_energy = 0.508
+
+[node name="Point_001" parent="KitchenLights" index="1"]
+light_energy = 0.508
+
+[node name="KitchenBAD" parent="." index="4" groups=["enable_on_blood_vision"] instance=ExtResource("6_03f3n")]
 visible = false
 
-[node name="KitchenGOOD" parent="." index="2" instance=ExtResource("5_2ojf6")]
+[node name="BLOODSPLATTERS" parent="KitchenBAD" index="1"]
 visible = false
 
-[node name="KitchenNormal" parent="." index="3" instance=ExtResource("6_dmhet")]
+[node name="Sprite3D" type="Sprite3D" parent="KitchenBAD" index="2"]
+transform = Transform3D(0.38793, 0, 0, 0, -1.69569e-08, -0.38793, 0, 0.38793, -1.69569e-08, -0.853547, -0.0548167, -0.353512)
+texture = ExtResource("7_2ojf6")
+region_enabled = true
+region_rect = Rect2(486.661, 310.353, 330.113, 345.118)
 
-[node name="Point" parent="KitchenNormal" index="20"]
-visible = false
-light_energy = 0.0
+[node name="Sprite3D2" type="Sprite3D" parent="KitchenBAD" index="3"]
+transform = Transform3D(-1.14357e-08, 1.14356e-08, 0.261617, 0.261617, 4.99868e-16, 1.14357e-08, 0, 0.261617, -1.14356e-08, 2.36358, 1.30538, -1.212)
+texture = ExtResource("7_2ojf6")
+region_enabled = true
+region_rect = Rect2(-21.7537, 543.082, 497.313, 473.733)
 
-[node name="Point_001" parent="KitchenNormal" index="21"]
-visible = false
-light_energy = 0.0
+[node name="Sprite3D3" type="Sprite3D" parent="KitchenBAD" index="4"]
+transform = Transform3D(9.49233e-16, -0.496802, -3.37324e-15, 0.496802, 9.49233e-16, 2.17159e-08, -2.17159e-08, -3.37324e-15, 0.496802, 1.4314, 1.29649, 1.85673)
+texture = ExtResource("7_2ojf6")
+region_enabled = true
+region_rect = Rect2(754.066, 82.2101, 229.364, 240.082)
 
-[node name="Light" parent="KitchenNormal/fridge" index="2"]
-visible = false
-
-[editable path="KitchenNormal"]
+[editable path="KitchenLights"]
+[editable path="KitchenBAD"]
