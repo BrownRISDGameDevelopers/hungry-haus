@@ -11,6 +11,7 @@ static var player: Player
 
 var jumping: bool = false
 
+
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var move_dir: Vector2 # Input direction for movement
@@ -32,6 +33,8 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		look_dir = event.relative * 0.001
 		if can_move: _rotate_camera()
+	if event.is_action_pressed("freeze_n_stuff"):
+		_freeze_n_move()
 
 func _physics_process(delta: float) -> void:
 	velocity = _walk(delta) + _gravity(delta)
@@ -78,6 +81,16 @@ func is_looking_at(obj: Node3D):
 		return false
 	
 	return displacement.angle_to(player_looking) < thresh_radians * (0.6 + 2.4 * distance_modifier / clipping_distance)
+
+func _freeze_n_move():
+	can_move = false
+	var tween = Global.safe_tween(self)
+	tween.tween_property(self.camera, "rotation", Vector3(PI/2, camera.rotation.y, camera.rotation.z), 3).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+	tween.parallel().tween_property(self, "position", Vector3(self.position.x + 5, self.position.y, self.position.z), 3).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+	
+	#CALL ENDING FUNCTION
+	
+	
 	
 	
 	
