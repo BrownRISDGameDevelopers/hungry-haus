@@ -72,7 +72,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0)
 
-[node name="Jello" parent="Screen_Container/PuzzleContainer" instance=ExtResource("2_f5xa7")]
+[node name="Jello" parent="Screen_Container/PuzzleContainer" groups=["fridge_food"] instance=ExtResource("2_f5xa7")]
 layout_mode = 0
 offset_left = 40.0
 offset_right = 80.0
@@ -85,7 +85,7 @@ texture_normal_ = ExtResource("3_vttc1")
 layout_mode = 0
 texture = ExtResource("4_04p5n")
 
-[node name="Ham" parent="Screen_Container/PuzzleContainer" instance=ExtResource("2_f5xa7")]
+[node name="Ham" parent="Screen_Container/PuzzleContainer" groups=["fridge_food"] instance=ExtResource("2_f5xa7")]
 layout_mode = 0
 offset_left = 40.0
 offset_top = 40.0
@@ -97,7 +97,7 @@ type = 3
 [node name="Heart" type="TextureRect" parent="Screen_Container/PuzzleContainer/Ham" groups=["fridge_organ"]]
 texture = ExtResource("6_jjubp")
 
-[node name="OrangeJuice" parent="Screen_Container/PuzzleContainer" instance=ExtResource("2_f5xa7")]
+[node name="OrangeJuice" parent="Screen_Container/PuzzleContainer" groups=["fridge_food"] instance=ExtResource("2_f5xa7")]
 layout_mode = 0
 offset_top = 40.0
 offset_right = 40.0
@@ -108,7 +108,7 @@ type = 2
 [node name="LeftLung" type="TextureRect" parent="Screen_Container/PuzzleContainer/OrangeJuice" groups=["fridge_organ"]]
 texture = ExtResource("8_12o7e")
 
-[node name="Produce" parent="Screen_Container/PuzzleContainer" instance=ExtResource("2_f5xa7")]
+[node name="Produce" parent="Screen_Container/PuzzleContainer" groups=["fridge_food"] instance=ExtResource("2_f5xa7")]
 layout_mode = 0
 offset_left = 80.0
 offset_top = 40.0
@@ -120,7 +120,7 @@ type = 4
 [node name="RightLung" type="TextureRect" parent="Screen_Container/PuzzleContainer/Produce" groups=["fridge_organ"]]
 texture = ExtResource("10_xb32w")
 
-[node name="EggsRight" parent="Screen_Container/PuzzleContainer" instance=ExtResource("2_f5xa7")]
+[node name="EggsRight" parent="Screen_Container/PuzzleContainer" groups=["fridge_food"] instance=ExtResource("2_f5xa7")]
 layout_mode = 0
 offset_left = 40.0
 offset_top = 80.0
@@ -129,7 +129,9 @@ offset_bottom = 120.0
 disabled = true
 type = 5
 
-[node name="EggsLeft" parent="Screen_Container/PuzzleContainer" instance=ExtResource("2_f5xa7")]
+[node name="Nothing" type="TextureRect" parent="Screen_Container/PuzzleContainer/EggsRight" groups=["fridge_organ"]]
+
+[node name="EggsLeft" parent="Screen_Container/PuzzleContainer" groups=["fridge_food"] instance=ExtResource("2_f5xa7")]
 layout_mode = 0
 offset_top = 80.0
 offset_right = 80.0
@@ -141,7 +143,7 @@ type = 5
 [node name="Liver" type="TextureRect" parent="Screen_Container/PuzzleContainer/EggsLeft" groups=["fridge_organ"]]
 texture = ExtResource("12_xtqcw")
 
-[node name="Pickles" parent="Screen_Container/PuzzleContainer" instance=ExtResource("2_f5xa7")]
+[node name="Pickles" parent="Screen_Container/PuzzleContainer" groups=["fridge_food"] instance=ExtResource("2_f5xa7")]
 layout_mode = 0
 offset_left = 80.0
 offset_top = 80.0
@@ -153,7 +155,7 @@ type = 6
 [node name="Stomach" type="TextureRect" parent="Screen_Container/PuzzleContainer/Pickles" groups=["fridge_organ"]]
 texture = ExtResource("14_vv127")
 
-[node name="BakingSoda" parent="Screen_Container/PuzzleContainer" instance=ExtResource("2_f5xa7")]
+[node name="BakingSoda" parent="Screen_Container/PuzzleContainer" groups=["fridge_food"] instance=ExtResource("2_f5xa7")]
 layout_mode = 0
 offset_left = 80.0
 offset_top = 120.0
@@ -165,7 +167,7 @@ type = 9
 [node name="RightKidney" type="TextureRect" parent="Screen_Container/PuzzleContainer/BakingSoda" groups=["fridge_organ"]]
 texture = ExtResource("16_vrwvt")
 
-[node name="Milk" parent="Screen_Container/PuzzleContainer" instance=ExtResource("2_f5xa7")]
+[node name="Milk" parent="Screen_Container/PuzzleContainer" groups=["fridge_food"] instance=ExtResource("2_f5xa7")]
 layout_mode = 0
 offset_top = 120.0
 offset_right = 40.0
@@ -176,7 +178,7 @@ type = 7
 [node name="LeftKidney" type="TextureRect" parent="Screen_Container/PuzzleContainer/Milk" groups=["fridge_organ"]]
 texture = ExtResource("18_tptug")
 
-[node name="Pasta" parent="Screen_Container/PuzzleContainer" instance=ExtResource("2_f5xa7")]
+[node name="Pasta" parent="Screen_Container/PuzzleContainer" groups=["fridge_food"] instance=ExtResource("2_f5xa7")]
 layout_mode = 0
 offset_left = 40.0
 offset_top = 120.0

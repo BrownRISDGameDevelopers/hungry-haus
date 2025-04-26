@@ -33,11 +33,16 @@ var eggs_items : Array[SlidePuzzlePiece]
 
 @onready var puzzle_container : Control = %PuzzleContainer
 
+@onready var organs : Array = get_tree().get_nodes_in_group("fridge_organ")
+@onready var foods : Array = get_tree().get_nodes_in_group("fridge_food")
+
 func _ready():
 	super._ready()
 	setup_puzzle()
 	eggs_items = get_eggs()
 	room_type = Room.Type.KITCHEN
+	for organ : TextureRect in organs:
+		organ.hide()
 
 func setup_puzzle():
 	for row in range(NUM_ROWS):
@@ -212,8 +217,17 @@ func check_victory():
 func show_victory():
 	var tween = Global.safe_tween(self)
 	mouse_filter = Control.MOUSE_FILTER_IGNORE # Don't let user close the puzzle
+	# TODO make sure puzzle cant be closed early
 	tween.tween_property(self, "scale", Vector2(1.05, 1.05), 1.0).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
 	tween.parallel().tween_property(self, "modulate", Color(1.0, 0.5, 0.5), 3.5).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
+	for i in range(len(organs)):
+		var organ : TextureRect = organs[i]
+		var food : TextureButton = foods[i]
+		organ.modulate = COLOR_TRANSPARENT
+		organ.visible = true
+		food.disabled = true
+		tween.parallel().tween_property(organ, "modulate", COLOR_VISIBLE, 0.25).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
+		tween.parallel().tween_property(food, "self_modulate", COLOR_TRANSPARENT, 0.25).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
 	tween.tween_callback(toggle_puzzle_active) 
 
 # Get the eggs
