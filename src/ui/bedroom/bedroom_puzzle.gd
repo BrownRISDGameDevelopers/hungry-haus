@@ -2,12 +2,21 @@ extends Puzzle
 
 class_name BedroomPuzzle
 
-func _ready() -> void:
-	super._ready()
-	room_type = Room.Type.BEDROOM
 
 # Steps:
 # Add an inventory: array of paintings
+var inventory = []
+
+
+func _ready() -> void:
+	super._ready()
+	room_type = Room.Type.BEDROOM
+	inventory.resize(Painting.Type.NUM_TYPES)
+	for i in inventory.size(): inventory[i] = false
+
+func add_to_inventory(pntng : Painting.Type):
+	inventory[pntng] = true
+
 # Painting class: has overlaid sprite sheets: 
 # 1. happy painting
 # 2. scratches (normal view)

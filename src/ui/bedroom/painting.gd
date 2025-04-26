@@ -27,6 +27,7 @@ enum Type {
 	IMG_3,
 	IMG_4,
 	IMG_5,
+	NUM_TYPES
 	# TODO add names of each painting
 }
 
