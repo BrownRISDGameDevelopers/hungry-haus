@@ -1,0 +1,76 @@
+[gd_scene load_steps=3 format=3 uid="uid://cb64ib71h0pqo"]
+
+[ext_resource type="Script" uid="uid://c3kao551oyio8" path="res://src/Screens/menu.gd" id="1_b4hyn"]
+
+[sub_resource type="GDScript" id="GDScript_03nda"]
+script/source = "extends Button
+"
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b4hyn")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -82.0
+offset_top = -285.0
+offset_right = 82.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Start" type="Button" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Start
+"
+script = SubResource("GDScript_03nda")
+
+[node name="Options" type="Button" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Options"
+
+[node name="Credits" type="Button" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Credits"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 1.0
+offset_top = 133.0
+offset_right = 1.0
+offset_bottom = 333.0
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 48
+text = "Hungry Haus"
+fit_content = true
+autowrap_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="ColorRect/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/Credits" to="." method="_on_credits_pressed"]

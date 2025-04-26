@@ -21,7 +21,7 @@ enum Rotation {
 var rot_state : Rotation = Rotation.ROT_0
 
 enum Type {
-	IMG_0,
+	SAD,
 	IMG_1,
 	IMG_2,
 	IMG_3,
