@@ -47,8 +47,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ho8u7")
 
-[node name="PaintingFrame" node_paths=PackedStringArray("mesh") instance=ExtResource("1_6fi8l")]
+[node name="PaintingFrame" node_paths=PackedStringArray("paintingSprite", "mesh") instance=ExtResource("1_6fi8l")]
 script = ExtResource("3_mk1gd")
+paintingSprite = NodePath("PaintingSprite")
 mesh = NodePath("Cube")
 
 [node name="Cube" parent="." index="0"]
