@@ -29,6 +29,10 @@ func check_victory():
 		if pipe.rot_state != PipePuzzlePiece.WINNING_ROTATION:
 			return false
 	print("victory royale")
+	
+	
+	
+	
 	return true
 
 # func _unhandled_input(event):
