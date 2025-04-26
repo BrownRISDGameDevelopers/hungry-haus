@@ -325,7 +325,7 @@ compositor = SubResource("Compositor_rgpsw")
 
 [node name="BloodVision" parent="SubViewportContainer/3DViewport/World/3DShaders" instance=ExtResource("2_dbp7n")]
 
-[node name="2DViewport" type="SubViewport" parent="SubViewportContainer"]
+[node name="2DViewport" type="SubViewport" parent="SubViewportContainer" groups=["puzzles_container"]]
 disable_3d = true
 transparent_bg = true
 handle_input_locally = false
@@ -343,7 +343,8 @@ offset_bottom = 0.0
 visible = false
 
 [node name="KitchenPuzzle" parent="SubViewportContainer/2DViewport" instance=ExtResource("5_dbp7n")]
-visible = false
+offset_right = -320.0
+offset_bottom = -180.0
 
 [node name="GameTimer" parent="SubViewportContainer/2DViewport" instance=ExtResource("6_eu8jo")]
 texture_filter = 1

@@ -22,23 +22,30 @@ var completed_count := 0
 ## This room's door, which opens when all puzzles are completed.
 var door : Door
 
+@export var type : Type
 
 func _ready() -> void:
-	# Populate puzzles and door
-	for child in get_children():
-		if child is Puzzle:
-			puzzles.append(child)
+	# Populate puzzles 
+	for puzzle in [
+		get_tree().get_first_node_in_group("kitchen_puzzle"), 
+		get_tree().get_first_node_in_group("bedroom_puzzle"), # TODO add code lock puzzle
+		get_tree().get_first_node_in_group("bathroom_puzzle"), 
+	]:
+		if puzzle.room_type == type:
+			puzzles.append(puzzle)
 			# Make each puzzle increment a count when it's completed
-			child.completed.connect(complete_one_puzzle)
+			puzzle.completed.connect(complete_one_puzzle)
+	# Populate door
+	for child in get_children():
 		if child is Door:
 			door = child
 	# Make door open when puzzles are all completed
 	puzzles_completed.connect(door.open)
 
 # USE TO TEST IF DOORS OPEN
-func _unhandled_input(event):
-	if event.is_action_pressed("jump"):
-		puzzles_completed.emit()
+#func _unhandled_input(event):
+	#if event.is_action_pressed("jump"):
+		#puzzles_completed.emit()
 	
 
 func complete_one_puzzle():

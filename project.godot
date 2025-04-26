@@ -36,6 +36,8 @@ kitchen_puzzle=""
 enable_on_blood_vision=""
 enable_off_blood_vision=""
 bedroom_puzzle=""
+puzzles_container=""
+bathroom_puzzle=""
 
 [input]
 

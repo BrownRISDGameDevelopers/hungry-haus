@@ -21,7 +21,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0.294118)
 
-[node name="BathroomPuzzleContainer" type="Control" parent="." index="1"]
+[node name="BathroomPuzzleContainer" type="Control" parent="." index="1" groups=["bathroom_puzzle"]]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -35,6 +35,7 @@ offset_bottom = 80.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_w10vh")
+room_type = 2
 
 [node name="TextureButton" type="TextureButton" parent="BathroomPuzzleContainer" index="0"]
 layout_mode = 0
