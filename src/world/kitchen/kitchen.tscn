@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://dhlbgrr3xcf5r"]
+[gd_scene load_steps=37 format=4 uid="uid://dhlbgrr3xcf5r"]
 
 [ext_resource type="PackedScene" uid="uid://b7d183kvilajh" path="res://src/world/room.tscn" id="1_vr71u"]
 [ext_resource type="Script" uid="uid://bwh71ad6dglss" path="res://src/world/kitchen/kitchen.gd" id="2_st74x"]
@@ -19,6 +19,7 @@
 [ext_resource type="Script" uid="uid://dgouba7ideh4c" path="res://src/world/interactable_object.gd" id="15_40la5"]
 [ext_resource type="Texture2D" uid="uid://dclyxaru2enrx" path="res://asset/puzzles/kitchen/brickpixelated.png" id="18_40la5"]
 [ext_resource type="PackedScene" uid="uid://jav5qxsjdlby" path="res://asset/3d/kitchen/Fridge.fbx" id="19_eeod0"]
+[ext_resource type="PackedScene" uid="uid://dpe2sbpkdxy68" path="res://asset/3d/kitchen/textures/placemat.fbx" id="20_raqup"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kmyu3"]
 resource_name = "Door.mat"
@@ -306,6 +307,12 @@ texture = ExtResource("18_40la5")
 region_enabled = true
 region_rect = Rect2(41.2025, 6.58603, 160.812, 108.937)
 
+[node name="placemat" parent="." index="10" node_paths=PackedStringArray("mesh") instance=ExtResource("20_raqup")]
+transform = Transform3D(-0.0291898, 1.42082e-08, -0.323053, -0.323053, 5.05726e-09, 0.0291898, 6.31533e-09, 0.324369, 1.36955e-08, 0.300711, 1.32332, -1.81738)
+script = ExtResource("15_40la5")
+puzzle_type = 6
+mesh = NodePath("Cube")
+
 [editable path="Door"]
 [editable path="Door/closet2"]
 [editable path="KitchenNormal"]
@@ -315,3 +322,4 @@ region_rect = Rect2(41.2025, 6.58603, 160.812, 108.937)
 [editable path="KitchenLights"]
 [editable path="KitchenBAD"]
 [editable path="KitchenBAD/Kitchen_Note_Evil"]
+[editable path="placemat"]
