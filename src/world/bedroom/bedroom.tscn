@@ -1,14 +1,14 @@
 [gd_scene load_steps=22 format=3 uid="uid://nudkj8c1bvbk"]
 
-[ext_resource type="PackedScene" uid="uid://b7d183kvilajh" path="res://src/world/room.tscn" id="1_iuh4e"]
-[ext_resource type="Script" uid="uid://61yiknqya65" path="res://src/world/bedroom/bedroom.gd" id="2_rrk0u"]
-[ext_resource type="PackedScene" uid="uid://hqskkei4m5cj" path="res://asset/3d/bedroom/bedroom.fbx" id="3_iskaf"]
-[ext_resource type="PackedScene" uid="uid://ccp4j0edesai1" path="res://src/world/door.tscn" id="4_4jv4r"]
-[ext_resource type="PackedScene" uid="uid://3b6mrakryg8x" path="res://src/world/bedroom/painting_frame.tscn" id="5_5ato0"]
-[ext_resource type="PackedScene" uid="uid://b23g21q88xw2w" path="res://asset/3d/bedroom/painting_frame_big.fbx" id="6_7u2vb"]
-[ext_resource type="Script" uid="uid://dgouba7ideh4c" path="res://src/world/interactable_object.gd" id="7_4jv4r"]
-[ext_resource type="Texture2D" uid="uid://uyxcosdrvp2r" path="res://asset/puzzles/bedroom/BigPaintingNoHand.png" id="7_rrk0u"]
-[ext_resource type="Texture2D" uid="uid://oo33ya8b6o27" path="res://asset/puzzles/bedroom/BigPaintingRedHand.png" id="8_iskaf"]
+[ext_resource type="PackedScene" uid="uid://b7d183kvilajh" path="res://src/world/room.tscn" id="1_oyc66"]
+[ext_resource type="Script" uid="uid://61yiknqya65" path="res://src/world/bedroom/bedroom.gd" id="2_5h70c"]
+[ext_resource type="PackedScene" uid="uid://hqskkei4m5cj" path="res://asset/3d/bedroom/bedroom.fbx" id="4_s0n1g"]
+[ext_resource type="PackedScene" uid="uid://ccp4j0edesai1" path="res://src/world/door.tscn" id="4_y441m"]
+[ext_resource type="PackedScene" uid="uid://3b6mrakryg8x" path="res://src/world/bedroom/painting_frame.tscn" id="5_y441m"]
+[ext_resource type="PackedScene" uid="uid://b23g21q88xw2w" path="res://asset/3d/bedroom/painting_frame_big.fbx" id="6_ll2gp"]
+[ext_resource type="Script" uid="uid://dgouba7ideh4c" path="res://src/world/interactable_object.gd" id="7_mlhbo"]
+[ext_resource type="Texture2D" uid="uid://uyxcosdrvp2r" path="res://asset/puzzles/bedroom/BigPaintingNoHand.png" id="8_vk10u"]
+[ext_resource type="Texture2D" uid="uid://oo33ya8b6o27" path="res://asset/puzzles/bedroom/BigPaintingRedHand.png" id="9_lrqe7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_s0n1g"]
 size = Vector3(0.442383, 6.69659, 5.42529)
@@ -46,8 +46,8 @@ size = Vector3(0.442383, 6.69659, 4.06885)
 [sub_resource type="BoxShape3D" id="BoxShape3D_xgkig"]
 size = Vector3(40.6558, 0.888334, 22.4268)
 
-[node name="Bedroom" instance=ExtResource("1_iuh4e")]
-script = ExtResource("2_rrk0u")
+[node name="Bedroom" instance=ExtResource("1_oyc66")]
+script = ExtResource("2_5h70c")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.199078, 2.88147, -0.186148)
@@ -58,7 +58,7 @@ shadow_blur = 10.0
 omni_range = 5.448
 omni_attenuation = 1.962
 
-[node name="bedroom" parent="." index="1" instance=ExtResource("3_iskaf")]
+[node name="bedroom" parent="." index="1" instance=ExtResource("4_s0n1g")]
 transform = Transform3D(0.52, 0, 0, 0, 0.52, 0, 0, 0, 0.52, 0.232444, 0.101141, -0.239876)
 
 [node name="BEDFRAME" parent="bedroom" index="3"]
@@ -73,7 +73,7 @@ visible = false
 [node name="Exterior_sun" parent="bedroom" index="11"]
 visible = false
 
-[node name="Door" parent="." index="2" instance=ExtResource("4_4jv4r")]
+[node name="Door" parent="." index="2" instance=ExtResource("4_y441m")]
 transform = Transform3D(-1.07974, 0, 9.43939e-08, 0, 1.07974, 0, -9.43939e-08, 0, -1.07974, 3.62756, 1.26949, 1.95033)
 
 [node name="Door_Aesthetic_Rotator" parent="Door" index="0"]
@@ -134,27 +134,27 @@ shape = SubResource("BoxShape3D_xgkig")
 
 [node name="PaintingFrames" type="Node3D" parent="." index="4"]
 
-[node name="PaintingFrame" parent="PaintingFrames" index="0" instance=ExtResource("5_5ato0")]
+[node name="PaintingFrame" parent="PaintingFrames" index="0" instance=ExtResource("5_y441m")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.1838, 2.31471, 3.42587)
 
-[node name="PaintingFrame2" parent="PaintingFrames" index="1" instance=ExtResource("5_5ato0")]
+[node name="PaintingFrame2" parent="PaintingFrames" index="1" instance=ExtResource("5_y441m")]
 transform = Transform3D(-0.00537564, 0, 0.999986, 0, 1, 0, -0.999986, 0, -0.00537564, -3.45453, 2.12837, 2.20002)
 
-[node name="PaintingFrame3" parent="PaintingFrames" index="2" instance=ExtResource("5_5ato0")]
+[node name="PaintingFrame3" parent="PaintingFrames" index="2" instance=ExtResource("5_y441m")]
 transform = Transform3D(0.891394, 0, 0.453228, 0, 1, 0, -0.453228, 0, 0.891394, -2.41288, 2.12837, -2.14022)
 
-[node name="PaintingFrame4" parent="PaintingFrames" index="3" instance=ExtResource("5_5ato0")]
+[node name="PaintingFrame4" parent="PaintingFrames" index="3" instance=ExtResource("5_y441m")]
 transform = Transform3D(-0.999835, 0, 0.0181156, 0, 1, 0, -0.0181156, 0, -0.999835, -2.42328, 1.11482, 3.39395)
 
-[node name="PaintingFrame5" parent="PaintingFrames" index="4" instance=ExtResource("5_5ato0")]
+[node name="PaintingFrame5" parent="PaintingFrames" index="4" instance=ExtResource("5_y441m")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.89099, 2.56731, 3.42587)
 
-[node name="PaintingFrame6" parent="PaintingFrames" index="5" instance=ExtResource("5_5ato0")]
+[node name="PaintingFrame6" parent="PaintingFrames" index="5" instance=ExtResource("5_y441m")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 3.80849, 2.16074, 0.0501369)
 
-[node name="painting_frame_big" parent="." index="5" node_paths=PackedStringArray("mesh") instance=ExtResource("6_7u2vb")]
+[node name="painting_frame_big" parent="." index="5" node_paths=PackedStringArray("mesh") instance=ExtResource("6_ll2gp")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.18832, 1.96206, 3.38896)
-script = ExtResource("7_4jv4r")
+script = ExtResource("7_mlhbo")
 mesh = NodePath("Cube")
 
 [node name="Cube" parent="painting_frame_big" index="0"]
@@ -165,7 +165,7 @@ transform = Transform3D(-8.87487e-08, 0, 2.03033, 0, 2.06404, 0, -2.03033, 0, -8
 visible = false
 modulate = Color(0.718198, 0.686038, 0.697875, 1)
 texture_filter = 0
-texture = ExtResource("7_rrk0u")
+texture = ExtResource("8_vk10u")
 region_enabled = true
 region_rect = Rect2(4.74168, 5.28704, 99.9051, 149.78)
 
@@ -173,7 +173,7 @@ region_rect = Rect2(4.74168, 5.28704, 99.9051, 149.78)
 transform = Transform3D(-8.87487e-08, 0, 2.03033, 0, 2.06404, 0, -2.03033, 0, -8.87487e-08, 0.0230231, 0.707664, 0)
 modulate = Color(0.718198, 0.686038, 0.697875, 1)
 texture_filter = 0
-texture = ExtResource("8_iskaf")
+texture = ExtResource("9_lrqe7")
 region_enabled = true
 region_rect = Rect2(4.74168, 5.28704, 99.9051, 149.78)
 
