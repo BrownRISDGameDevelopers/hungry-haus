@@ -2,20 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c44q16mrfrtxm"
-path.s3tc="res://.godot/imported/HHBATH_NORMALFINAL_4.png-59b17229b69e8e92d4994c88dba89454.s3tc.ctex"
+uid="uid://oo33ya8b6o27"
+path.s3tc="res://.godot/imported/BigPaintingRedHand.png-f7ca8e624fad700e88b278b2c7f23bc1.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={
-"md5": "2d32d37d0a31c9c903a97c574bfd6aa3"
-}
 
 [deps]
 
-source_file="res://asset/3d/bathroom/HHBATH_NORMALFINAL_4.png"
-dest_files=["res://.godot/imported/HHBATH_NORMALFINAL_4.png-59b17229b69e8e92d4994c88dba89454.s3tc.ctex"]
+source_file="res://asset/puzzles/bedroom/BigPaintingRedHand.png"
+dest_files=["res://.godot/imported/BigPaintingRedHand.png-f7ca8e624fad700e88b278b2c7f23bc1.s3tc.ctex"]
 
 [params]
 

@@ -2,6 +2,8 @@ extends Puzzle
 
 class_name BedroomPuzzle
 
+@export var inventory_ui : Sprite2D
+
 
 # Steps:
 # Add an inventory: array of paintings
@@ -9,6 +11,7 @@ var inventory = []
 
 
 func _ready() -> void:
+	inventory_ui.hide()
 	super._ready()
 	room_type = Room.Type.BEDROOM
 	inventory.resize(Painting.Type.NUM_TYPES)
@@ -16,6 +19,10 @@ func _ready() -> void:
 
 func add_to_inventory(pntng : Painting.Type):
 	inventory[pntng] = true
+	if !inventory_ui.visible:
+		inventory_ui.show()
+	elif inventory_ui.frame < 6:
+		inventory_ui.frame += 1
 
 # Painting class: has overlaid sprite sheets: 
 # 1. happy painting

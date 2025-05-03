@@ -2,20 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c44q16mrfrtxm"
-path.s3tc="res://.godot/imported/HHBATH_NORMALFINAL_4.png-59b17229b69e8e92d4994c88dba89454.s3tc.ctex"
+uid="uid://cjeh4d208qqgr"
+path.s3tc="res://.godot/imported/wood_dith_painting.png-bd4d10d24c0aa461e27e5f1080004a1f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={
-"md5": "2d32d37d0a31c9c903a97c574bfd6aa3"
-}
 
 [deps]
 
-source_file="res://asset/3d/bathroom/HHBATH_NORMALFINAL_4.png"
-dest_files=["res://.godot/imported/HHBATH_NORMALFINAL_4.png-59b17229b69e8e92d4994c88dba89454.s3tc.ctex"]
+source_file="res://asset/3d/bedroom/painting_frame_big.fbm/wood_dith_painting.png"
+dest_files=["res://.godot/imported/wood_dith_painting.png-bd4d10d24c0aa461e27e5f1080004a1f.s3tc.ctex"]
 
 [params]
 

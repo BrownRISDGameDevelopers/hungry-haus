@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c44q16mrfrtxm"
-path.s3tc="res://.godot/imported/HHBATH_NORMALFINAL_4.png-59b17229b69e8e92d4994c88dba89454.s3tc.ctex"
+uid="uid://bu56b57ovrufs"
+path.s3tc="res://.godot/imported/painting_frame_big_0.png-0df73e5c892a908bea0289e48e937437.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "2d32d37d0a31c9c903a97c574bfd6aa3"
+"md5": "31936564a019fc012a9431b6639df582"
 }
 
 [deps]
 
-source_file="res://asset/3d/bathroom/HHBATH_NORMALFINAL_4.png"
-dest_files=["res://.godot/imported/HHBATH_NORMALFINAL_4.png-59b17229b69e8e92d4994c88dba89454.s3tc.ctex"]
+source_file="res://asset/3d/bedroom/painting_frame_big_0.png"
+dest_files=["res://.godot/imported/painting_frame_big_0.png-0df73e5c892a908bea0289e48e937437.s3tc.ctex"]
 
 [params]
 
