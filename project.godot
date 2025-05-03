@@ -39,6 +39,8 @@ bedroom_puzzle=""
 puzzles_container=""
 bathroom_puzzle=""
 painting=""
+puzzle=""
+puzzle_container=""
 
 [input]
 
