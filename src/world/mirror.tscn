@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4nm5mrducpvk"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_regku"]
+viewport_path = NodePath("SubViewportContainer/3DViewport/World/Mirror/SubViewport")
+
+[node name="Mirror" type="Sprite3D"]
+texture = SubResource("ViewportTexture_regku")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+
+[node name="CameraWhoseViewIsShownInMirror" type="Camera3D" parent="SubViewport"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
