@@ -49,35 +49,37 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ho8u7")
 
-[node name="PaintingFrame" node_paths=PackedStringArray("paintingSprite", "paintingOverlayGood", "paintingOverlayEvil", "mesh") instance=ExtResource("1_6fi8l")]
+[node name="PaintingFrame" node_paths=PackedStringArray("paintingSprite", "paintingOverlayGood", "paintingOverlayEvil", "paintingsHolder", "mesh") instance=ExtResource("1_6fi8l")]
 script = ExtResource("3_mk1gd")
-paintingSprite = NodePath("PaintingSprite")
-paintingOverlayGood = NodePath("OverlayRotator/OverlayGood")
-paintingOverlayEvil = NodePath("OverlayRotator/OverlayEvil")
+paintingSprite = NodePath("PaintingHolder/PaintingSprite")
+paintingOverlayGood = NodePath("PaintingHolder/OverlayGood")
+paintingOverlayEvil = NodePath("PaintingHolder/OverlayEvil")
+paintingsHolder = NodePath("PaintingHolder")
 mesh = NodePath("Cube")
 
 [node name="Cube" parent="." index="0"]
 transform = Transform3D(-2.34073e-06, 53.5497, 2.34073e-06, 0, -2.34073e-06, 53.5497, 53.5497, 2.34073e-06, 1.02317e-13, 0, 0, 0.0179994)
 mesh = SubResource("ArrayMesh_5tggj")
 
-[node name="PaintingSprite" type="Sprite3D" parent="." index="1"]
-transform = Transform3D(1.90526, -8.3078e-21, -1.16152e-13, 3.60004e-20, 1.90526, 2.09072e-13, 1.16152e-13, 1.39382e-13, 1.90526, -1.33227e-15, 2.22045e-15, 0.0595002)
+[node name="PaintingHolder" type="Node3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.003427)
+
+[node name="PaintingSprite" type="Sprite3D" parent="PaintingHolder" index="0"]
+transform = Transform3D(1.90526, -8.3078e-21, -1.16152e-13, 3.60004e-20, 1.90526, 2.09072e-13, 1.16152e-13, 1.39382e-13, 1.90526, -1.33227e-15, 2.22045e-15, 0.0522175)
+modulate = Color(0.481789, 0.481789, 0.481789, 1)
 texture_filter = 0
 texture = ExtResource("4_53fo5")
 hframes = 2
 vframes = 3
 
-[node name="OverlayRotator" type="Node3D" parent="." index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.003427)
-
-[node name="OverlayGood" type="Sprite3D" parent="OverlayRotator" index="0" groups=["enable_off_blood_vision"]]
+[node name="OverlayGood" type="Sprite3D" parent="PaintingHolder" index="1" groups=["enable_off_blood_vision"]]
 transform = Transform3D(1.90526, -8.3078e-21, -1.16152e-13, 3.60004e-20, 1.90526, 2.09072e-13, 1.16152e-13, 1.39382e-13, 1.90526, -1.33227e-15, 2.22045e-15, 0.0595002)
 texture_filter = 0
 texture = ExtResource("5_11pg3")
 hframes = 2
 vframes = 3
 
-[node name="OverlayEvil" type="Sprite3D" parent="OverlayRotator" index="1" groups=["enable_on_blood_vision"]]
+[node name="OverlayEvil" type="Sprite3D" parent="PaintingHolder" index="2" groups=["enable_on_blood_vision"]]
 transform = Transform3D(1.90526, -8.3078e-21, -1.16152e-13, 3.60004e-20, 1.90526, 2.09072e-13, 1.16152e-13, 1.39382e-13, 1.90526, -1.33227e-15, 2.22045e-15, 0.0595002)
 visible = false
 texture_filter = 0
