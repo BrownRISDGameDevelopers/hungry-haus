@@ -38,6 +38,7 @@ enable_off_blood_vision=""
 bedroom_puzzle=""
 puzzles_container=""
 bathroom_puzzle=""
+painting=""
 
 [input]
 
