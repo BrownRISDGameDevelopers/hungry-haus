@@ -14,6 +14,7 @@ enum Type {
 	BEDROOM_PAINTING,
 	BEDROOM_PADLOCK,
 	BATHROOM_PIPES,
+	KITCHEN_PLACEMAT
 }
 
 @export var puzzle_type : Type
