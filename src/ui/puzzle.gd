@@ -37,6 +37,7 @@ func toggle_puzzle_active():
 		visible = true
 		puzzle_active = true
 		player.open_puzzle()
+		on_open()
 		print("opening puzzle")
 	elif puzzle_active:
 		var tween = Global.safe_tween(self)
@@ -44,6 +45,10 @@ func toggle_puzzle_active():
 		tween.tween_property(self, "visible", false, 0.0)
 		puzzle_active = false
 		player.close_puzzle()
+
+## Overridden for on-open functionality
+func on_open():
+	pass
 
 func complete():
 	if not already_complete: # Can only be completed once
