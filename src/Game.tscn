@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://blna84bj33fox"]
+[gd_scene load_steps=20 format=3 uid="uid://blna84bj33fox"]
 
 [ext_resource type="PackedScene" uid="uid://cmylkhe7l8yw5" path="res://src/world/world.tscn" id="1_kqvf5"]
 [ext_resource type="PackedScene" uid="uid://drhdjb18rwo1i" path="res://src/ui/screen_shaders.tscn" id="2_dbp7n"]
@@ -6,7 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://bfnojvvc0fc2h" path="res://src/ui/bathroom/bathroom_puzzle.tscn" id="3_km1yn"]
 [ext_resource type="PackedScene" uid="uid://ucb4ni385yxx" path="res://src/ui/bedroom/bedroom_puzzle.tscn" id="4_eu8jo"]
 [ext_resource type="Texture2D" uid="uid://cah2eg11nbm47" path="res://asset/puzzles/kitchen/grocery-list-1.png" id="4_rgpsw"]
+[ext_resource type="Script" uid="uid://d08gdlqj02bom" path="res://src/ui/kitchen/kitchen_puzzle.gd" id="4_x2540"]
 [ext_resource type="PackedScene" uid="uid://chg877he58hdh" path="res://src/ui/kitchen/kitchen_puzzle.tscn" id="5_dbp7n"]
+[ext_resource type="Texture2D" uid="uid://dgmcojsrr2bjb" path="res://asset/puzzles/kitchen/grocery-list-2.png" id="6_dlhd6"]
 [ext_resource type="PackedScene" uid="uid://ufmxovknsxku" path="res://src/ui/game_timer.tscn" id="6_eu8jo"]
 
 [sub_resource type="Curve" id="Curve_eu8jo"]
@@ -342,34 +344,57 @@ scale = Vector2(0.76957, 0.76957)
 texture = ExtResource("3_dbp7n")
 hframes = 6
 
-[node name="GoodNote" type="Control" parent="SubViewportContainer/2DViewport"]
+[node name="GoodNote" type="Control" parent="SubViewportContainer/2DViewport" groups=["puzzle"]]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("4_x2540")
+puzzle_type = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="SubViewportContainer/2DViewport/GoodNote"]
 texture_filter = 1
 position = Vector2(161.75, 90.75)
 texture = ExtResource("4_rgpsw")
 
+[node name="BadNote" type="Control" parent="SubViewportContainer/2DViewport" groups=["puzzle"]]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_x2540")
+puzzle_type = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="SubViewportContainer/2DViewport/BadNote"]
+texture_filter = 1
+position = Vector2(161.75, 90.75)
+texture = ExtResource("6_dlhd6")
+
+[node name="KitchenPuzzle" parent="SubViewportContainer/2DViewport" groups=["puzzle"] instance=ExtResource("5_dbp7n")]
+visible = false
+offset_right = -320.0
+offset_bottom = -180.0
+
 [node name="BathroomPuzzle" parent="SubViewportContainer/2DViewport" instance=ExtResource("3_km1yn")]
 visible = false
 offset_right = 0.0
 offset_bottom = 0.0
 
-[node name="KitchenPuzzle" parent="SubViewportContainer/2DViewport" instance=ExtResource("5_dbp7n")]
-visible = false
-offset_right = -320.0
-offset_bottom = -180.0
+[node name="BathroomPuzzleContainer" parent="SubViewportContainer/2DViewport/BathroomPuzzle" index="1" groups=["puzzle"]]
+puzzle_type = 5
 
-[node name="BedroomPuzzle" parent="SubViewportContainer/2DViewport" node_paths=PackedStringArray("inventory_ui") groups=["bedroom_puzzle"] instance=ExtResource("4_eu8jo")]
+[node name="BedroomPuzzle" parent="SubViewportContainer/2DViewport" node_paths=PackedStringArray("inventory_ui") groups=["bedroom_puzzle", "puzzle"] instance=ExtResource("4_eu8jo")]
 visible = false
 offset_right = -320.0
 offset_bottom = -180.0
 inventory_ui = NodePath("../BedroomInventory")
+puzzle_type = 3
 room_type = 1
 force_visible = false
 
@@ -390,3 +415,5 @@ offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[editable path="SubViewportContainer/2DViewport/BathroomPuzzle"]
