@@ -50,47 +50,28 @@ position = Vector2(157, 112)
 [node name="Painting" parent="." index="7" instance=ExtResource("4_lqruy")]
 z_index = 1
 layout_mode = 0
-offset_left = 51.0
-offset_top = 8.0
-offset_right = 101.0
-offset_bottom = 58.0
 
 [node name="Painting2" parent="." index="8" instance=ExtResource("4_lqruy")]
 z_index = 1
 layout_mode = 0
-offset_left = 51.0
-offset_top = 62.0
-offset_right = 101.0
-offset_bottom = 112.0
+type = 1
 
 [node name="Painting3" parent="." index="9" instance=ExtResource("4_lqruy")]
 z_index = 1
 layout_mode = 0
-offset_left = 51.0
-offset_top = 116.0
-offset_right = 101.0
-offset_bottom = 166.0
+type = 2
 
 [node name="Painting4" parent="." index="10" instance=ExtResource("4_lqruy")]
 z_index = 1
 layout_mode = 0
-offset_left = 213.0
-offset_top = 8.0
-offset_right = 263.0
-offset_bottom = 58.0
+type = 3
 
 [node name="Painting5" parent="." index="11" instance=ExtResource("4_lqruy")]
 z_index = 1
 layout_mode = 0
-offset_left = 213.0
-offset_top = 62.0
-offset_right = 263.0
-offset_bottom = 112.0
+type = 4
 
 [node name="Painting6" parent="." index="12" instance=ExtResource("4_lqruy")]
 z_index = 1
 layout_mode = 0
-offset_left = 213.0
-offset_top = 116.0
-offset_right = 263.0
-offset_bottom = 166.0
+type = 5
