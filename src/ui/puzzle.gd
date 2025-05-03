@@ -7,6 +7,17 @@ class_name Puzzle
 signal completed
 #endregion Signals
 
+enum Type {
+	KITCHEN_FRIDGE,
+	KITCHEN_GOOD_NOTE,
+	KITCHEN_BAD_NOTE,
+	BEDROOM_PAINTING,
+	BEDROOM_PADLOCK,
+	BATHROOM_PIPES,
+}
+
+@export var puzzle_type : Type
+
 @export var room_type : Room.Type
 @export var force_visible := false
 
