@@ -17,7 +17,7 @@ var highlighted: bool
 
 
 
-@export var highlightColor: Vector4 = Vector4(1, 1, 0.2, 1)
+@export var highlightColor: Color = Color(1, 1, 0.2, 1)
 @export var highlightSize: float = 1.01
 
 func _ready() -> void:
