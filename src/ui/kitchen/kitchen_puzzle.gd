@@ -31,7 +31,7 @@ const VICTORY_LAYOUT : Array[Array] = [
 ## Only the slide puzzle 
 var eggs_items : Array[SlidePuzzlePiece]
 
-@onready var puzzle_container : Control = %PuzzleContainer
+@export var puzzle_container : Control
 
 @onready var organs : Array = get_tree().get_nodes_in_group("fridge_organ")
 @onready var foods : Array = get_tree().get_nodes_in_group("fridge_food")
@@ -58,6 +58,9 @@ func setup_puzzle():
 
 func get_puzzle_piece(y_position : int, x_position : int):
 	var target_position : Vector2 = Vector2(x_position * GRID_SIZE, y_position * GRID_SIZE)
+
+	if !puzzle_container: puzzle_container = get_tree().get_first_node_in_group("puzzle_container")
+
 	for child in puzzle_container.get_children():
 		if child is not SlidePuzzlePiece:
 			continue

@@ -21,7 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://day0ko7uwhynh" path="res://asset/puzzles/kitchen/left kidney.png" id="18_tptug"]
 [ext_resource type="Texture2D" uid="uid://ckgpjidgkbgx8" path="res://asset/puzzles/kitchen/Intestines.png" id="20_5puoc"]
 
-[node name="KitchenPuzzle" type="Control" groups=["kitchen_puzzle"]]
+[node name="KitchenPuzzle" type="Control" node_paths=PackedStringArray("puzzle_container") groups=["kitchen_puzzle"]]
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
@@ -33,6 +33,7 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(160, 90)
 script = ExtResource("1_i8rvj")
+puzzle_container = NodePath("Screen_Container/PuzzleContainer")
 
 [node name="Screen_Container" type="Control" parent="."]
 anchors_preset = 0
@@ -48,7 +49,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0.2)
 
-[node name="PuzzleContainer" type="Control" parent="Screen_Container"]
+[node name="PuzzleContainer" type="Control" parent="Screen_Container" groups=["puzzle_container"]]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
