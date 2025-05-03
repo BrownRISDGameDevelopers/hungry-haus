@@ -111,6 +111,7 @@ func rotate_clockwise():
 	var tween = Global.safe_tween(sprite_holder)
 	tween.tween_property(sprite_holder, "rotation", lerp_angle(sprite_holder.rotation, goal_rot, 1.0), 0.3)\
 		.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	tween.tween_callback(set_all_paintings_interactable.bind(true))
 	# Cause a check for victory
 	rotated.emit()
 

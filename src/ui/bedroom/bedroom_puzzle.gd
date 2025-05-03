@@ -11,7 +11,8 @@ var inventory = []
 
 
 func _ready() -> void:
-	inventory_ui.hide()
+	if inventory_ui:
+		inventory_ui.hide()
 	super._ready()
 	room_type = Room.Type.BEDROOM
 	inventory.resize(Painting.Type.NUM_TYPES)
