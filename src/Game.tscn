@@ -343,6 +343,7 @@ texture = ExtResource("3_dbp7n")
 hframes = 6
 
 [node name="GoodNote" type="Control" parent="SubViewportContainer/2DViewport"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

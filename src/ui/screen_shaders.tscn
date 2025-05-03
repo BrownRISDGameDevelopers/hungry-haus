@@ -65,7 +65,7 @@ shader_parameter/quantize_size = 5.0
 shader_parameter/handle_scale = false
 shader_parameter/handle_subpixels = true
 
-[node name="ScreenShaders" type="Control"]
+[node name="ScreenShaders" type="Control" groups=["screenshaders"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

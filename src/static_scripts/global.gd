@@ -29,6 +29,5 @@ static func show_3d_outline(meshNode: MeshInstance3D, color: Color, size: float)
 
 static func hide_3d_outline(meshNode: MeshInstance3D):
 	var outlineObj: MeshInstance3D = meshNode.get_node_or_null("_outline")
-	if (!outlineObj):
-		print("Cannot find created outline object on meshNode " + meshNode.name)
-	outlineObj.visible = false
+	if (outlineObj):
+		outlineObj.visible = false
