@@ -24,8 +24,8 @@ func _input(event: InputEvent) -> void:
 		toggle_blood_vision()
 
 func toggle_blood_vision():
-	send_signal_after_delay(not blood_vision_on)
 	if not blood_vision_disabled:
+		send_signal_after_delay(not blood_vision_on)
 		if blood_vision_on:
 			toggle_blood_vision_off()
 		else:
@@ -33,8 +33,8 @@ func toggle_blood_vision():
 
 func disable_blood_vision():
 	if blood_vision_on:
-		send_signal_after_delay(not blood_vision_disabled)
 		toggle_blood_vision()
+		blood_vision_disabled = true
 	else:
 		blood_vision_disabled = true
 	
