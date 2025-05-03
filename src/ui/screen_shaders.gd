@@ -3,7 +3,8 @@ extends Control
 class_name ScreenShaders
 
 
-var blood_vision_on := false
+static var blood_vision_on := false
+static var blood_vision_disabled := false
 var blood_vision_amount := 0.0
 
 @onready var red_shader: ColorRect = %RedShader
@@ -24,10 +25,19 @@ func _input(event: InputEvent) -> void:
 
 func toggle_blood_vision():
 	send_signal_after_delay(not blood_vision_on)
+	if not blood_vision_disabled:
+		if blood_vision_on:
+			toggle_blood_vision_off()
+		else:
+			toggle_blood_vision_on()
+
+func disable_blood_vision():
 	if blood_vision_on:
-		toggle_blood_vision_off()
+		send_signal_after_delay(not blood_vision_disabled)
+		toggle_blood_vision()
 	else:
-		toggle_blood_vision_on()
+		blood_vision_disabled = true
+	
 
 var toggle_blood_vision_on_duration: float = 2.7
 func toggle_blood_vision_on():
