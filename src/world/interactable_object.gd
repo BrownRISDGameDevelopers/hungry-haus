@@ -15,7 +15,6 @@ var highlighted: bool
 
 @export var highlightColor: Color = Color(1, 1, 0.2, 1)
 @export var highlightSize: float = 1.01
-@export var thresh_modifier := 1.0
 
 func _ready() -> void:
 	highlighted = false
@@ -28,13 +27,16 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	# Update highlighting
-	var looked: bool = Player.player.is_looking_at(mesh, thresh_modifier)
-	if highlighted != looked:
+	var looked: bool = Player.player.is_looking_at(mesh)
+	if highlighted != looked and Player.player.can_highlight:
 		if highlighted:
 			Global.hide_3d_outline(mesh)
 		else:
 			Global.show_3d_outline(mesh, highlightColor, highlightSize)
 		highlighted = looked
+	elif highlighted == looked:
+		if not Player.player.can_highlight:
+			Global.hide_3d_outline(mesh)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") && visible && get_parent().visible && highlighted:

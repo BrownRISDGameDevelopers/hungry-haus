@@ -12,6 +12,8 @@ static var player: Player
 var jumping: bool = false
 
 
+
+
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var move_dir: Vector2 # Input direction for movement
@@ -22,12 +24,16 @@ var grav_vel: Vector3 # Gravity velocity
 var jump_vel: Vector3 # Jumping velocity
 
 var can_move: bool = true
+var can_highlight: bool = true
+
+var BloodVision: Node
 
 @onready var camera: Camera3D = $Camera3D
 
 func _ready() -> void:
 	capture_mouse()
 	player = self
+	BloodVision = get_tree().get_nodes_in_group("screenshaders")[0]
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
@@ -38,6 +44,8 @@ func _input(event: InputEvent) -> void:
 
 func _physics_process(delta: float) -> void:
 	velocity = _walk(delta) + _gravity(delta)
+	print_debug(self.camera.rotation)
+	print_debug(self.position)
 	move_and_slide()
 
 func capture_mouse() -> void:
@@ -58,7 +66,7 @@ func _walk(delta: float) -> Vector3:
 	return walk_vel if can_move else Vector3.ZERO
 
 func _gravity(delta: float) -> Vector3:
-	grav_vel = Vector3.ZERO if is_on_floor() else grav_vel.move_toward(Vector3(0, velocity.y - gravity, 0), gravity * delta)
+	grav_vel = Vector3.ZERO if is_on_floor() or not can_move else grav_vel.move_toward(Vector3(0, velocity.y - gravity, 0), gravity * delta)
 	return grav_vel
 
 func open_puzzle():
@@ -84,12 +92,21 @@ func is_looking_at(obj: Node3D, thresh_modifier := 1.0):
 
 func _freeze_n_move():
 	can_move = false
+	can_highlight = false
+	self.set_physics_process(false)
 	var tween = Global.safe_tween(self)
-	tween.tween_property(self.camera, "rotation", Vector3(PI/2, camera.rotation.y, camera.rotation.z), 3).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
-	tween.parallel().tween_property(self, "position", Vector3(self.position.x + 5, self.position.y, self.position.z), 3).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
-	
+	BloodVision.disable_blood_vision()
+	var intermediate_basis = Basis(Vector3(-0.716801, 0.0, 0.697278), Vector3(-0.090391, 0.991562, -0.092922), Vector3(-0.691394, -0.129634, -0.710753))
+	print(global_rotate)
+	tween.tween_property(self.camera, "rotation", Vector3(.13, -2.37, 0), 5).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+	tween.parallel().tween_property(self, "position", Vector3(13.275, 1.043, 7.1736), 5).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
 	#CALL ENDING FUNCTION
 	
+	tween.tween_property(self.camera, "rotation", Vector3(0, -2.37, 0), 2).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+	tween.parallel().tween_property(self, "position", Vector3(13.275, 1.2, 7.1736), 2).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(self, "position", Vector3(13.275, 1.2, 7.1736) -  intermediate_basis * Vector3(0, 0, 0.25), 2).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+
+
 	
 	
 	

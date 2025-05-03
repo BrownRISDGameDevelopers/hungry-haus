@@ -102,7 +102,7 @@ script = ExtResource("3_jvjcq")
 mesh = NodePath("Vanity")
 
 [node name="Vanity" type="MeshInstance3D" parent="Node3D/VanityPuzzle" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.72529e-09, 5.96046e-08)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5097e-06, 5.1681e-05, -4.88758e-06)
 mesh = SubResource("ArrayMesh_g21de")
 skeleton = NodePath("")
 
