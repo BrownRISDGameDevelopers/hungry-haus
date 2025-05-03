@@ -1,4 +1,4 @@
-extends TextureButton
+extends Button
 
 # Painting class: has overlaid sprite sheets: 
 # 1. happy painting
@@ -10,6 +10,8 @@ class_name Painting
 signal sent_to_inv
 
 signal rotated
+
+static var hovered_painting : Painting
 
 enum Rotation {
 	ROT_0,
@@ -46,9 +48,11 @@ var interactable := true
 ## The vector offset from the center at which the mouse originally grabbed the object.
 var mouse_offset : Vector2
 
-@onready var scratches: AnimatedSprite2D = $Scratches
-@onready var numbers: AnimatedSprite2D = $Numbers
+@onready var scratches: AnimatedSprite2D = %Scratches
+@onready var numbers: AnimatedSprite2D = %Numbers
 @onready var hitbox: Area2D = $Hitbox
+@onready var sprite_holder: Node2D = %SpriteHolder
+
 
 ## The minimum distance dragged before a rotation input turns to a drag input.
 const MIN_DRAG_DIST := 10.0
@@ -69,8 +73,11 @@ func hover():
 
 ## On unhover, stop hover animations
 func unhover():
+	#if hovered_painting == self:
 	hovering = false
+	#hovered_painting = null
 	print("unhovered")
+	#z_index = 0
 
 func begin_drag():
 	dragging = true
@@ -78,10 +85,13 @@ func begin_drag():
 
 ## On mouse down, begin holding the piece and capture mouse offset
 func press():
-	holding = true
-	mouse_offset = get_local_mouse_position()
-	root_pos = get_global_mouse_position()
-	print("pressing")
+	if not hovered_painting:
+		holding = true
+		hovered_painting = self
+		set_all_paintings_interactable(false)
+		mouse_offset = get_local_mouse_position()
+		root_pos = get_global_mouse_position()
+		print("pressing")
 
 ## On mouse release, if mouse travelled more than x pixels, drop; otherwise, rotate
 func release():
@@ -98,8 +108,8 @@ func rotate_clockwise():
 	rot_state = ((rot_state + 1) % 4) as Rotation
 	# Rotate visuals to current state using a tween
 	var goal_rot = int(rot_state) * (PI / 2)
-	var tween = Global.safe_tween(self)
-	tween.tween_property(self, "rotation", lerp_angle(rotation, goal_rot, 1.0), 0.3)\
+	var tween = Global.safe_tween(sprite_holder)
+	tween.tween_property(sprite_holder, "rotation", lerp_angle(sprite_holder.rotation, goal_rot, 1.0), 0.3)\
 		.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 	# Cause a check for victory
 	rotated.emit()
@@ -124,6 +134,7 @@ func drop():
 		drop_tween.tween_property(self, "global_position", closest_slot.global_position, 0.3)\
 			.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 		drop_tween.tween_property(self, "interactable", true, 0.0)
+		drop_tween.tween_callback(set_all_paintings_interactable.bind(true))
 		
 		# Tell the slot it has a new painting, swapping the currently held one to inventory
 		var old_painting = closest_slot.remove_painting()
@@ -142,9 +153,14 @@ func drop():
 		drop_tween.tween_property(self, "global_position", inventory_pos, 0.3)\
 			.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 		drop_tween.tween_property(self, "interactable", true, 0.0)
+		drop_tween.tween_callback(set_all_paintings_interactable.bind(true))
 		sent_to_inv.emit()
 
 func _process(delta: float) -> void:
+	if self == hovered_painting:
+		sprite_holder.modulate.a = 0.5
+	else:
+		sprite_holder.modulate.a = 1
 	if holding and not dragging and root_pos and get_global_mouse_position().distance_to(root_pos) > MIN_DRAG_DIST:
 		begin_drag()
 	if dragging:
@@ -157,12 +173,12 @@ func _input(event: InputEvent) -> void:
 		if event.is_action_released("interact"):
 			release()
 
-#func _on_hitbox_mouse_entered() -> void:
-	#hover()
-#
-#func _on_hitbox_mouse_exited() -> void:
-	#unhover()
-	
+func set_all_paintings_interactable(to : bool):
+	for painting : Painting in get_tree().get_nodes_in_group("painting"):
+		if painting != hovered_painting:
+			painting.interactable = to
+	hovered_painting = null
+
 func _on_mouse_entered() -> void:
 	hover()
 
