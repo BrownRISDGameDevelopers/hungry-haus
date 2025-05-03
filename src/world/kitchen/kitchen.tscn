@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://dhlbgrr3xcf5r"]
+[gd_scene load_steps=26 format=4 uid="uid://dhlbgrr3xcf5r"]
 
 [ext_resource type="PackedScene" uid="uid://b7d183kvilajh" path="res://src/world/room.tscn" id="1_vr71u"]
 [ext_resource type="Script" uid="uid://bwh71ad6dglss" path="res://src/world/kitchen/kitchen.gd" id="2_st74x"]
@@ -11,9 +11,12 @@
 [ext_resource type="Texture2D" uid="uid://77410lu0yvs5" path="res://asset/3d/kitchen/textures/Door.mat_Normal.jpg" id="6_yyf5t"]
 [ext_resource type="Texture2D" uid="uid://dq3y0fc00hkhk" path="res://asset/3d/kitchen/BLOODSPLATTERS.png" id="7_2ojf6"]
 [ext_resource type="PackedScene" uid="uid://dowei7cbhw1wm" path="res://asset/3d/kitchen/KitchenLights.fbx" id="7_xj3t0"]
+[ext_resource type="PackedScene" uid="uid://cvl6q5stej0c" path="res://asset/3d/kitchen/Kitchen_Note.fbx" id="9_g5t7q"]
 [ext_resource type="Texture2D" uid="uid://p8l72oh8bk5l" path="res://asset/3d/kitchen/textures/Fridge.mat_BaseColor.jpg" id="12_v4l3e"]
 [ext_resource type="Texture2D" uid="uid://b0yp432obx3tc" path="res://asset/3d/kitchen/textures/Fridge.mat_Emission.jpg" id="13_40la5"]
 [ext_resource type="Texture2D" uid="uid://0mjdp0vtyf8d" path="res://asset/3d/kitchen/textures/Fridge.mat_Normal.jpg" id="14_eeod0"]
+[ext_resource type="PackedScene" uid="uid://dyjlhjnjmay6i" path="res://src/Kitchen_Note_Evil.fbx" id="14_v4l3e"]
+[ext_resource type="Script" uid="uid://dgouba7ideh4c" path="res://src/world/interactable_object.gd" id="15_40la5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kmyu3"]
 resource_name = "Door.mat"
@@ -59,6 +62,12 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_r8lif")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g5t7q"]
+albedo_color = Color(0.370252, 0.318489, 0.322133, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1lk70"]
+albedo_color = Color(0.3535, 0.156528, 0.176293, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6obmc"]
 resource_name = "Fridge.mat"
@@ -129,18 +138,41 @@ skeleton = NodePath("")
 [node name="fridgedoor" parent="KitchenNormal" index="34"]
 visible = false
 
+[node name="plates" parent="KitchenNormal" index="41"]
+transform = Transform3D(9.42872, 0.996822, 6.66215e-09, -1.81073e-16, -1.13025e-06, 0.531561, 0.996822, -9.42871, -6.30158e-08, 2.0103, 0.695538, 0.516802)
+
+[node name="silverware" parent="KitchenNormal" index="42"]
+transform = Transform3D(-0.735197, -0.00274575, -2.13624, -0.0113835, -0.178937, 0.456611, -0.289326, 0.0140174, 5.41036, 1.82246, 0.685918, 0.475864)
+
 [node name="KitchenGOOD" parent="." index="2" groups=["enable_off_blood_vision"] instance=ExtResource("5_2ojf6")]
+
+[node name="GOODNOTE" parent="KitchenGOOD" index="0"]
+visible = false
+material_override = SubResource("StandardMaterial3D_g5t7q")
+
+[node name="Kitchen_Note" parent="KitchenGOOD" index="1" node_paths=PackedStringArray("mesh") instance=ExtResource("9_g5t7q")]
+transform = Transform3D(2.7128e-09, -0.0618667, 0.123928, 0.138513, -6.05457e-09, -6.05457e-09, 8.12136e-09, 0.123928, 0.0618667, -0.768824, 0.780727, 1.15492)
+script = ExtResource("15_40la5")
+mesh = NodePath("Cube")
+highlightSize = 1.26
+
+[node name="Cube_001" parent="KitchenGOOD/Kitchen_Note" index="1"]
+visible = false
 
 [node name="KitchenLights" parent="." index="3" instance=ExtResource("7_xj3t0")]
 
 [node name="Point" parent="KitchenLights" index="0"]
-light_energy = 0.508
+light_energy = 0.158
 
 [node name="Point_001" parent="KitchenLights" index="1"]
-light_energy = 0.508
+light_energy = 0.158
 
 [node name="KitchenBAD" parent="." index="4" groups=["enable_on_blood_vision"] instance=ExtResource("6_03f3n")]
 visible = false
+
+[node name="BADNOTE" parent="KitchenBAD" index="0"]
+visible = false
+material_override = SubResource("StandardMaterial3D_1lk70")
 
 [node name="BLOODSPLATTERS" parent="KitchenBAD" index="1"]
 visible = false
@@ -163,6 +195,12 @@ texture = ExtResource("7_2ojf6")
 region_enabled = true
 region_rect = Rect2(754.066, 82.2101, 229.364, 240.082)
 
+[node name="Kitchen_Note_Evil" parent="KitchenBAD" index="5" node_paths=PackedStringArray("mesh") instance=ExtResource("14_v4l3e")]
+transform = Transform3D(-3.03794e-09, -0.0695, 0.120378, 0.139, -6.07588e-09, 0, 5.26187e-09, 0.120378, 0.0695, -0.758809, 0.780396, 1.14062)
+script = ExtResource("15_40la5")
+mesh = NodePath("Cube")
+highlightSize = 1.25
+
 [node name="fridgedoor" type="MeshInstance3D" parent="." index="5"]
 transform = Transform3D(6.23211e-07, 45.7943, 0, 0, 0, 62.1041, 3.48525, -9.55343e-06, 0, -0.430568, 0.581632, 1.15454)
 mesh = SubResource("ArrayMesh_gaujl")
@@ -172,5 +210,7 @@ skeleton = NodePath("")
 [editable path="Door/closet2"]
 [editable path="KitchenNormal"]
 [editable path="KitchenGOOD"]
+[editable path="KitchenGOOD/Kitchen_Note"]
 [editable path="KitchenLights"]
 [editable path="KitchenBAD"]
+[editable path="KitchenBAD/Kitchen_Note_Evil"]
