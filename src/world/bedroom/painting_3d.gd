@@ -7,6 +7,13 @@ var collected := false
 @export var type : Painting.Type
 
 @export var paintingSprite : Sprite3D
+@export var paintingOverlayGood : Sprite3D
+@export var paintingOverlayEvil : Sprite3D
+
+func _ready():
+	paintingSprite.frame = type
+	paintingOverlayGood.frame = type
+	paintingOverlayEvil.frame = type
 
 func interact() -> void:
 	if puzzle and highlighted and not puzzle.puzzle_active and not collected:
