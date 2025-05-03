@@ -73,14 +73,14 @@ func close_puzzle():
 
 @export var thresh_radians: float = 18/180.0 * 3.1415926
 @export var clipping_distance: float = 3.5
-func is_looking_at(obj: Node3D):
+func is_looking_at(obj: Node3D, thresh_modifier := 1.0):
 	var player_looking : Vector3 = camera.global_transform.basis * Vector3(0, 0, -1)
 	var displacement = obj.global_position - self.global_position
 	var distance_modifier = clipping_distance - displacement.length()
 	if distance_modifier < 0:
 		return false
 	
-	return displacement.angle_to(player_looking) < thresh_radians * (0.6 + 2.4 * distance_modifier / clipping_distance)
+	return displacement.angle_to(player_looking) < thresh_radians * thresh_modifier * (0.6 + 2.4 * distance_modifier / clipping_distance)
 
 func _freeze_n_move():
 	can_move = false
