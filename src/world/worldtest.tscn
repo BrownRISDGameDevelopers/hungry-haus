@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://bp36emxlxtkhg" path="res://src/player/player.tscn" id="2_8xup3"]
 [ext_resource type="PackedScene" uid="uid://cbhixqh442rce" path="res://src/world/bathroom/bathroom.tscn" id="3_cvwy7"]
 [ext_resource type="PackedScene" uid="uid://dhlbgrr3xcf5r" path="res://src/world/kitchen/kitchen.tscn" id="4_3b60e"]
-[ext_resource type="PackedScene" uid="uid://b2ismqwsicjsb" path="res://src/world/bedroom/bedroom.tscn" id="5_63336"]
-[ext_resource type="PackedScene" uid="uid://dyme7ibgsk62e" path="res://src/world/interactable_object.tscn" id="6_cvwy7"]
+[ext_resource type="PackedScene" uid="uid://nudkj8c1bvbk" path="res://src/world/bedroom/bedroom.tscn" id="5_63336"]
+[ext_resource type="PackedScene" uid="uid://cg1n73al25pv1" path="res://src/world/interactable_object.tscn" id="6_cvwy7"]
 
 [sub_resource type="Environment" id="Environment_6fy3g"]
 
