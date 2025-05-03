@@ -9,7 +9,7 @@ static func safe_tween(node : Node) -> Tween:
 	existing_tweens[node] = tween
 	return tween
 
-static func show_3d_outline(meshNode: MeshInstance3D, color: Vector4, size: float):
+static func show_3d_outline(meshNode: MeshInstance3D, color: Color, size: float):
 	var outlineObj: MeshInstance3D = meshNode.get_node_or_null("_outline")
 	if (!outlineObj):
 		outlineObj = MeshInstance3D.new()
@@ -20,6 +20,7 @@ static func show_3d_outline(meshNode: MeshInstance3D, color: Vector4, size: floa
 			#outlineObj.mesh.surface_set_material(i, outlineMat)
 		var outlineMat: Material = preload("res://src/world/outline/outline.tres")
 		outlineObj.mesh = meshNode.mesh.duplicate(true)
+		outlineMat = outlineMat.duplicate()
 		outlineMat.set("shader_parameter/outline_color", color)
 		outlineObj.set_material_override(outlineMat)
 	var scaled_size = 1 + 0.1 * size
