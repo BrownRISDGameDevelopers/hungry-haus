@@ -2,6 +2,8 @@ extends Puzzle
 
 class_name BedroomPuzzle
 
+@export var inventory_ui : Sprite2D
+
 
 # Steps:
 # Add an inventory: array of paintings
@@ -9,6 +11,8 @@ var inventory = []
 
 
 func _ready() -> void:
+	if inventory_ui:
+		inventory_ui.hide()
 	super._ready()
 	room_type = Room.Type.BEDROOM
 	inventory.resize(Painting.Type.NUM_TYPES)
@@ -16,6 +20,16 @@ func _ready() -> void:
 
 func add_to_inventory(pntng : Painting.Type):
 	inventory[pntng] = true
+	if !inventory_ui.visible:
+		inventory_ui.show()
+	elif inventory_ui.frame < 6:
+		inventory_ui.frame += 1
+
+## Upon opening puzzle, make paintings *in inventory* visible
+func on_open():
+	for painting : Painting in get_tree().get_nodes_in_group("painting"):
+		# Reveal painting in puzzle if it's stored in inventory
+		painting.visible = inventory[painting.type]
 
 # Painting class: has overlaid sprite sheets: 
 # 1. happy painting

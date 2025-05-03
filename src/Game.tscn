@@ -1,9 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://blna84bj33fox"]
+[gd_scene load_steps=18 format=3 uid="uid://blna84bj33fox"]
 
 [ext_resource type="PackedScene" uid="uid://cmylkhe7l8yw5" path="res://src/world/world.tscn" id="1_kqvf5"]
 [ext_resource type="PackedScene" uid="uid://drhdjb18rwo1i" path="res://src/ui/screen_shaders.tscn" id="2_dbp7n"]
+[ext_resource type="Texture2D" uid="uid://c5rcmhh7dd4by" path="res://asset/puzzles/bedroom/BedroomInventory-Sheet.png" id="3_dbp7n"]
 [ext_resource type="PackedScene" uid="uid://bfnojvvc0fc2h" path="res://src/ui/bathroom/bathroom_puzzle.tscn" id="3_km1yn"]
 [ext_resource type="PackedScene" uid="uid://ucb4ni385yxx" path="res://src/ui/bedroom/bedroom_puzzle.tscn" id="4_eu8jo"]
+[ext_resource type="Texture2D" uid="uid://cah2eg11nbm47" path="res://asset/puzzles/kitchen/grocery-list-1.png" id="4_rgpsw"]
 [ext_resource type="PackedScene" uid="uid://chg877he58hdh" path="res://src/ui/kitchen/kitchen_puzzle.tscn" id="5_dbp7n"]
 [ext_resource type="PackedScene" uid="uid://ufmxovknsxku" path="res://src/ui/game_timer.tscn" id="6_eu8jo"]
 
@@ -334,6 +336,25 @@ size_2d_override = Vector2i(320, 180)
 size_2d_override_stretch = true
 render_target_update_mode = 4
 
+[node name="BedroomInventory" type="Sprite2D" parent="SubViewportContainer/2DViewport"]
+position = Vector2(23.25, 157.5)
+scale = Vector2(0.76957, 0.76957)
+texture = ExtResource("3_dbp7n")
+hframes = 6
+
+[node name="GoodNote" type="Control" parent="SubViewportContainer/2DViewport"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="SubViewportContainer/2DViewport/GoodNote"]
+texture_filter = 1
+position = Vector2(161.75, 90.75)
+texture = ExtResource("4_rgpsw")
+
 [node name="BathroomPuzzle" parent="SubViewportContainer/2DViewport" instance=ExtResource("3_km1yn")]
 visible = false
 offset_right = 0.0
@@ -344,10 +365,11 @@ visible = false
 offset_right = -320.0
 offset_bottom = -180.0
 
-[node name="BedroomPuzzle" parent="SubViewportContainer/2DViewport" groups=["bedroom_puzzle"] instance=ExtResource("4_eu8jo")]
+[node name="BedroomPuzzle" parent="SubViewportContainer/2DViewport" node_paths=PackedStringArray("inventory_ui") groups=["bedroom_puzzle"] instance=ExtResource("4_eu8jo")]
 visible = false
 offset_right = -320.0
 offset_bottom = -180.0
+inventory_ui = NodePath("../BedroomInventory")
 room_type = 1
 force_visible = false
 
