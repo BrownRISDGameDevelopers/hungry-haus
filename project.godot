@@ -38,10 +38,11 @@ enable_off_blood_vision=""
 bedroom_puzzle=""
 puzzles_container=""
 bathroom_puzzle=""
-screenshaders=""
 painting=""
 puzzle=""
 puzzle_container=""
+screenshaders=""
+bedroom_solved=""
 
 [input]
 
