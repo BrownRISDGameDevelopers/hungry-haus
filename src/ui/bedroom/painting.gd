@@ -23,15 +23,17 @@ enum Rotation {
 var rot_state : Rotation = Rotation.ROT_0
 
 enum Type {
-	IMG_0,
-	IMG_1,
-	IMG_2,
-	IMG_3,
-	IMG_4,
-	IMG_5,
+	MOVE_IN,
+	CLEANING,
+	FEAST,
+	PARTY,
+	PRESENT,
+	HAPPY,
 	NUM_TYPES
 	# TODO add names of each painting
 }
+
+@export var type : Type
 
 ## True when the mouse is inside of the painting
 var hovering := false
@@ -73,11 +75,8 @@ func hover():
 
 ## On unhover, stop hover animations
 func unhover():
-	#if hovered_painting == self:
 	hovering = false
-	#hovered_painting = null
 	print("unhovered")
-	#z_index = 0
 
 func begin_drag():
 	dragging = true
