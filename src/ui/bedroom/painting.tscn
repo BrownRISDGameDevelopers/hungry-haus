@@ -8,8 +8,11 @@ size = Vector2(50, 50)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tt5e4"]
 size = Vector2(50, 50)
 
-[node name="Painting" type="Sprite2D"]
-texture = SubResource("PlaceholderTexture2D_tt5e4")
+[node name="Painting" type="TextureButton"]
+offset_right = 50.0
+offset_bottom = 50.0
+pivot_offset = Vector2(25, 25)
+texture_normal = SubResource("PlaceholderTexture2D_tt5e4")
 script = ExtResource("1_tt5e4")
 
 [node name="Scratches" type="AnimatedSprite2D" parent="."]
@@ -19,7 +22,10 @@ script = ExtResource("1_tt5e4")
 [node name="Hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(25, 25)
 shape = SubResource("RectangleShape2D_tt5e4")
 
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="mouse_entered" from="Hitbox" to="." method="_on_hitbox_mouse_entered"]
 [connection signal="mouse_exited" from="Hitbox" to="." method="_on_hitbox_mouse_exited"]

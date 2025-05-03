@@ -217,7 +217,6 @@ func check_victory():
 func show_victory():
 	var tween = Global.safe_tween(self)
 	mouse_filter = Control.MOUSE_FILTER_IGNORE # Don't let user close the puzzle
-	# TODO make sure puzzle cant be closed early
 	tween.tween_property(self, "scale", Vector2(1.05, 1.05), 1.0).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
 	tween.parallel().tween_property(self, "modulate", Color(1.0, 0.5, 0.5), 3.5).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
 	for i in range(len(organs)):

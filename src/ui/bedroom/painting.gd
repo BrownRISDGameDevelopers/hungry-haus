@@ -1,4 +1,4 @@
-extends Sprite2D
+extends TextureButton
 
 # Painting class: has overlaid sprite sheets: 
 # 1. happy painting
@@ -157,8 +157,14 @@ func _input(event: InputEvent) -> void:
 		if event.is_action_released("interact"):
 			release()
 
-func _on_hitbox_mouse_entered() -> void:
+#func _on_hitbox_mouse_entered() -> void:
+	#hover()
+#
+#func _on_hitbox_mouse_exited() -> void:
+	#unhover()
+	
+func _on_mouse_entered() -> void:
 	hover()
 
-func _on_hitbox_mouse_exited() -> void:
+func _on_mouse_exited() -> void:
 	unhover()
