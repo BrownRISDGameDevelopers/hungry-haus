@@ -1,8 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://chg877he58hdh"]
+[gd_scene load_steps=23 format=3 uid="uid://chg877he58hdh"]
 
 [ext_resource type="Script" uid="uid://d08gdlqj02bom" path="res://src/ui/kitchen/kitchen_puzzle.gd" id="1_i8rvj"]
+[ext_resource type="Texture2D" uid="uid://cfsii7dcganbc" path="res://asset/puzzles/kitchen/kitchen-puzzle-bg-1.png" id="2_12o7e"]
 [ext_resource type="PackedScene" uid="uid://dhsg5uesdkvql" path="res://src/ui/kitchen/slide_puzzle_piece.tscn" id="2_f5xa7"]
 [ext_resource type="Texture2D" uid="uid://dbbuxa7snkyti" path="res://asset/puzzles/kitchen/haus_jello.png" id="3_vttc1"]
+[ext_resource type="Texture2D" uid="uid://dy34ev2xwr1qv" path="res://asset/puzzles/kitchen/kitchen-puzzle-bg-2.png" id="3_xb32w"]
 [ext_resource type="Texture2D" uid="uid://bnwyj5uyi7lnh" path="res://asset/puzzles/kitchen/brain.png" id="4_04p5n"]
 [ext_resource type="Texture2D" uid="uid://dpglktom1n676" path="res://asset/puzzles/kitchen/haus_orange-juice.png" id="4_umncn"]
 [ext_resource type="Texture2D" uid="uid://24ksfbkhv37d" path="res://asset/puzzles/kitchen/haus_produce.png" id="5_xdyl4"]
@@ -48,6 +50,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0.2)
+
+[node name="GoodBG" type="TextureRect" parent="Screen_Container"]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 180.0
+texture = ExtResource("2_12o7e")
+
+[node name="EvilBG" type="TextureRect" parent="Screen_Container"]
+visible = false
+offset_right = 320.0
+offset_bottom = 180.0
+texture = ExtResource("3_xb32w")
 
 [node name="PuzzleContainer" type="Control" parent="Screen_Container" groups=["puzzle_container"]]
 unique_name_in_owner = true
