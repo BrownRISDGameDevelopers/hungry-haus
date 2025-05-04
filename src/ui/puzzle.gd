@@ -14,6 +14,7 @@ enum Type {
 	BEDROOM_PAINTING,
 	BEDROOM_PADLOCK,
 	BATHROOM_PIPES,
+	KITCHEN_PLACEMAT
 }
 
 @export var puzzle_type : Type
@@ -39,7 +40,11 @@ func _ready():
 
 func _input(event):
 	if event.is_action_pressed("dev_interact"):
-		toggle_puzzle_active()
+		var tween = Global.safe_tween(self)
+		tween.tween_property(self, "modulate", COLOR_TRANSPARENT, APPEAR_DURATION_SEC)
+		tween.tween_property(self, "visible", false, 0.0)
+		puzzle_active = false
+		player.close_puzzle()
 
 func toggle_puzzle_active():
 	if not puzzle_active and room_type == GlobalState.current_room:
@@ -57,6 +62,16 @@ func toggle_puzzle_active():
 		puzzle_active = false
 		player.close_puzzle()
 
+
+func toggle_puzzle_off():
+	if puzzle_active:
+		var tween = Global.safe_tween(self)
+		tween.tween_property(self, "modulate", COLOR_TRANSPARENT, APPEAR_DURATION_SEC)
+		tween.tween_property(self, "visible", false, 0.0)
+		puzzle_active = false
+		player.close_puzzle()
+	
+	
 ## Overridden for on-open functionality
 func on_open():
 	pass

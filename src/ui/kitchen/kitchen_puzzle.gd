@@ -31,7 +31,9 @@ const VICTORY_LAYOUT : Array[Array] = [
 ## Only the slide puzzle 
 var eggs_items : Array[SlidePuzzlePiece]
 
-@onready var puzzle_container : Control = %PuzzleContainer
+@export var solved_bg : TextureRect
+
+@export var puzzle_container : Control
 
 @onready var organs : Array = get_tree().get_nodes_in_group("fridge_organ")
 @onready var foods : Array = get_tree().get_nodes_in_group("fridge_food")
@@ -58,6 +60,9 @@ func setup_puzzle():
 
 func get_puzzle_piece(y_position : int, x_position : int):
 	var target_position : Vector2 = Vector2(x_position * GRID_SIZE, y_position * GRID_SIZE)
+
+	if !puzzle_container: puzzle_container = get_tree().get_first_node_in_group("puzzle_container")
+
 	for child in puzzle_container.get_children():
 		if child is not SlidePuzzlePiece:
 			continue
@@ -208,17 +213,25 @@ func check_victory():
 		for j in range(NUM_COLUMNS):
 			var type = FridgeItem.NONE if not puzzle_array[i][j] else puzzle_array[i][j].type
 			if type != VICTORY_LAYOUT[i][j]:
-				# print("not victory")
-				return false
+				match type:
+					FridgeItem.PRODUCE: if VICTORY_LAYOUT[i][j] != FridgeItem.ORANGE_JUICE: return false
+					FridgeItem.ORANGE_JUICE: if VICTORY_LAYOUT[i][j] != FridgeItem.PRODUCE: return false
+					FridgeItem.MILK: if VICTORY_LAYOUT[i][j] != FridgeItem.BAKING_SODA: return false
+					FridgeItem.BAKING_SODA: if VICTORY_LAYOUT[i][j] != FridgeItem.MILK: return false
+					_:
+						return false
 	show_victory()
 	complete()
+	if solved_bg:
+		var tween = Global.safe_tween(solved_bg)
+		tween.tween_property(solved_bg, "modulate", Color.WHITE, 0.8)
 	return true
 
 func show_victory():
 	var tween = Global.safe_tween(self)
 	mouse_filter = Control.MOUSE_FILTER_IGNORE # Don't let user close the puzzle
 	tween.tween_property(self, "scale", Vector2(1.05, 1.05), 1.0).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
-	tween.parallel().tween_property(self, "modulate", Color(1.0, 0.5, 0.5), 3.5).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
+	tween.parallel().tween_property(self, "modulate", Color(1.0, 0.8, 0.8), 3.5).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
 	for i in range(len(organs)):
 		var organ : TextureRect = organs[i]
 		var food : TextureButton = foods[i]
@@ -228,6 +241,7 @@ func show_victory():
 		tween.parallel().tween_property(organ, "modulate", COLOR_VISIBLE, 0.25).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
 		tween.parallel().tween_property(food, "self_modulate", COLOR_TRANSPARENT, 0.25).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
 	tween.tween_callback(toggle_puzzle_active) 
+	SfxPlayer._play("PuzzleComplete1")
 
 # Get the eggs
 func get_eggs():
@@ -244,3 +258,11 @@ func get_other_egg_piece(first_egg_piece : SlidePuzzlePiece):
 	for egg in eggs_items:
 		if egg != first_egg_piece:
 			return egg
+
+
+func _on_x_button_pressed() -> void:
+	toggle_puzzle_off()
+
+#func toggle_puzzle_active():
+	#if !puzzle_active: SfxPlayer._play("FridgeOpen")
+	#super.toggle_puzzle_active()

@@ -51,6 +51,7 @@ func _on_button_up():
 	activePiece = false
 	button_released_signal.emit(self, moveDirection)
 	moveDirection = Vector2i.ZERO
+	SfxPlayer._play("FridgeMoveItem")
 
 func _physics_process(_delta):
 	if (activePiece):

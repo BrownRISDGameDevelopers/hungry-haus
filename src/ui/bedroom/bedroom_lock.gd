@@ -4,24 +4,29 @@ class_name BedroomLock
 
 const TRANS_RED = Color(1, 0, 0, 0)
 func _ready():
-	$submit.pressed.connect(_submit)
-	modulate = Color(1,1,1,1)
+	super._ready()
+	for child in [$LockButton, $LockButton2, $LockButton3, $LockButton4]:
+		child.updated.connect(_submit)
 
 func _submit():
-	var combo = $HBoxContainer/LockButton.getVal() + $HBoxContainer/LockButton2.getVal() + $HBoxContainer/LockButton3.getVal() + $HBoxContainer/LockButton4.getVal() + $HBoxContainer/LockButton5.getVal()
-	if combo == "12345":
+	var combo = $LockButton.getVal() + $LockButton2.getVal() + $LockButton3.getVal() + $LockButton4.getVal() 
+	if combo == "1138":
 		print("Success!")
-		$status_overlay.modulate = Color(0, 1, 0)
-		Global.safe_tween($status_overlay).tween_property($status_overlay, "modulate", Color(0, 1, 0, 0) , APPEAR_DURATION_SEC)
-		$HBoxContainer/LockButton.disabled = true
-		$HBoxContainer/LockButton2.disabled = true
-		$HBoxContainer/LockButton3.disabled = true
-		$HBoxContainer/LockButton4.disabled = true
-		$HBoxContainer/LockButton5.disabled = true
-		$submit.disabled = true
+		$LockButton.disabled = true
+		$LockButton2.disabled = true
+		$LockButton3.disabled = true
+		$LockButton4.disabled = true
+		show_victory()
 		complete()
-	else:
-		$status_overlay.modulate = Color(1, 0, 0)
-		
-		Global.safe_tween($status_overlay).tween_property($status_overlay, "modulate", TRANS_RED , APPEAR_DURATION_SEC)
-		
+
+
+func show_victory():
+	var tween = Global.safe_tween(self)
+	mouse_filter = Control.MOUSE_FILTER_IGNORE # Don't let user close the puzzle
+	tween.tween_property(self, "scale", Vector2(1.05, 1.05), 1.0).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
+	tween.parallel().tween_property(self, "modulate", Color(1.0, 0.8, 0.8), 3.5).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
+	tween.chain().tween_callback(toggle_puzzle_active) 
+
+
+func _on_x_button_pressed() -> void:
+	toggle_puzzle_off()

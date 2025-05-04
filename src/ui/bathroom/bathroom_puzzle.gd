@@ -10,12 +10,13 @@ func _ready() -> void:
 	super._ready()
 	room_type = Room.Type.BATHROOM
 	# Populate pipe_pieces
-	for child in get_children():
-		if child is PipePuzzlePiece:
-			pipe_pieces.append(child)
-			child.rotated.connect(check_victory)
-			child.pivot_offset = Vector2(GRID_SIZE/2, GRID_SIZE/2)
-	scramble_pieces()
+	for parent in get_children():
+		for child in parent.get_children():
+			if child is PipePuzzlePiece:
+				pipe_pieces.append(child)
+				child.rotated.connect(check_victory)
+				#child.pivot_offset = Vector2(GRID_SIZE/2, GRID_SIZE/2)
+	#scramble_pieces()
 
 func scramble_pieces():
 	for pipe : PipePuzzlePiece in pipe_pieces:
@@ -26,13 +27,32 @@ func scramble_pieces():
 ## If so, disables all buttons.
 func check_victory():
 	for pipe : PipePuzzlePiece in pipe_pieces:
-		if pipe.rot_state != PipePuzzlePiece.WINNING_ROTATION:
-			return false
-	print("victory royale")
-	
-	
-	
-	
+		if pipe.isStraight:
+			print("straight pipe piece")
+			if pipe.rot_state % 2 != pipe.winning_rotation % 2:
+				return false
+		else:
+			if pipe.rot_state != pipe.winning_rotation:
+				return false
+	show_victory()
 	return true
 
-# func _unhandled_input(event):
+func show_victory():
+	var tween = Global.safe_tween(self)
+	mouse_filter = Control.MOUSE_FILTER_IGNORE # Don't let user close the puzzle
+	tween.tween_property(self, "scale", Vector2(1.05, 1.05), 1.0).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
+	tween.parallel().tween_property(self, "modulate", Color(1.0, 0.5, 0.5), 2.0).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
+	tween.tween_callback(toggle_puzzle_active)
+	var tween2 = create_tween()
+	tween2.tween_interval(9.1)
+	tween2.tween_callback(IntroCutscene.inst.black_screen)
+	tween2.tween_interval(2.0)
+	tween2.tween_callback(get_tree().change_scene_to_file.bind("res://src/Screens/Menu.tscn"))
+	Player.player._freeze_n_move()
+	SfxPlayer._play("PuzzleComplete3")
+	SfxPlayer.stop("BGMusic")
+	GameTimer.inst.stop()
+
+
+func _on_x_button_pressed() -> void:
+	toggle_puzzle_off()

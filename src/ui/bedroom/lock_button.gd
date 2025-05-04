@@ -1,5 +1,7 @@
 extends Button
 
+signal updated
+
 var val = 0
 
 func _ready():
@@ -9,6 +11,7 @@ func incr():
 	val+=1
 	val%=10
 	self.text = str(val)
+	updated.emit()
 
 func getVal():
 	return str(val)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://nudkj8c1bvbk"]
+[gd_scene load_steps=26 format=3 uid="uid://nudkj8c1bvbk"]
 
 [ext_resource type="PackedScene" uid="uid://b7d183kvilajh" path="res://src/world/room.tscn" id="1_oyc66"]
 [ext_resource type="Script" uid="uid://61yiknqya65" path="res://src/world/bedroom/bedroom.gd" id="2_5h70c"]
@@ -7,8 +7,14 @@
 [ext_resource type="PackedScene" uid="uid://3b6mrakryg8x" path="res://src/world/bedroom/painting_frame.tscn" id="5_y441m"]
 [ext_resource type="PackedScene" uid="uid://b23g21q88xw2w" path="res://asset/3d/bedroom/painting_frame_big.fbx" id="6_ll2gp"]
 [ext_resource type="Script" uid="uid://dgouba7ideh4c" path="res://src/world/interactable_object.gd" id="7_mlhbo"]
-[ext_resource type="Texture2D" uid="uid://uyxcosdrvp2r" path="res://asset/puzzles/bedroom/BigPaintingNoHand.png" id="8_vk10u"]
+[ext_resource type="Texture2D" uid="uid://uyxcosdrvp2r" path="res://asset/puzzles/bedroom/BigPaintingNoHand.png" id="8_lrqe7"]
+[ext_resource type="Texture2D" uid="uid://f4cgfc220gc7" path="res://asset/puzzles/bedroom/Paintings_Sheet_Base.png" id="8_mlhbo"]
 [ext_resource type="Texture2D" uid="uid://oo33ya8b6o27" path="res://asset/puzzles/bedroom/BigPaintingRedHand.png" id="9_lrqe7"]
+[ext_resource type="Texture2D" uid="uid://cofbe6vxi1rdg" path="res://asset/puzzles/bedroom/Painting_Sheet_Overlay_Evil.png" id="9_vk10u"]
+[ext_resource type="PackedScene" uid="uid://woltie6y4gmu" path="res://asset/3d/bedroom/HH_BED_ChainAndLock.fbx" id="11_vk10u"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vk10u"]
+albedo_color = Color(0.105408, 0.0194991, 0.00158983, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_s0n1g"]
 size = Vector3(0.442383, 6.69659, 5.42529)
@@ -52,7 +58,7 @@ script = ExtResource("2_5h70c")
 [node name="OmniLight3D" type="OmniLight3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.199078, 2.88147, -0.186148)
 light_color = Color(1, 0.901961, 0.784314, 1)
-light_energy = 4.886
+light_energy = 1.581
 shadow_enabled = true
 shadow_blur = 10.0
 omni_range = 5.448
@@ -60,6 +66,12 @@ omni_attenuation = 1.962
 
 [node name="bedroom" parent="." index="1" instance=ExtResource("4_s0n1g")]
 transform = Transform3D(0.52, 0, 0, 0, 0.52, 0, 0, 0, 0.52, 0.232444, 0.101141, -0.239876)
+
+[node name="ARMCHAIR_Left" parent="bedroom" index="0"]
+material_override = SubResource("StandardMaterial3D_vk10u")
+
+[node name="ARMCHAIR_Right" parent="bedroom" index="1"]
+material_override = SubResource("StandardMaterial3D_vk10u")
 
 [node name="BEDFRAME" parent="bedroom" index="3"]
 transform = Transform3D(0.025, 0, 0, 0, -4.17233e-09, -0.002, 0, 0.035, -2.38419e-10, 0.0466554, 0.679309, 4.89467)
@@ -73,8 +85,9 @@ visible = false
 [node name="Exterior_sun" parent="bedroom" index="11"]
 visible = false
 
-[node name="Door" parent="." index="2" instance=ExtResource("4_y441m")]
+[node name="Door" parent="." index="2" node_paths=PackedStringArray("lock") instance=ExtResource("4_y441m")]
 transform = Transform3D(-1.07974, 0, 9.43939e-08, 0, 1.07974, 0, -9.43939e-08, 0, -1.07974, 3.62756, 1.26949, 1.95033)
+lock = NodePath("../HH_BED_ChainAndLock")
 
 [node name="Door_Aesthetic_Rotator" parent="Door" index="0"]
 visible = false
@@ -136,21 +149,26 @@ shape = SubResource("BoxShape3D_xgkig")
 
 [node name="PaintingFrame" parent="PaintingFrames" index="0" instance=ExtResource("5_y441m")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.1838, 2.31471, 3.42587)
+type = 3
 
 [node name="PaintingFrame2" parent="PaintingFrames" index="1" instance=ExtResource("5_y441m")]
-transform = Transform3D(-0.00537564, 0, 0.999986, 0, 1, 0, -0.999986, 0, -0.00537564, -3.45453, 2.12837, 2.20002)
+transform = Transform3D(-0.00537564, 0, 0.999986, 0, 1, 0, -0.999986, 0, -0.00537564, -3.45453, 1.80955, 1.91873)
+type = 1
 
 [node name="PaintingFrame3" parent="PaintingFrames" index="2" instance=ExtResource("5_y441m")]
-transform = Transform3D(0.891394, 0, 0.453228, 0, 1, 0, -0.453228, 0, 0.891394, -2.41288, 2.12837, -2.14022)
+transform = Transform3D(0.891394, 0, 0.453228, 0, 1, 0, -0.453228, 0, 0.891394, -2.63938, 2.12837, -1.99459)
 
 [node name="PaintingFrame4" parent="PaintingFrames" index="3" instance=ExtResource("5_y441m")]
-transform = Transform3D(-0.999835, 0, 0.0181156, 0, 1, 0, -0.0181156, 0, -0.999835, -2.42328, 1.11482, 3.39395)
+transform = Transform3D(0.900424, 0, -0.435011, 0, 1, 0, 0.435011, 0, 0.900424, 2.37674, 2.41841, -3.20729)
+type = 5
 
 [node name="PaintingFrame5" parent="PaintingFrames" index="4" instance=ExtResource("5_y441m")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.89099, 2.56731, 3.42587)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.11762, 2.26218, 3.42587)
+type = 2
 
 [node name="PaintingFrame6" parent="PaintingFrames" index="5" instance=ExtResource("5_y441m")]
-transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 3.80849, 2.16074, 0.0501369)
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 3.80849, 2.12323, -0.760484)
+type = 4
 
 [node name="painting_frame_big" parent="." index="5" node_paths=PackedStringArray("mesh") instance=ExtResource("6_ll2gp")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.18832, 1.96206, 3.38896)
@@ -160,24 +178,49 @@ mesh = NodePath("Cube")
 [node name="Cube" parent="painting_frame_big" index="0"]
 transform = Transform3D(53.55, 0, 0, 0, -2.34074e-06, 53.55, 0, -53.55, -2.34074e-06, 0, 0, 0)
 
-[node name="BG_Good" type="Sprite3D" parent="painting_frame_big" index="1"]
-transform = Transform3D(-8.87487e-08, 0, 2.03033, 0, 2.06404, 0, -2.03033, 0, -8.87487e-08, 0.0230231, 0.707664, 0)
-visible = false
+[node name="BG_Goo2" type="Sprite3D" parent="painting_frame_big" index="1"]
+transform = Transform3D(-8.87487e-08, 0, 2.03033, 0, 2.06404, 0, -2.03033, 0, -8.87487e-08, 0.0228381, 0.707664, 0)
 modulate = Color(0.718198, 0.686038, 0.697875, 1)
 texture_filter = 0
-texture = ExtResource("8_vk10u")
+texture = ExtResource("8_lrqe7")
 region_enabled = true
 region_rect = Rect2(4.74168, 5.28704, 99.9051, 149.78)
 
-[node name="BG_Evil" type="Sprite3D" parent="painting_frame_big" index="2"]
-transform = Transform3D(-8.87487e-08, 0, 2.03033, 0, 2.06404, 0, -2.03033, 0, -8.87487e-08, 0.0230231, 0.707664, 0)
+[node name="BG_Goo" type="Sprite3D" parent="painting_frame_big" index="2" groups=["enable_on_blood_vision"]]
+transform = Transform3D(-8.87487e-08, 0, 2.03033, 0, 2.06404, 0, -2.03033, 0, -8.87487e-08, 0.0317478, 0.707664, 0)
+visible = false
 modulate = Color(0.718198, 0.686038, 0.697875, 1)
 texture_filter = 0
 texture = ExtResource("9_lrqe7")
 region_enabled = true
 region_rect = Rect2(4.74168, 5.28704, 99.9051, 149.78)
 
+[node name="Painting_Solution" type="Node3D" parent="painting_frame_big" index="3" groups=["bedroom_solved"]]
+transform = Transform3D(-8.87487e-08, 0, 2.03033, 0, 2.06404, 0, -2.03033, 0, -8.87487e-08, 0.025568, 0.707664, 0)
+visible = false
+
+[node name="BG_Solved" type="Sprite3D" parent="painting_frame_big/Painting_Solution" index="0"]
+transform = Transform3D(1, 0, -2.84217e-14, 0, 1, 0, 2.84217e-14, 0, 1, 0, 0, 0.00550497)
+modulate = Color(0.718198, 0.686038, 0.697875, 1)
+texture_filter = 0
+texture = ExtResource("8_mlhbo")
+region_rect = Rect2(4.74168, 5.28704, 99.9051, 149.78)
+
+[node name="BG_Solved2" type="Sprite3D" parent="painting_frame_big/Painting_Solution" index="1"]
+transform = Transform3D(1, 0, -2.84217e-14, 0, 1, 0, 2.84217e-14, 0, 1, 0, 0, 0.00761569)
+modulate = Color(0.718198, 0.686038, 0.697875, 1)
+texture_filter = 0
+texture = ExtResource("9_vk10u")
+region_rect = Rect2(4.74168, 5.28704, 99.9051, 149.78)
+
+[node name="HH_BED_ChainAndLock" parent="." index="6" node_paths=PackedStringArray("mesh") instance=ExtResource("11_vk10u")]
+transform = Transform3D(-1.88786e-07, 0, -4.31893, 0, 4.31893, 0, 4.31893, 0, -1.88786e-07, 3.2288, 0.736758, 2.00265)
+script = ExtResource("7_mlhbo")
+puzzle_type = 4
+mesh = NodePath("Padlock_Locked")
+
 [editable path="bedroom"]
 [editable path="Door"]
 [editable path="Door/closet2"]
 [editable path="painting_frame_big"]
+[editable path="HH_BED_ChainAndLock"]

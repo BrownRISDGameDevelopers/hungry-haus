@@ -15,9 +15,25 @@ enum Rotation {
 }
 
 # Unrotated pipes will be correctly connected
-const WINNING_ROTATION = Rotation.ROT_0 
+var winning_rotation : Rotation
 
-var rot_state : Rotation = Rotation.ROT_0
+var rot_state : Rotation
+
+@export var isStraight : bool = false
+
+func _ready():
+	if not pressed.is_connected(_on_pressed):
+		pressed.connect(_on_pressed)
+	
+	if rotation < 0:
+		rotation += TAU
+	rot_state = int((rotation + 0.01)/(PI/2)) % 4
+	
+	winning_rotation = rot_state
+	
+	for i in range(randi_range(1,3)):
+		rotate_clockwise()
+	
 
 ## Rotates the piece, changing its rotation state. Called on click
 func rotate_clockwise():

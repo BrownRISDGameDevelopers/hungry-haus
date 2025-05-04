@@ -1,9 +1,31 @@
-[gd_scene load_steps=4 format=3 uid="uid://737hpmn1celn"]
+[gd_scene load_steps=17 format=3 uid="uid://737hpmn1celn"]
 
 [ext_resource type="Script" uid="uid://dinjn1qn8qn6b" path="res://src/ui/bedroom/painting.gd" id="1_tt5e4"]
+[ext_resource type="Texture2D" uid="uid://f4cgfc220gc7" path="res://asset/puzzles/bedroom/Paintings_Sheet_Base.png" id="2_yrf0y"]
+[ext_resource type="Texture2D" uid="uid://ds6wn1n40vq67" path="res://asset/puzzles/bedroom/Painting_Sheet_Overlay_Good.png" id="3_tlwv2"]
+[ext_resource type="Texture2D" uid="uid://cofbe6vxi1rdg" path="res://asset/puzzles/bedroom/Painting_Sheet_Overlay_Evil.png" id="3_uhkb3"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_l7hln"]
-size = Vector2(50, 50)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uhkb3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tlwv2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c3iu2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_54ui6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_24evy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dddg6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6jxak"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pfvj6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uyk4r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eetbf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nj0xn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tt5e4"]
 size = Vector2(50, 50)
@@ -15,6 +37,17 @@ offset_bottom = 50.0
 pivot_offset = Vector2(25, 25)
 mouse_filter = 1
 mouse_default_cursor_shape = 6
+theme_override_styles/focus = SubResource("StyleBoxEmpty_uhkb3")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_tlwv2")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_c3iu2")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_54ui6")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_24evy")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_dddg6")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_6jxak")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_pfvj6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_uyk4r")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_eetbf")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_nj0xn")
 flat = true
 script = ExtResource("1_tt5e4")
 
@@ -23,15 +56,21 @@ unique_name_in_owner = true
 position = Vector2(25, 25)
 
 [node name="PaintingSprite" type="Sprite2D" parent="SpriteHolder"]
-texture = SubResource("PlaceholderTexture2D_l7hln")
+texture = ExtResource("2_yrf0y")
+hframes = 2
+vframes = 3
 
-[node name="Scratches" type="AnimatedSprite2D" parent="SpriteHolder"]
+[node name="Scratches" type="Sprite2D" parent="SpriteHolder" groups=["2d_normal_vision"]]
 unique_name_in_owner = true
-position = Vector2(-25, -25)
+texture = ExtResource("3_tlwv2")
+hframes = 2
+vframes = 3
 
-[node name="Numbers" type="AnimatedSprite2D" parent="SpriteHolder"]
+[node name="Numbers" type="Sprite2D" parent="SpriteHolder" groups=["2d_blood_vision"]]
 unique_name_in_owner = true
-position = Vector2(-25, -25)
+texture = ExtResource("3_uhkb3")
+hframes = 2
+vframes = 3
 
 [node name="Hitbox" type="Area2D" parent="."]
 

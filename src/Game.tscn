@@ -1,13 +1,24 @@
-[gd_scene load_steps=18 format=3 uid="uid://blna84bj33fox"]
+[gd_scene load_steps=29 format=3 uid="uid://blna84bj33fox"]
 
 [ext_resource type="PackedScene" uid="uid://cmylkhe7l8yw5" path="res://src/world/world.tscn" id="1_kqvf5"]
 [ext_resource type="PackedScene" uid="uid://drhdjb18rwo1i" path="res://src/ui/screen_shaders.tscn" id="2_dbp7n"]
 [ext_resource type="Texture2D" uid="uid://c5rcmhh7dd4by" path="res://asset/puzzles/bedroom/BedroomInventory-Sheet.png" id="3_dbp7n"]
 [ext_resource type="PackedScene" uid="uid://bfnojvvc0fc2h" path="res://src/ui/bathroom/bathroom_puzzle.tscn" id="3_km1yn"]
+[ext_resource type="Script" uid="uid://cpbhp7ris8p5w" path="res://src/good_note.gd" id="4_8c8jm"]
 [ext_resource type="PackedScene" uid="uid://ucb4ni385yxx" path="res://src/ui/bedroom/bedroom_puzzle.tscn" id="4_eu8jo"]
 [ext_resource type="Texture2D" uid="uid://cah2eg11nbm47" path="res://asset/puzzles/kitchen/grocery-list-1.png" id="4_rgpsw"]
 [ext_resource type="PackedScene" uid="uid://chg877he58hdh" path="res://src/ui/kitchen/kitchen_puzzle.tscn" id="5_dbp7n"]
+[ext_resource type="PackedScene" uid="uid://qpsb1cu5mgjd" path="res://src/ui/x_button.tscn" id="6_5q0ih"]
+[ext_resource type="Texture2D" uid="uid://um6vih0gtjpd" path="res://asset/puzzles/kitchen/kitchen-placemat.png" id="6_72vyi"]
+[ext_resource type="Texture2D" uid="uid://dgmcojsrr2bjb" path="res://asset/puzzles/kitchen/grocery-list-2.png" id="6_dlhd6"]
 [ext_resource type="PackedScene" uid="uid://ufmxovknsxku" path="res://src/ui/game_timer.tscn" id="6_eu8jo"]
+[ext_resource type="Script" uid="uid://dlrb3wy8aqurk" path="res://src/placemat.gd" id="7_ok2ji"]
+[ext_resource type="Script" uid="uid://bkqdo76oa72fd" path="res://src/bad_note.gd" id="9_ok2ji"]
+[ext_resource type="Script" uid="uid://c6f5kxliffepe" path="res://src/ui/intro_cutscene.gd" id="11_72vyi"]
+[ext_resource type="Texture2D" uid="uid://q32366vr7x35" path="res://asset/menu/Exorcist_ID.png" id="12_0rf6s"]
+[ext_resource type="FontFile" uid="uid://c18as554715mf" path="res://asset/fonts/KindlyRewind-BOon.ttf" id="12_lva8y"]
+[ext_resource type="Texture2D" uid="uid://0lxwrq014jpa" path="res://asset/menu/Controls.png" id="13_2fxc8"]
+[ext_resource type="PackedScene" uid="uid://opsnevsw71e5" path="res://src/ui/bedroom/bedroom_lock.tscn" id="14_goodv"]
 
 [sub_resource type="Curve" id="Curve_eu8jo"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.44, 0.254218), 0.0, 0.0, 0, 0, Vector2(0.834286, 0.649044), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -43,7 +54,7 @@ adjustment_color_correction = SubResource("CurveXYZTexture_x2540")
 
 [sub_resource type="Compositor" id="Compositor_rgpsw"]
 
-[sub_resource type="Shader" id="Shader_eu8jo"]
+[sub_resource type="Shader" id="Shader_2fxc8"]
 code = "/*
 Shader from Godot Shaders - the free shader library.
 godotshaders.com/shader/VHS-and-CRT-monitor-effect
@@ -278,7 +289,7 @@ void fragment()
 }"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_eu8jo"]
-shader = SubResource("Shader_eu8jo")
+shader = SubResource("Shader_2fxc8")
 shader_parameter/overlay = true
 shader_parameter/scanlines_opacity = 0.59
 shader_parameter/scanlines_width = 0.153
@@ -342,7 +353,29 @@ scale = Vector2(0.76957, 0.76957)
 texture = ExtResource("3_dbp7n")
 hframes = 6
 
-[node name="GoodNote" type="Control" parent="SubViewportContainer/2DViewport"]
+[node name="GoodNote" type="Control" parent="SubViewportContainer/2DViewport" groups=["puzzle"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_8c8jm")
+puzzle_type = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="SubViewportContainer/2DViewport/GoodNote"]
+texture_filter = 1
+position = Vector2(161.75, 90.75)
+texture = ExtResource("4_rgpsw")
+
+[node name="XButton" parent="SubViewportContainer/2DViewport/GoodNote" instance=ExtResource("6_5q0ih")]
+layout_mode = 0
+offset_left = 294.0
+offset_top = 2.0
+offset_right = 318.0
+offset_bottom = 26.0
+
+[node name="Placemat" type="Control" parent="SubViewportContainer/2DViewport" groups=["puzzle"]]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -350,29 +383,66 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("7_ok2ji")
+puzzle_type = 6
 
-[node name="Sprite2D" type="Sprite2D" parent="SubViewportContainer/2DViewport/GoodNote"]
+[node name="Sprite2D" type="Sprite2D" parent="SubViewportContainer/2DViewport/Placemat"]
 texture_filter = 1
 position = Vector2(161.75, 90.75)
-texture = ExtResource("4_rgpsw")
+texture = ExtResource("6_72vyi")
+
+[node name="XButton" parent="SubViewportContainer/2DViewport/Placemat" instance=ExtResource("6_5q0ih")]
+layout_mode = 0
+offset_left = 294.0
+offset_top = 2.0
+offset_right = 318.0
+offset_bottom = 26.0
+
+[node name="BadNote" type="Control" parent="SubViewportContainer/2DViewport" groups=["puzzle"]]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("9_ok2ji")
+puzzle_type = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="SubViewportContainer/2DViewport/BadNote"]
+texture_filter = 1
+position = Vector2(161.75, 90.75)
+texture = ExtResource("6_dlhd6")
+
+[node name="XButton" parent="SubViewportContainer/2DViewport/BadNote" instance=ExtResource("6_5q0ih")]
+layout_mode = 0
+offset_left = 294.0
+offset_top = 2.0
+offset_right = 318.0
+offset_bottom = 26.0
+
+[node name="KitchenPuzzle" parent="SubViewportContainer/2DViewport" groups=["puzzle"] instance=ExtResource("5_dbp7n")]
+visible = false
+offset_right = -320.0
+offset_bottom = -180.0
 
 [node name="BathroomPuzzle" parent="SubViewportContainer/2DViewport" instance=ExtResource("3_km1yn")]
 visible = false
 offset_right = 0.0
 offset_bottom = 0.0
+force_visible = false
 
-[node name="KitchenPuzzle" parent="SubViewportContainer/2DViewport" instance=ExtResource("5_dbp7n")]
+[node name="BedroomPuzzle" parent="SubViewportContainer/2DViewport" node_paths=PackedStringArray("inventory_ui") groups=["bedroom_puzzle", "puzzle"] instance=ExtResource("4_eu8jo")]
 visible = false
 offset_right = -320.0
 offset_bottom = -180.0
-
-[node name="BedroomPuzzle" parent="SubViewportContainer/2DViewport" node_paths=PackedStringArray("inventory_ui") groups=["bedroom_puzzle"] instance=ExtResource("4_eu8jo")]
-visible = false
-offset_right = -320.0
-offset_bottom = -180.0
-inventory_ui = NodePath("../BedroomInventory")
+puzzle_type = 3
 room_type = 1
 force_visible = false
+inventory_ui = NodePath("../BedroomInventory")
+
+[node name="BedroomLock" parent="SubViewportContainer/2DViewport" instance=ExtResource("14_goodv")]
+visible = false
 
 [node name="GameTimer" parent="SubViewportContainer/2DViewport" instance=ExtResource("6_eu8jo")]
 texture_filter = 1
@@ -380,6 +450,40 @@ offset_left = 8.5
 offset_top = 7.0
 offset_right = 40.5
 offset_bottom = 30.0
+theme_override_colors/font_color = Color(1, 1, 1, 0.807843)
+theme_override_fonts/font = ExtResource("12_lva8y")
+theme_override_font_sizes/font_size = 12
+
+[node name="IntroCutscene" type="Control" parent="SubViewportContainer/2DViewport"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("11_72vyi")
+
+[node name="BlackBG" type="ColorRect" parent="SubViewportContainer/2DViewport/IntroCutscene"]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 179.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="IDCard" type="Node2D" parent="SubViewportContainer/2DViewport/IntroCutscene"]
+position = Vector2(157.485, 59.01)
+rotation = 0.0349066
+
+[node name="Sprite2D" type="Sprite2D" parent="SubViewportContainer/2DViewport/IntroCutscene/IDCard"]
+scale = Vector2(0.41, 0.41)
+texture = ExtResource("12_0rf6s")
+
+[node name="Controls" type="Sprite2D" parent="SubViewportContainer/2DViewport/IntroCutscene"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(158, 122.745)
+scale = Vector2(0.565, 0.565)
+texture = ExtResource("13_2fxc8")
 
 [node name="VHSShader2" type="ColorRect" parent="SubViewportContainer/2DViewport"]
 unique_name_in_owner = true
@@ -391,3 +495,9 @@ offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[connection signal="pressed" from="SubViewportContainer/2DViewport/GoodNote/XButton" to="SubViewportContainer/2DViewport/GoodNote" method="_on_x_button_pressed"]
+[connection signal="pressed" from="SubViewportContainer/2DViewport/Placemat/XButton" to="SubViewportContainer/2DViewport/Placemat" method="_on_x_button_pressed"]
+[connection signal="pressed" from="SubViewportContainer/2DViewport/BadNote/XButton" to="SubViewportContainer/2DViewport/BadNote" method="_on_x_button_pressed"]
+
+[editable path="SubViewportContainer/2DViewport/BathroomPuzzle"]

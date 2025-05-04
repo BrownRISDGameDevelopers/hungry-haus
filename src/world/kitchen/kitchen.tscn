@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://dhlbgrr3xcf5r"]
+[gd_scene load_steps=37 format=4 uid="uid://dhlbgrr3xcf5r"]
 
 [ext_resource type="PackedScene" uid="uid://b7d183kvilajh" path="res://src/world/room.tscn" id="1_vr71u"]
 [ext_resource type="Script" uid="uid://bwh71ad6dglss" path="res://src/world/kitchen/kitchen.gd" id="2_st74x"]
@@ -17,6 +17,9 @@
 [ext_resource type="Texture2D" uid="uid://0mjdp0vtyf8d" path="res://asset/3d/kitchen/textures/Fridge.mat_Normal.jpg" id="14_eeod0"]
 [ext_resource type="PackedScene" uid="uid://dyjlhjnjmay6i" path="res://src/Kitchen_Note_Evil.fbx" id="14_v4l3e"]
 [ext_resource type="Script" uid="uid://dgouba7ideh4c" path="res://src/world/interactable_object.gd" id="15_40la5"]
+[ext_resource type="Texture2D" uid="uid://dclyxaru2enrx" path="res://asset/puzzles/kitchen/brickpixelated.png" id="18_40la5"]
+[ext_resource type="PackedScene" uid="uid://jav5qxsjdlby" path="res://asset/3d/kitchen/Fridge.fbx" id="19_eeod0"]
+[ext_resource type="PackedScene" uid="uid://dpe2sbpkdxy68" path="res://asset/3d/kitchen/textures/placemat.fbx" id="20_raqup"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kmyu3"]
 resource_name = "Door.mat"
@@ -63,12 +66,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_r8lif")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g5t7q"]
-albedo_color = Color(0.370252, 0.318489, 0.322133, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1lk70"]
-albedo_color = Color(0.3535, 0.156528, 0.176293, 1)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6obmc"]
 resource_name = "Fridge.mat"
 vertex_color_use_as_albedo = true
@@ -114,6 +111,36 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_g5vbq")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g5t7q"]
+albedo_color = Color(0.370252, 0.318489, 0.322133, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1lk70"]
+albedo_color = Color(0.3535, 0.156528, 0.176293, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v4l3e"]
+size = Vector3(5.47437, 4.12451, 0.326172)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_raqup"]
+size = Vector3(3.38574, 4.12451, 1.07617)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_obnph"]
+size = Vector3(0.8125, 4.12451, 3.11182)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w0nc1"]
+size = Vector3(1.54004, 4.12451, 2.71063)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_341hy"]
+size = Vector3(3.60742, 4.12451, 0.284904)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_meea6"]
+size = Vector3(0.36908, 4.12451, 0.70648)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_40la5"]
+size = Vector3(4.74648, 4.12451, 0.326172)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eeod0"]
+size = Vector3(4.02906, 4.12451, 0.326172)
+
 [node name="Kitchen" instance=ExtResource("1_vr71u")]
 script = ExtResource("2_st74x")
 
@@ -135,31 +162,51 @@ skeleton = NodePath("")
 
 [node name="KitchenNormal" parent="." index="1" instance=ExtResource("6_dmhet")]
 
+[node name="fridge" parent="KitchenNormal" index="33"]
+visible = false
+
 [node name="fridgedoor" parent="KitchenNormal" index="34"]
 visible = false
 
+[node name="fridgehandles" parent="KitchenNormal" index="35"]
+visible = false
+
 [node name="plates" parent="KitchenNormal" index="41"]
-transform = Transform3D(9.42872, 0.996822, 6.66215e-09, -1.81073e-16, -1.13025e-06, 0.531561, 0.996822, -9.42871, -6.30158e-08, 2.0103, 0.695538, 0.516802)
+transform = Transform3D(9.48126, 0, 0, 0, -4.14439e-07, 0.531561, 0, -9.48126, -2.32353e-08, 1.81185, 0.695538, -0.0555345)
 
 [node name="silverware" parent="KitchenNormal" index="42"]
-transform = Transform3D(-0.735197, -0.00274575, -2.13624, -0.0113835, -0.178937, 0.456611, -0.289326, 0.0140174, 5.41036, 1.82246, 0.685918, 0.475864)
+transform = Transform3D(-0.761541, -0.0012568, -1.55558, -0.0113835, -0.178937, 0.456611, -0.210427, 0.0142284, 5.60497, 1.62074, 0.685918, -0.0764961)
 
-[node name="KitchenGOOD" parent="." index="2" groups=["enable_off_blood_vision"] instance=ExtResource("5_2ojf6")]
+[node name="fridgedoor2" type="MeshInstance3D" parent="KitchenNormal" index="46"]
+transform = Transform3D(6.23211e-07, 45.7943, 0, 0, 0, 62.1041, 3.48525, -9.55343e-06, 0, -0.430568, 0.581632, 1.15454)
+visible = false
+mesh = SubResource("ArrayMesh_gaujl")
+skeleton = NodePath("")
+
+[node name="Fridge" parent="." index="2" node_paths=PackedStringArray("mesh") instance=ExtResource("19_eeod0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.978209, 1.32408)
+script = ExtResource("15_40la5")
+puzzle_type = 0
+mesh = NodePath("Plane")
+highlightSize = 1.05
+
+[node name="KitchenGOOD" parent="." index="3" groups=["enable_off_blood_vision"] instance=ExtResource("5_2ojf6")]
 
 [node name="GOODNOTE" parent="KitchenGOOD" index="0"]
 visible = false
 material_override = SubResource("StandardMaterial3D_g5t7q")
 
 [node name="Kitchen_Note" parent="KitchenGOOD" index="1" node_paths=PackedStringArray("mesh") instance=ExtResource("9_g5t7q")]
-transform = Transform3D(2.7128e-09, -0.0618667, 0.123928, 0.138513, -6.05457e-09, -6.05457e-09, 8.12136e-09, 0.123928, 0.0618667, -0.768824, 0.780727, 1.15492)
+transform = Transform3D(-8.5594e-09, -0.100526, -0.0952895, 0.138513, -6.05457e-09, -6.05457e-09, 2.2892e-10, -0.0952895, 0.100526, -2.10024, 0.780727, -0.592434)
 script = ExtResource("15_40la5")
+puzzle_type = 1
 mesh = NodePath("Cube")
 highlightSize = 1.26
 
 [node name="Cube_001" parent="KitchenGOOD/Kitchen_Note" index="1"]
 visible = false
 
-[node name="KitchenLights" parent="." index="3" instance=ExtResource("7_xj3t0")]
+[node name="KitchenLights" parent="." index="4" instance=ExtResource("7_xj3t0")]
 
 [node name="Point" parent="KitchenLights" index="0"]
 light_energy = 0.158
@@ -167,7 +214,7 @@ light_energy = 0.158
 [node name="Point_001" parent="KitchenLights" index="1"]
 light_energy = 0.158
 
-[node name="KitchenBAD" parent="." index="4" groups=["enable_on_blood_vision"] instance=ExtResource("6_03f3n")]
+[node name="KitchenBAD" parent="." index="5" groups=["enable_on_blood_vision"] instance=ExtResource("6_03f3n")]
 visible = false
 
 [node name="BADNOTE" parent="KitchenBAD" index="0"]
@@ -196,21 +243,83 @@ region_enabled = true
 region_rect = Rect2(754.066, 82.2101, 229.364, 240.082)
 
 [node name="Kitchen_Note_Evil" parent="KitchenBAD" index="5" node_paths=PackedStringArray("mesh") instance=ExtResource("14_v4l3e")]
-transform = Transform3D(-3.03794e-09, -0.0695, 0.120378, 0.139, -6.07588e-09, 0, 5.26187e-09, 0.120378, 0.0695, -0.758809, 0.780396, 1.14062)
+transform = Transform3D(-4.14847e-09, -0.0949064, -0.101557, 0.139, -6.07588e-09, 0, -4.4392e-09, -0.101557, 0.0949064, -2.08948, 0.780396, -0.578687)
 script = ExtResource("15_40la5")
+puzzle_type = 2
 mesh = NodePath("Cube")
 highlightSize = 1.25
 
-[node name="fridgedoor" type="MeshInstance3D" parent="." index="5"]
-transform = Transform3D(6.23211e-07, 45.7943, 0, 0, 0, 62.1041, 3.48525, -9.55343e-06, 0, -0.430568, 0.581632, 1.15454)
-mesh = SubResource("ArrayMesh_gaujl")
-skeleton = NodePath("")
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="6"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.213948, 1.56226, 2.00461)
+shape = SubResource("BoxShape3D_v4l3e")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.25826, 1.56226, 1.62961)
+shape = SubResource("BoxShape3D_raqup")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="StaticBody3D" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.54488, 1.56226, 0.611784)
+shape = SubResource("BoxShape3D_obnph")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="StaticBody3D" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.405, 1.56226, 0.822764)
+shape = SubResource("BoxShape3D_w0nc1")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="StaticBody3D" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.28454, 1.56226, -1.97232)
+shape = SubResource("BoxShape3D_341hy")
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="StaticBody3D" index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.376688, 1.56226, -2.27826)
+shape = SubResource("BoxShape3D_meea6")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" index="6"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.50728, 1.56226, -0.2372)
+shape = SubResource("BoxShape3D_40la5")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D" index="7"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.90353, 1.56226, 0.131896)
+shape = SubResource("BoxShape3D_eeod0")
+
+[node name="Sprite3D" type="Sprite3D" parent="." index="7"]
+transform = Transform3D(2.66873, 0, 0, 0, 2.66873, 0, 0, 0, 2.66873, -1.67384, 1.49789, -2.22054)
+modulate = Color(0.430396, 0.380727, 0.322447, 1)
+texture_filter = 0
+texture = ExtResource("18_40la5")
+region_enabled = true
+region_rect = Rect2(41.2025, 6.58603, 160.812, 108.937)
+
+[node name="Sprite3D3" type="Sprite3D" parent="." index="8"]
+transform = Transform3D(-2.66873, 0, -2.33308e-07, 0, 2.66873, 0, 2.33308e-07, 0, -2.66873, -1.67384, 1.49789, 2.36539)
+modulate = Color(0.430396, 0.380727, 0.322447, 1)
+texture_filter = 0
+texture = ExtResource("18_40la5")
+region_enabled = true
+region_rect = Rect2(41.2025, 6.58603, 160.812, 108.937)
+
+[node name="Sprite3D2" type="Sprite3D" parent="." index="9"]
+transform = Transform3D(1.78386, 0, 1.98493, 0, 2.66873, 0, -1.98493, 0, 1.78386, -4.1411, 1.49789, -0.802742)
+modulate = Color(0.430396, 0.380727, 0.322447, 1)
+texture_filter = 0
+texture = ExtResource("18_40la5")
+region_enabled = true
+region_rect = Rect2(41.2025, 6.58603, 160.812, 108.937)
+
+[node name="placemat" parent="." index="10" node_paths=PackedStringArray("mesh") instance=ExtResource("20_raqup")]
+transform = Transform3D(-0.0291898, 1.42082e-08, -0.323053, -0.323053, 5.05726e-09, 0.0291898, 6.31533e-09, 0.324369, 1.36955e-08, 0.300711, 1.32332, -1.81738)
+script = ExtResource("15_40la5")
+puzzle_type = 6
+mesh = NodePath("Cube")
 
 [editable path="Door"]
 [editable path="Door/closet2"]
 [editable path="KitchenNormal"]
+[editable path="Fridge"]
 [editable path="KitchenGOOD"]
 [editable path="KitchenGOOD/Kitchen_Note"]
 [editable path="KitchenLights"]
 [editable path="KitchenBAD"]
 [editable path="KitchenBAD/Kitchen_Note_Evil"]
+[editable path="placemat"]

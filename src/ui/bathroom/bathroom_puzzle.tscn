@@ -1,78 +1,1207 @@
-[gd_scene load_steps=7 format=3 uid="uid://bfnojvvc0fc2h"]
+[gd_scene load_steps=12 format=3 uid="uid://bfnojvvc0fc2h"]
 
 [ext_resource type="PackedScene" uid="uid://cl6ia52rquthd" path="res://src/ui/puzzle.tscn" id="1_nymm8"]
-[ext_resource type="Script" uid="uid://c7b3mpxs4w5ft" path="res://src/ui/bathroom/bathroom_puzzle.gd" id="2_w10vh"]
-[ext_resource type="Texture2D" uid="uid://c0d6s56tfoyh" path="res://asset/puzzles/kitchen/placeholder/placeholder_slide_piece_40x.png" id="3_g6l7g"]
-[ext_resource type="Texture2D" uid="uid://bdejc5dgsppxk" path="res://asset/puzzles/kitchen/placeholder/placeholder_slide_piece_32x_press.png" id="4_sool8"]
-[ext_resource type="Texture2D" uid="uid://ykbefk0tdxm8" path="res://asset/puzzles/kitchen/placeholder/placeholder_slide_piece_40x_press.png" id="5_r2145"]
+[ext_resource type="Texture2D" uid="uid://cv5rgwwjpeud6" path="res://asset/puzzles/bathroom/bentIntestine.PNG" id="2_3flqs"]
+[ext_resource type="Script" uid="uid://c7b3mpxs4w5ft" path="res://src/ui/bathroom/bathroom_puzzle.gd" id="2_c6tqd"]
+[ext_resource type="Texture2D" uid="uid://dtbck04dq8wr2" path="res://asset/puzzles/bathroom/bloodVisionPipesBackground.PNG" id="2_upyta"]
+[ext_resource type="Texture2D" uid="uid://bvhb2fhdiejot" path="res://asset/puzzles/bathroom/straightIntestine.PNG" id="6_r2145"]
 [ext_resource type="Script" uid="uid://bng7v40kuono2" path="res://src/ui/bathroom/pipe_puzzle_piece.gd" id="6_sool8"]
+[ext_resource type="Texture2D" uid="uid://betkisrsoyouj" path="res://asset/puzzles/bathroom/TShapeIntestine.PNG" id="7_r2145"]
+[ext_resource type="Texture2D" uid="uid://c41qoxft2qh7v" path="res://asset/puzzles/bathroom/normalPipesBackground.PNG" id="8_w001a"]
+[ext_resource type="Texture2D" uid="uid://b4xksttw0jypn" path="res://asset/puzzles/bathroom/straightPipe.PNG" id="9_tpqp8"]
+[ext_resource type="Texture2D" uid="uid://c1i5l1a0j4wc2" path="res://asset/puzzles/bathroom/bentPipe.PNG" id="10_525kg"]
+[ext_resource type="PackedScene" uid="uid://qpsb1cu5mgjd" path="res://src/ui/x_button.tscn" id="11_c6tqd"]
 
-[node name="BathroomPuzzle" instance=ExtResource("1_nymm8")]
+[node name="BathroomPuzzle" groups=["bathroom_puzzle", "puzzle"] instance=ExtResource("1_nymm8")]
 offset_right = -960.0
 offset_bottom = -540.0
-script = null
-
-[node name="ColorRect" type="ColorRect" parent="." index="0"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(1, 1, 1, 0.294118)
-
-[node name="BathroomPuzzleContainer" type="Control" parent="." index="1" groups=["bathroom_puzzle"]]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -140.0
-offset_top = -80.0
-offset_right = 140.0
-offset_bottom = 80.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("2_w10vh")
+pivot_offset = Vector2(160, 90)
+script = ExtResource("2_c6tqd")
+puzzle_type = 5
 room_type = 2
+force_visible = true
 
-[node name="TextureButton" type="TextureButton" parent="BathroomPuzzleContainer" index="0"]
+[node name="EvilPuzzle" type="Control" parent="." index="0" groups=["2d_blood_vision"]]
+visible = false
+anchors_preset = 0
+offset_left = -2.0
+offset_right = 38.0
+offset_bottom = 40.0
+
+[node name="IntestineWithBackground" type="Sprite2D" parent="EvilPuzzle" index="0"]
+position = Vector2(162, 90)
+texture = ExtResource("2_upyta")
+
+[node name="TextureButton" type="TextureButton" parent="EvilPuzzle" index="1"]
 layout_mode = 0
-offset_left = 40.0
-offset_top = 80.0
-offset_right = 80.0
-offset_bottom = 120.0
-texture_normal = ExtResource("3_g6l7g")
-texture_pressed = ExtResource("4_sool8")
-texture_hover = ExtResource("5_r2145")
+offset_left = 114.0
+offset_top = 16.0
+offset_right = 132.0
+offset_bottom = 34.0
+rotation = 1.5708
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("2_3flqs")
 stretch_mode = 0
 script = ExtResource("6_sool8")
 
-[node name="TextureButton3" type="TextureButton" parent="BathroomPuzzleContainer" index="1"]
+[node name="TextureButton2" type="TextureButton" parent="EvilPuzzle" index="2"]
 layout_mode = 0
-offset_left = 120.0
-offset_top = 40.0
-offset_right = 160.0
-offset_bottom = 80.0
-texture_normal = ExtResource("3_g6l7g")
-texture_pressed = ExtResource("4_sool8")
-texture_hover = ExtResource("5_r2145")
+offset_left = 132.0
+offset_top = 16.0
+offset_right = 150.0
+offset_bottom = 34.0
+rotation = 3.14159
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("2_3flqs")
 stretch_mode = 0
 script = ExtResource("6_sool8")
 
-[node name="TextureButton4" type="TextureButton" parent="BathroomPuzzleContainer" index="2"]
+[node name="TextureButton3" type="TextureButton" parent="EvilPuzzle" index="3"]
+layout_mode = 0
+offset_left = 132.0
+offset_top = 34.0
+offset_right = 150.0
+offset_bottom = 52.0
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("6_r2145")
+stretch_mode = 0
+script = ExtResource("6_sool8")
+isStraight = true
+
+[node name="TextureButton4" type="TextureButton" parent="EvilPuzzle" index="4"]
+layout_mode = 0
+offset_left = 114.0
+offset_top = 34.0
+offset_right = 132.0
+offset_bottom = 52.0
+rotation = -1.5708
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("2_3flqs")
+stretch_mode = 0
+script = ExtResource("6_sool8")
+
+[node name="TextureButton5" type="TextureButton" parent="EvilPuzzle" index="5"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 34.0
+offset_right = 114.0
+offset_bottom = 52.0
+rotation = 1.5708
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("2_3flqs")
+stretch_mode = 0
+script = ExtResource("6_sool8")
+
+[node name="TextureButton6" type="TextureButton" parent="EvilPuzzle" index="6"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 54.0
+offset_right = 114.0
+offset_bottom = 72.0
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("6_r2145")
+stretch_mode = 0
+script = ExtResource("6_sool8")
+isStraight = true
+
+[node name="TextureButton7" type="TextureButton" parent="EvilPuzzle" index="7"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 72.0
+offset_right = 114.0
+offset_bottom = 90.0
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("2_3flqs")
+stretch_mode = 0
+script = ExtResource("6_sool8")
+
+[node name="TextureButton8" type="TextureButton" parent="EvilPuzzle" index="8"]
+layout_mode = 0
+offset_left = 114.0
+offset_top = 72.0
+offset_right = 132.0
+offset_bottom = 90.0
+rotation = -3.14159
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("2_3flqs")
+stretch_mode = 0
+script = ExtResource("6_sool8")
+
+[node name="TextureButton9" type="TextureButton" parent="EvilPuzzle" index="9"]
+layout_mode = 0
+offset_left = 114.0
+offset_top = 90.0
+offset_right = 132.0
+offset_bottom = 108.0
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("2_3flqs")
+stretch_mode = 0
+script = ExtResource("6_sool8")
+
+[node name="TextureButton10" type="TextureButton" parent="EvilPuzzle" index="10"]
+layout_mode = 0
+offset_left = 132.0
+offset_top = 90.0
+offset_right = 150.0
+offset_bottom = 108.0
+rotation = 1.5708
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("6_r2145")
+stretch_mode = 0
+script = ExtResource("6_sool8")
+isStraight = true
+
+[node name="TextureButton11" type="TextureButton" parent="EvilPuzzle" index="11"]
+layout_mode = 0
+offset_left = 132.0
+offset_top = 54.0
+offset_right = 150.0
+offset_bottom = 72.0
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("2_3flqs")
+stretch_mode = 0
+script = ExtResource("6_sool8")
+
+[node name="TextureButton12" type="TextureButton" parent="EvilPuzzle" index="12"]
+layout_mode = 0
+offset_left = 132.0
+offset_top = 108.0
+offset_right = 150.0
+offset_bottom = 126.0
+rotation = 3.14159
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("2_3flqs")
+stretch_mode = 0
+script = ExtResource("6_sool8")
+
+[node name="TextureButton13" type="TextureButton" parent="EvilPuzzle" index="13"]
+layout_mode = 0
+offset_left = 114.0
+offset_top = 108.0
+offset_right = 132.0
+offset_bottom = 126.0
+rotation = 1.5708
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("6_r2145")
+stretch_mode = 0
+script = ExtResource("6_sool8")
+isStraight = true
+
+[node name="TextureButton14" type="TextureButton" parent="EvilPuzzle" index="14"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 108.0
+offset_right = 114.0
+offset_bottom = 126.0
+rotation = 1.5708
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("2_3flqs")
+stretch_mode = 0
+script = ExtResource("6_sool8")
+
+[node name="TextureButton15" type="TextureButton" parent="EvilPuzzle" index="15"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 128.0
+offset_right = 114.0
+offset_bottom = 146.0
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("2_3flqs")
+stretch_mode = 0
+script = ExtResource("6_sool8")
+
+[node name="TextureButton16" type="TextureButton" parent="EvilPuzzle" index="16"]
+layout_mode = 0
+offset_left = 114.0
+offset_top = 128.0
+offset_right = 132.0
+offset_bottom = 146.0
+rotation = -3.14159
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("2_3flqs")
+stretch_mode = 0
+script = ExtResource("6_sool8")
+
+[node name="TextureButton17" type="TextureButton" parent="EvilPuzzle" index="17"]
+layout_mode = 0
+offset_left = 114.0
+offset_top = 146.0
+offset_right = 132.0
+offset_bottom = 164.0
+rotation = -1.5708
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("2_3flqs")
+stretch_mode = 0
+script = ExtResource("6_sool8")
+
+[node name="TextureButton18" type="TextureButton" parent="EvilPuzzle" index="18"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 146.0
+offset_right = 114.0
+offset_bottom = 164.0
+rotation = 1.5708
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("6_r2145")
+stretch_mode = 0
+script = ExtResource("6_sool8")
+isStraight = true
+
+[node name="TextureButton19" type="TextureButton" parent="EvilPuzzle" index="19"]
+layout_mode = 0
+offset_left = 132.0
+offset_top = 146.0
+offset_right = 150.0
+offset_bottom = 164.0
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("2_3flqs")
+stretch_mode = 0
+script = ExtResource("6_sool8")
+
+[node name="TextureButton20" type="TextureButton" parent="EvilPuzzle" index="20"]
+layout_mode = 0
+offset_left = 132.0
+offset_top = 128.0
+offset_right = 150.0
+offset_bottom = 146.0
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("6_r2145")
+stretch_mode = 0
+script = ExtResource("6_sool8")
+isStraight = true
+
+[node name="TextureButton21" type="TextureButton" parent="EvilPuzzle" index="21"]
 layout_mode = 0
 offset_left = 160.0
-offset_top = 120.0
-offset_right = 200.0
-offset_bottom = 160.0
-texture_normal = ExtResource("3_g6l7g")
-texture_pressed = ExtResource("4_sool8")
-texture_hover = ExtResource("5_r2145")
+offset_top = 146.0
+offset_right = 178.0
+offset_bottom = 164.0
+rotation = 1.5708
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("6_r2145")
+stretch_mode = 0
+script = ExtResource("6_sool8")
+isStraight = true
+
+[node name="TextureButton22" type="TextureButton" parent="EvilPuzzle" index="22"]
+layout_mode = 0
+offset_left = 178.0
+offset_top = 146.0
+offset_right = 196.0
+offset_bottom = 164.0
+rotation = 1.5708
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("6_r2145")
+stretch_mode = 0
+script = ExtResource("6_sool8")
+isStraight = true
+
+[node name="TextureButton23" type="TextureButton" parent="EvilPuzzle" index="23"]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 146.0
+offset_right = 214.0
+offset_bottom = 164.0
+rotation = -1.5708
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("2_3flqs")
 stretch_mode = 0
 script = ExtResource("6_sool8")
 
-[connection signal="pressed" from="BathroomPuzzleContainer/TextureButton" to="BathroomPuzzleContainer/TextureButton" method="_on_pressed"]
-[connection signal="pressed" from="BathroomPuzzleContainer/TextureButton3" to="BathroomPuzzleContainer/TextureButton3" method="_on_pressed"]
-[connection signal="pressed" from="BathroomPuzzleContainer/TextureButton4" to="BathroomPuzzleContainer/TextureButton4" method="_on_pressed"]
+[node name="TextureButton24" type="TextureButton" parent="EvilPuzzle" index="24"]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 128.0
+offset_right = 214.0
+offset_bottom = 146.0
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("7_r2145")
+stretch_mode = 0
+script = ExtResource("6_sool8")
+
+[node name="TextureButton25" type="TextureButton" parent="EvilPuzzle" index="25"]
+layout_mode = 0
+offset_left = 178.0
+offset_top = 128.0
+offset_right = 196.0
+offset_bottom = 146.0
+rotation = 1.5708
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("6_r2145")
+stretch_mode = 0
+script = ExtResource("6_sool8")
+isStraight = true
+
+[node name="TextureButton26" type="TextureButton" parent="EvilPuzzle" index="26"]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 128.0
+offset_right = 178.0
+offset_bottom = 146.0
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("2_3flqs")
+stretch_mode = 0
+script = ExtResource("6_sool8")
+
+[node name="TextureButton27" type="TextureButton" parent="EvilPuzzle" index="27"]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 110.0
+offset_right = 178.0
+offset_bottom = 128.0
+rotation = 1.5708
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("2_3flqs")
+stretch_mode = 0
+script = ExtResource("6_sool8")
+
+[node name="TextureButton28" type="TextureButton" parent="EvilPuzzle" index="28"]
+layout_mode = 0
+offset_left = 178.0
+offset_top = 110.0
+offset_right = 196.0
+offset_bottom = 128.0
+rotation = 1.5708
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("6_r2145")
+stretch_mode = 0
+script = ExtResource("6_sool8")
+isStraight = true
+
+[node name="TextureButton29" type="TextureButton" parent="EvilPuzzle" index="29"]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 110.0
+offset_right = 214.0
+offset_bottom = 128.0
+rotation = -1.5708
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("2_3flqs")
+stretch_mode = 0
+script = ExtResource("6_sool8")
+
+[node name="TextureButton30" type="TextureButton" parent="EvilPuzzle" index="30"]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 92.0
+offset_right = 214.0
+offset_bottom = 110.0
+rotation = 3.14159
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("2_3flqs")
+stretch_mode = 0
+script = ExtResource("6_sool8")
+
+[node name="TextureButton31" type="TextureButton" parent="EvilPuzzle" index="31"]
+layout_mode = 0
+offset_left = 178.0
+offset_top = 92.0
+offset_right = 196.0
+offset_bottom = 110.0
+rotation = 1.5708
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("6_r2145")
+stretch_mode = 0
+script = ExtResource("6_sool8")
+isStraight = true
+
+[node name="TextureButton32" type="TextureButton" parent="EvilPuzzle" index="32"]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 92.0
+offset_right = 178.0
+offset_bottom = 110.0
+rotation = 1.5708
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("6_r2145")
+stretch_mode = 0
+script = ExtResource("6_sool8")
+isStraight = true
+
+[node name="TextureButton33" type="TextureButton" parent="EvilPuzzle" index="33"]
+layout_mode = 0
+offset_left = 214.0
+offset_top = 128.0
+offset_right = 232.0
+offset_bottom = 146.0
+rotation = -1.5708
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("2_3flqs")
+stretch_mode = 0
+script = ExtResource("6_sool8")
+
+[node name="TextureButton34" type="TextureButton" parent="EvilPuzzle" index="34"]
+layout_mode = 0
+offset_left = 214.0
+offset_top = 110.0
+offset_right = 232.0
+offset_bottom = 128.0
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("6_r2145")
+stretch_mode = 0
+script = ExtResource("6_sool8")
+isStraight = true
+
+[node name="TextureButton35" type="TextureButton" parent="EvilPuzzle" index="35"]
+layout_mode = 0
+offset_left = 214.0
+offset_top = 92.0
+offset_right = 232.0
+offset_bottom = 110.0
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("6_r2145")
+stretch_mode = 0
+script = ExtResource("6_sool8")
+isStraight = true
+
+[node name="TextureButton36" type="TextureButton" parent="EvilPuzzle" index="36"]
+layout_mode = 0
+offset_left = 215.0
+offset_top = 72.0
+offset_right = 233.0
+offset_bottom = 90.0
+rotation = -3.14159
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("2_3flqs")
+stretch_mode = 0
+script = ExtResource("6_sool8")
+
+[node name="TextureButton37" type="TextureButton" parent="EvilPuzzle" index="37"]
+layout_mode = 0
+offset_left = 197.0
+offset_top = 72.0
+offset_right = 215.0
+offset_bottom = 90.0
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("2_3flqs")
+stretch_mode = 0
+script = ExtResource("6_sool8")
+
+[node name="TextureButton38" type="TextureButton" parent="EvilPuzzle" index="38"]
+layout_mode = 0
+offset_left = 197.0
+offset_top = 54.0
+offset_right = 215.0
+offset_bottom = 72.0
+rotation = -3.14159
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("2_3flqs")
+stretch_mode = 0
+script = ExtResource("6_sool8")
+
+[node name="TextureButton39" type="TextureButton" parent="EvilPuzzle" index="39"]
+layout_mode = 0
+offset_left = 177.0
+offset_top = 54.0
+offset_right = 195.0
+offset_bottom = 72.0
+rotation = -3.14159
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("7_r2145")
+stretch_mode = 0
+script = ExtResource("6_sool8")
+
+[node name="TextureButton40" type="TextureButton" parent="EvilPuzzle" index="40"]
+layout_mode = 0
+offset_left = 159.0
+offset_top = 54.0
+offset_right = 177.0
+offset_bottom = 72.0
+rotation = 1.5708
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("6_r2145")
+stretch_mode = 0
+script = ExtResource("6_sool8")
+isStraight = true
+
+[node name="TextureButton41" type="TextureButton" parent="EvilPuzzle" index="41"]
+layout_mode = 0
+offset_left = 177.0
+offset_top = 34.0
+offset_right = 195.0
+offset_bottom = 52.0
+rotation = 1.5708
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("2_3flqs")
+stretch_mode = 0
+script = ExtResource("6_sool8")
+
+[node name="TextureButton42" type="TextureButton" parent="EvilPuzzle" index="42"]
+layout_mode = 0
+offset_left = 195.0
+offset_top = 34.0
+offset_right = 213.0
+offset_bottom = 52.0
+rotation = -1.5708
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("2_3flqs")
+stretch_mode = 0
+script = ExtResource("6_sool8")
+
+[node name="TextureButton43" type="TextureButton" parent="EvilPuzzle" index="43"]
+layout_mode = 0
+offset_left = 195.0
+offset_top = 16.0
+offset_right = 213.0
+offset_bottom = 34.0
+rotation = 1.5708
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("2_3flqs")
+stretch_mode = 0
+script = ExtResource("6_sool8")
+
+[node name="TextureButton44" type="TextureButton" parent="EvilPuzzle" index="44"]
+layout_mode = 0
+offset_left = 213.0
+offset_top = 16.0
+offset_right = 231.0
+offset_bottom = 34.0
+rotation = -1.5708
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("2_3flqs")
+stretch_mode = 0
+script = ExtResource("6_sool8")
+
+[node name="NormalPuzzle" type="Control" parent="." index="1" groups=["2d_normal_vision"]]
+anchors_preset = 0
+offset_left = -2.0
+offset_right = 38.0
+offset_bottom = 40.0
+
+[node name="PipesWithBackground" type="Sprite2D" parent="NormalPuzzle" index="0"]
+position = Vector2(162, 90)
+texture = ExtResource("8_w001a")
+
+[node name="TextureButton" type="TextureButton" parent="NormalPuzzle" index="1"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 16.0
+offset_right = 114.0
+offset_bottom = 34.0
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("9_tpqp8")
+script = ExtResource("6_sool8")
+isStraight = true
+
+[node name="TextureButton2" type="TextureButton" parent="NormalPuzzle" index="2"]
+layout_mode = 0
+offset_left = 114.0
+offset_top = 16.0
+offset_right = 132.0
+offset_bottom = 34.0
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("10_525kg")
+script = ExtResource("6_sool8")
+
+[node name="TextureButton3" type="TextureButton" parent="NormalPuzzle" index="3"]
+layout_mode = 0
+offset_left = 132.0
+offset_top = 16.0
+offset_right = 150.0
+offset_bottom = 34.0
+rotation = 1.5708
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("9_tpqp8")
+script = ExtResource("6_sool8")
+isStraight = true
+
+[node name="TextureButton4" type="TextureButton" parent="NormalPuzzle" index="4"]
+layout_mode = 0
+offset_left = 132.0
+offset_top = 34.0
+offset_right = 150.0
+offset_bottom = 52.0
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("10_525kg")
+script = ExtResource("6_sool8")
+
+[node name="TextureButton5" type="TextureButton" parent="NormalPuzzle" index="5"]
+layout_mode = 0
+offset_left = 114.0
+offset_top = 34.0
+offset_right = 132.0
+offset_bottom = 52.0
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("9_tpqp8")
+script = ExtResource("6_sool8")
+isStraight = true
+
+[node name="TextureButton6" type="TextureButton" parent="NormalPuzzle" index="6"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 34.0
+offset_right = 114.0
+offset_bottom = 52.0
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("9_tpqp8")
+script = ExtResource("6_sool8")
+isStraight = true
+
+[node name="TextureButton7" type="TextureButton" parent="NormalPuzzle" index="7"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 54.0
+offset_right = 114.0
+offset_bottom = 72.0
+rotation = -1.5708
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("10_525kg")
+script = ExtResource("6_sool8")
+
+[node name="TextureButton8" type="TextureButton" parent="NormalPuzzle" index="8"]
+layout_mode = 0
+offset_left = 114.0
+offset_top = 54.0
+offset_right = 132.0
+offset_bottom = 72.0
+rotation = -3.14159
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("10_525kg")
+script = ExtResource("6_sool8")
+
+[node name="TextureButton9" type="TextureButton" parent="NormalPuzzle" index="9"]
+layout_mode = 0
+offset_left = 132.0
+offset_top = 54.0
+offset_right = 150.0
+offset_bottom = 72.0
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("9_tpqp8")
+script = ExtResource("6_sool8")
+isStraight = true
+
+[node name="TextureButton10" type="TextureButton" parent="NormalPuzzle" index="10"]
+layout_mode = 0
+offset_left = 132.0
+offset_top = 72.0
+offset_right = 150.0
+offset_bottom = 90.0
+rotation = -3.14159
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("10_525kg")
+script = ExtResource("6_sool8")
+
+[node name="TextureButton11" type="TextureButton" parent="NormalPuzzle" index="11"]
+layout_mode = 0
+offset_left = 114.0
+offset_top = 72.0
+offset_right = 132.0
+offset_bottom = 90.0
+rotation = 1.5708
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("9_tpqp8")
+script = ExtResource("6_sool8")
+isStraight = true
+
+[node name="TextureButton12" type="TextureButton" parent="NormalPuzzle" index="12"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 72.0
+offset_right = 114.0
+offset_bottom = 90.0
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("10_525kg")
+script = ExtResource("6_sool8")
+
+[node name="TextureButton13" type="TextureButton" parent="NormalPuzzle" index="13"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 90.0
+offset_right = 114.0
+offset_bottom = 108.0
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("9_tpqp8")
+script = ExtResource("6_sool8")
+isStraight = true
+
+[node name="TextureButton14" type="TextureButton" parent="NormalPuzzle" index="14"]
+layout_mode = 0
+offset_left = 114.0
+offset_top = 90.0
+offset_right = 132.0
+offset_bottom = 108.0
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("10_525kg")
+script = ExtResource("6_sool8")
+
+[node name="TextureButton15" type="TextureButton" parent="NormalPuzzle" index="15"]
+layout_mode = 0
+offset_left = 132.0
+offset_top = 90.0
+offset_right = 150.0
+offset_bottom = 108.0
+rotation = 1.5708
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("10_525kg")
+script = ExtResource("6_sool8")
+
+[node name="TextureButton16" type="TextureButton" parent="NormalPuzzle" index="16"]
+layout_mode = 0
+offset_left = 132.0
+offset_top = 108.0
+offset_right = 150.0
+offset_bottom = 126.0
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("9_tpqp8")
+script = ExtResource("6_sool8")
+isStraight = true
+
+[node name="TextureButton17" type="TextureButton" parent="NormalPuzzle" index="17"]
+layout_mode = 0
+offset_left = 114.0
+offset_top = 108.0
+offset_right = 132.0
+offset_bottom = 126.0
+rotation = -3.14159
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("10_525kg")
+script = ExtResource("6_sool8")
+
+[node name="TextureButton18" type="TextureButton" parent="NormalPuzzle" index="18"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 108.0
+offset_right = 114.0
+offset_bottom = 126.0
+rotation = -1.5708
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("10_525kg")
+script = ExtResource("6_sool8")
+
+[node name="TextureButton19" type="TextureButton" parent="NormalPuzzle" index="19"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 128.0
+offset_right = 114.0
+offset_bottom = 146.0
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("10_525kg")
+script = ExtResource("6_sool8")
+
+[node name="TextureButton20" type="TextureButton" parent="NormalPuzzle" index="20"]
+layout_mode = 0
+offset_left = 114.0
+offset_top = 128.0
+offset_right = 132.0
+offset_bottom = 146.0
+rotation = 1.5708
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("9_tpqp8")
+script = ExtResource("6_sool8")
+isStraight = true
+
+[node name="TextureButton21" type="TextureButton" parent="NormalPuzzle" index="21"]
+layout_mode = 0
+offset_left = 132.0
+offset_top = 128.0
+offset_right = 150.0
+offset_bottom = 146.0
+rotation = -3.14159
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("10_525kg")
+script = ExtResource("6_sool8")
+
+[node name="TextureButton22" type="TextureButton" parent="NormalPuzzle" index="22"]
+layout_mode = 0
+offset_left = 132.0
+offset_top = 146.0
+offset_right = 150.0
+offset_bottom = 164.0
+rotation = 1.5708
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("9_tpqp8")
+script = ExtResource("6_sool8")
+isStraight = true
+
+[node name="TextureButton23" type="TextureButton" parent="NormalPuzzle" index="23"]
+layout_mode = 0
+offset_left = 114.0
+offset_top = 146.0
+offset_right = 132.0
+offset_bottom = 164.0
+rotation = 1.5708
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("9_tpqp8")
+script = ExtResource("6_sool8")
+isStraight = true
+
+[node name="TextureButton24" type="TextureButton" parent="NormalPuzzle" index="24"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 146.0
+offset_right = 114.0
+offset_bottom = 164.0
+rotation = -1.5708
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("10_525kg")
+script = ExtResource("6_sool8")
+
+[node name="TextureButton25" type="TextureButton" parent="NormalPuzzle" index="25"]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 146.0
+offset_right = 178.0
+offset_bottom = 164.0
+rotation = -3.14159
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("10_525kg")
+script = ExtResource("6_sool8")
+
+[node name="TextureButton26" type="TextureButton" parent="NormalPuzzle" index="26"]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 128.0
+offset_right = 178.0
+offset_bottom = 146.0
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("9_tpqp8")
+script = ExtResource("6_sool8")
+isStraight = true
+
+[node name="TextureButton27" type="TextureButton" parent="NormalPuzzle" index="27"]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 110.0
+offset_right = 178.0
+offset_bottom = 128.0
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("9_tpqp8")
+script = ExtResource("6_sool8")
+isStraight = true
+
+[node name="TextureButton28" type="TextureButton" parent="NormalPuzzle" index="28"]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 92.0
+offset_right = 178.0
+offset_bottom = 110.0
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("10_525kg")
+script = ExtResource("6_sool8")
+
+[node name="TextureButton29" type="TextureButton" parent="NormalPuzzle" index="29"]
+layout_mode = 0
+offset_left = 178.0
+offset_top = 92.0
+offset_right = 196.0
+offset_bottom = 110.0
+rotation = 1.5708
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("10_525kg")
+script = ExtResource("6_sool8")
+
+[node name="TextureButton30" type="TextureButton" parent="NormalPuzzle" index="30"]
+layout_mode = 0
+offset_left = 178.0
+offset_top = 110.0
+offset_right = 196.0
+offset_bottom = 128.0
+rotation = -1.5708
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("10_525kg")
+script = ExtResource("6_sool8")
+
+[node name="TextureButton31" type="TextureButton" parent="NormalPuzzle" index="31"]
+layout_mode = 0
+offset_left = 178.0
+offset_top = 128.0
+offset_right = 196.0
+offset_bottom = 146.0
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("10_525kg")
+script = ExtResource("6_sool8")
+
+[node name="TextureButton32" type="TextureButton" parent="NormalPuzzle" index="32"]
+layout_mode = 0
+offset_left = 178.0
+offset_top = 146.0
+offset_right = 196.0
+offset_bottom = 164.0
+rotation = -1.5708
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("10_525kg")
+script = ExtResource("6_sool8")
+
+[node name="TextureButton33" type="TextureButton" parent="NormalPuzzle" index="33"]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 146.0
+offset_right = 214.0
+offset_bottom = 164.0
+rotation = 1.5708
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("9_tpqp8")
+script = ExtResource("6_sool8")
+isStraight = true
+
+[node name="TextureButton34" type="TextureButton" parent="NormalPuzzle" index="34"]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 128.0
+offset_right = 214.0
+offset_bottom = 146.0
+rotation = 1.5708
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("9_tpqp8")
+script = ExtResource("6_sool8")
+isStraight = true
+
+[node name="TextureButton35" type="TextureButton" parent="NormalPuzzle" index="35"]
+layout_mode = 0
+offset_left = 214.0
+offset_top = 128.0
+offset_right = 232.0
+offset_bottom = 146.0
+rotation = -3.14159
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("10_525kg")
+script = ExtResource("6_sool8")
+
+[node name="TextureButton36" type="TextureButton" parent="NormalPuzzle" index="36"]
+layout_mode = 0
+offset_left = 214.0
+offset_top = 146.0
+offset_right = 232.0
+offset_bottom = 164.0
+rotation = 1.5708
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("9_tpqp8")
+script = ExtResource("6_sool8")
+isStraight = true
+
+[node name="TextureButton37" type="TextureButton" parent="NormalPuzzle" index="37"]
+layout_mode = 0
+offset_left = 214.0
+offset_top = 110.0
+offset_right = 232.0
+offset_bottom = 128.0
+rotation = 1.5708
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("10_525kg")
+script = ExtResource("6_sool8")
+
+[node name="TextureButton38" type="TextureButton" parent="NormalPuzzle" index="38"]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 110.0
+offset_right = 214.0
+offset_bottom = 128.0
+rotation = 1.5708
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("9_tpqp8")
+script = ExtResource("6_sool8")
+isStraight = true
+
+[node name="TextureButton39" type="TextureButton" parent="NormalPuzzle" index="39"]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 92.0
+offset_right = 214.0
+offset_bottom = 110.0
+rotation = -1.5708
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("10_525kg")
+script = ExtResource("6_sool8")
+
+[node name="TextureButton40" type="TextureButton" parent="NormalPuzzle" index="40"]
+layout_mode = 0
+offset_left = 214.0
+offset_top = 92.0
+offset_right = 232.0
+offset_bottom = 110.0
+rotation = -3.14159
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("10_525kg")
+script = ExtResource("6_sool8")
+
+[node name="TextureButton41" type="TextureButton" parent="NormalPuzzle" index="41"]
+layout_mode = 0
+offset_left = 215.0
+offset_top = 72.0
+offset_right = 233.0
+offset_bottom = 90.0
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("9_tpqp8")
+script = ExtResource("6_sool8")
+isStraight = true
+
+[node name="TextureButton42" type="TextureButton" parent="NormalPuzzle" index="42"]
+layout_mode = 0
+offset_left = 197.0
+offset_top = 72.0
+offset_right = 215.0
+offset_bottom = 90.0
+rotation = 1.5708
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("10_525kg")
+script = ExtResource("6_sool8")
+
+[node name="TextureButton43" type="TextureButton" parent="NormalPuzzle" index="43"]
+layout_mode = 0
+offset_left = 177.0
+offset_top = 72.0
+offset_right = 195.0
+offset_bottom = 90.0
+rotation = -1.5708
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("10_525kg")
+script = ExtResource("6_sool8")
+
+[node name="TextureButton44" type="TextureButton" parent="NormalPuzzle" index="44"]
+layout_mode = 0
+offset_left = 177.0
+offset_top = 54.0
+offset_right = 195.0
+offset_bottom = 72.0
+rotation = 1.5708
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("10_525kg")
+script = ExtResource("6_sool8")
+
+[node name="TextureButton45" type="TextureButton" parent="NormalPuzzle" index="45"]
+layout_mode = 0
+offset_left = 159.0
+offset_top = 54.0
+offset_right = 177.0
+offset_bottom = 72.0
+rotation = -1.5708
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("10_525kg")
+script = ExtResource("6_sool8")
+
+[node name="TextureButton46" type="TextureButton" parent="NormalPuzzle" index="46"]
+layout_mode = 0
+offset_left = 215.0
+offset_top = 54.0
+offset_right = 233.0
+offset_bottom = 72.0
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("9_tpqp8")
+script = ExtResource("6_sool8")
+isStraight = true
+
+[node name="TextureButton47" type="TextureButton" parent="NormalPuzzle" index="47"]
+layout_mode = 0
+offset_left = 213.0
+offset_top = 34.0
+offset_right = 231.0
+offset_bottom = 52.0
+rotation = 1.5708
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("10_525kg")
+script = ExtResource("6_sool8")
+
+[node name="TextureButton48" type="TextureButton" parent="NormalPuzzle" index="48"]
+layout_mode = 0
+offset_left = 195.0
+offset_top = 34.0
+offset_right = 213.0
+offset_bottom = 52.0
+rotation = 1.5708
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("9_tpqp8")
+script = ExtResource("6_sool8")
+isStraight = true
+
+[node name="TextureButton49" type="TextureButton" parent="NormalPuzzle" index="49"]
+layout_mode = 0
+offset_left = 177.0
+offset_top = 34.0
+offset_right = 195.0
+offset_bottom = 52.0
+rotation = -1.5708
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("10_525kg")
+script = ExtResource("6_sool8")
+
+[node name="TextureButton50" type="TextureButton" parent="NormalPuzzle" index="50"]
+layout_mode = 0
+offset_left = 177.0
+offset_top = 16.0
+offset_right = 195.0
+offset_bottom = 34.0
+rotation = 1.5708
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("10_525kg")
+script = ExtResource("6_sool8")
+
+[node name="TextureButton51" type="TextureButton" parent="NormalPuzzle" index="51"]
+layout_mode = 0
+offset_left = 159.0
+offset_top = 16.0
+offset_right = 177.0
+offset_bottom = 34.0
+rotation = 1.5708
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("9_tpqp8")
+script = ExtResource("6_sool8")
+isStraight = true
+
+[node name="TextureButton52" type="TextureButton" parent="NormalPuzzle" index="52"]
+layout_mode = 0
+offset_left = 159.0
+offset_top = 34.0
+offset_right = 177.0
+offset_bottom = 52.0
+rotation = 1.5708
+pivot_offset = Vector2(9, 9)
+texture_normal = ExtResource("10_525kg")
+script = ExtResource("6_sool8")
+
+[node name="TextureRect" type="TextureRect" parent="." index="2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="XButton" parent="." index="3" instance=ExtResource("11_c6tqd")]
+layout_mode = 0
+offset_left = 294.0
+offset_top = 2.0
+offset_right = 318.0
+offset_bottom = 26.0
+
+[connection signal="pressed" from="EvilPuzzle/TextureButton" to="EvilPuzzle/TextureButton" method="_on_pressed"]
+[connection signal="pressed" from="EvilPuzzle/TextureButton2" to="EvilPuzzle/TextureButton2" method="_on_pressed"]
+[connection signal="pressed" from="EvilPuzzle/TextureButton3" to="EvilPuzzle/TextureButton3" method="_on_pressed"]
+[connection signal="pressed" from="EvilPuzzle/TextureButton4" to="EvilPuzzle/TextureButton4" method="_on_pressed"]
+[connection signal="pressed" from="EvilPuzzle/TextureButton5" to="EvilPuzzle/TextureButton5" method="_on_pressed"]
+[connection signal="pressed" from="EvilPuzzle/TextureButton6" to="EvilPuzzle/TextureButton6" method="_on_pressed"]
+[connection signal="pressed" from="EvilPuzzle/TextureButton7" to="EvilPuzzle/TextureButton7" method="_on_pressed"]
+[connection signal="pressed" from="EvilPuzzle/TextureButton8" to="EvilPuzzle/TextureButton8" method="_on_pressed"]
+[connection signal="pressed" from="EvilPuzzle/TextureButton9" to="EvilPuzzle/TextureButton9" method="_on_pressed"]
+[connection signal="pressed" from="EvilPuzzle/TextureButton10" to="EvilPuzzle/TextureButton10" method="_on_pressed"]
+[connection signal="pressed" from="EvilPuzzle/TextureButton11" to="EvilPuzzle/TextureButton11" method="_on_pressed"]
+[connection signal="pressed" from="EvilPuzzle/TextureButton12" to="EvilPuzzle/TextureButton12" method="_on_pressed"]
+[connection signal="pressed" from="EvilPuzzle/TextureButton13" to="EvilPuzzle/TextureButton13" method="_on_pressed"]
+[connection signal="pressed" from="EvilPuzzle/TextureButton14" to="EvilPuzzle/TextureButton14" method="_on_pressed"]
+[connection signal="pressed" from="EvilPuzzle/TextureButton15" to="EvilPuzzle/TextureButton15" method="_on_pressed"]
+[connection signal="pressed" from="EvilPuzzle/TextureButton16" to="EvilPuzzle/TextureButton16" method="_on_pressed"]
+[connection signal="pressed" from="EvilPuzzle/TextureButton17" to="EvilPuzzle/TextureButton17" method="_on_pressed"]
+[connection signal="pressed" from="EvilPuzzle/TextureButton18" to="EvilPuzzle/TextureButton18" method="_on_pressed"]
+[connection signal="pressed" from="EvilPuzzle/TextureButton19" to="EvilPuzzle/TextureButton19" method="_on_pressed"]
+[connection signal="pressed" from="EvilPuzzle/TextureButton20" to="EvilPuzzle/TextureButton20" method="_on_pressed"]
+[connection signal="pressed" from="EvilPuzzle/TextureButton21" to="EvilPuzzle/TextureButton21" method="_on_pressed"]
+[connection signal="pressed" from="EvilPuzzle/TextureButton22" to="EvilPuzzle/TextureButton22" method="_on_pressed"]
+[connection signal="pressed" from="EvilPuzzle/TextureButton23" to="EvilPuzzle/TextureButton23" method="_on_pressed"]
+[connection signal="pressed" from="EvilPuzzle/TextureButton24" to="EvilPuzzle/TextureButton24" method="_on_pressed"]
+[connection signal="pressed" from="EvilPuzzle/TextureButton25" to="EvilPuzzle/TextureButton25" method="_on_pressed"]
+[connection signal="pressed" from="EvilPuzzle/TextureButton26" to="EvilPuzzle/TextureButton26" method="_on_pressed"]
+[connection signal="pressed" from="EvilPuzzle/TextureButton27" to="EvilPuzzle/TextureButton27" method="_on_pressed"]
+[connection signal="pressed" from="EvilPuzzle/TextureButton28" to="EvilPuzzle/TextureButton28" method="_on_pressed"]
+[connection signal="pressed" from="EvilPuzzle/TextureButton29" to="EvilPuzzle/TextureButton29" method="_on_pressed"]
+[connection signal="pressed" from="EvilPuzzle/TextureButton30" to="EvilPuzzle/TextureButton30" method="_on_pressed"]
+[connection signal="pressed" from="EvilPuzzle/TextureButton31" to="EvilPuzzle/TextureButton31" method="_on_pressed"]
+[connection signal="pressed" from="EvilPuzzle/TextureButton32" to="EvilPuzzle/TextureButton32" method="_on_pressed"]
+[connection signal="pressed" from="EvilPuzzle/TextureButton33" to="EvilPuzzle/TextureButton33" method="_on_pressed"]
+[connection signal="pressed" from="EvilPuzzle/TextureButton34" to="EvilPuzzle/TextureButton34" method="_on_pressed"]
+[connection signal="pressed" from="EvilPuzzle/TextureButton35" to="EvilPuzzle/TextureButton35" method="_on_pressed"]
+[connection signal="pressed" from="EvilPuzzle/TextureButton36" to="EvilPuzzle/TextureButton36" method="_on_pressed"]
+[connection signal="pressed" from="EvilPuzzle/TextureButton37" to="EvilPuzzle/TextureButton37" method="_on_pressed"]
+[connection signal="pressed" from="EvilPuzzle/TextureButton38" to="EvilPuzzle/TextureButton38" method="_on_pressed"]
+[connection signal="pressed" from="EvilPuzzle/TextureButton39" to="EvilPuzzle/TextureButton39" method="_on_pressed"]
+[connection signal="pressed" from="EvilPuzzle/TextureButton40" to="EvilPuzzle/TextureButton40" method="_on_pressed"]
+[connection signal="pressed" from="EvilPuzzle/TextureButton41" to="EvilPuzzle/TextureButton41" method="_on_pressed"]
+[connection signal="pressed" from="EvilPuzzle/TextureButton42" to="EvilPuzzle/TextureButton42" method="_on_pressed"]
+[connection signal="pressed" from="EvilPuzzle/TextureButton43" to="EvilPuzzle/TextureButton43" method="_on_pressed"]
+[connection signal="pressed" from="EvilPuzzle/TextureButton44" to="EvilPuzzle/TextureButton44" method="_on_pressed"]
+[connection signal="pressed" from="XButton" to="." method="_on_x_button_pressed"]

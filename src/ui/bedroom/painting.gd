@@ -35,6 +35,7 @@ enum Type {
 
 @export var type : Type
 
+
 ## True when the mouse is inside of the painting
 var hovering := false
 
@@ -50,11 +51,13 @@ var interactable := true
 ## The vector offset from the center at which the mouse originally grabbed the object.
 var mouse_offset : Vector2
 
-@onready var scratches: AnimatedSprite2D = %Scratches
-@onready var numbers: AnimatedSprite2D = %Numbers
+@onready var scratches: Sprite2D = %Scratches
+@onready var numbers: Sprite2D = %Numbers
 @onready var hitbox: Area2D = $Hitbox
 @onready var sprite_holder: Node2D = %SpriteHolder
+@onready var painting_sprite: Sprite2D = $SpriteHolder/PaintingSprite
 
+@export_range(1, 3, 1) var initial_rotations := 1
 
 ## The minimum distance dragged before a rotation input turns to a drag input.
 const MIN_DRAG_DIST := 10.0
@@ -67,6 +70,16 @@ var inventory_pos : Vector2
 
 func _ready() -> void:
 	inventory_pos = global_position
+	# Rotate by a random amount (1-3 rotations)
+	for i in range(initial_rotations):
+		rotate_clockwise(true)
+	# Then rotate painting sprite back by the same amount so original painting is upright 
+	painting_sprite.rotation = -sprite_holder.rotation
+	
+	# Assign sprite frames
+	scratches.frame = type
+	painting_sprite.frame = type
+	numbers.frame = type
 
 ## On hover, wiggle the painting left and right to show it can be rotated on click
 func hover():
@@ -102,17 +115,21 @@ func release():
 	dragging = false
 	print("released")
 
-func rotate_clockwise():
+func rotate_clockwise(instant := false):
 	# Increment rotation state
 	rot_state = ((rot_state + 1) % 4) as Rotation
 	# Rotate visuals to current state using a tween
 	var goal_rot = int(rot_state) * (PI / 2)
-	var tween = Global.safe_tween(sprite_holder)
-	tween.tween_property(sprite_holder, "rotation", lerp_angle(sprite_holder.rotation, goal_rot, 1.0), 0.3)\
-		.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
-	tween.tween_callback(set_all_paintings_interactable.bind(true))
-	# Cause a check for victory
-	rotated.emit()
+	
+	if instant:
+		sprite_holder.rotation = goal_rot
+	else:
+		var tween = Global.safe_tween(sprite_holder)
+		tween.tween_property(sprite_holder, "rotation", lerp_angle(sprite_holder.rotation, goal_rot, 1.0), 0.3)\
+			.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+		tween.tween_callback(set_all_paintings_interactable.bind(true))
+		# Cause a check for victory
+		rotated.emit()
 
 ## Place the painting into a nearby slot, or back in inventory if none is in contact
 func drop():

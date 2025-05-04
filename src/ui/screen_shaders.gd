@@ -19,6 +19,13 @@ var blood_vision_amount := 0.0
 @export var disable_curve : Curve
 @export var disable_pixelate_curve : Curve
 
+@onready var node: Node = $Node
+
+
+func _ready():
+	for asset in get_tree().get_nodes_in_group("2d_blood_vision"):
+		asset.visible = false
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("toggle_blood_vision"):
 		toggle_blood_vision()
@@ -37,7 +44,30 @@ func disable_blood_vision():
 		blood_vision_disabled = true
 	else:
 		blood_vision_disabled = true
-	
+
+func toggle_puzzle_assets_on():
+	var tween = Global.safe_tween(node)
+	tween.set_parallel()
+	# Tween in opacity of everything in normal vision
+	const TIME = 1.0
+	for asset : CanvasItem in get_tree().get_nodes_in_group("2d_normal_vision"):
+		tween.tween_property(asset, "visible", true, 0.0)
+		tween.tween_property(asset, "modulate:a", 1.0, TIME).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	for asset: CanvasItem in get_tree().get_nodes_in_group("2d_blood_vision"):
+		tween.tween_property(asset, "modulate:a", 0.0, TIME).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
+		tween.tween_property(asset, "visible", false, 0.0).set_delay(TIME)
+
+func toggle_puzzle_assets_off():
+	var tween = Global.safe_tween(node)
+	tween.set_parallel()
+	const TIME = 1.0
+	for asset : CanvasItem in get_tree().get_nodes_in_group("2d_blood_vision"):
+		tween.tween_property(asset, "visible", true, 0.0)
+		tween.tween_property(asset, "modulate:a", 1.0, TIME).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	for asset: CanvasItem in get_tree().get_nodes_in_group("2d_normal_vision"):
+		tween.tween_property(asset, "modulate:a", 0.0, TIME).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
+		tween.tween_property(asset, "visible", false, 0.0).set_delay(TIME)
+
 
 var toggle_blood_vision_on_duration: float = 2.7
 func toggle_blood_vision_on():
@@ -45,14 +75,14 @@ func toggle_blood_vision_on():
 		blood_vision_on = true
 		var tween = Global.safe_tween(self)
 		tween.tween_method(set_blood_vision_amount, blood_vision_amount, 1.0, toggle_blood_vision_on_duration).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
-
+		toggle_puzzle_assets_off()
 var toggle_blood_vision_off_duration: float = 2.2
 func toggle_blood_vision_off():
 	if blood_vision_on:
 		blood_vision_on = false
 		var tween = Global.safe_tween(self)
 		tween.tween_method(set_blood_vision_amount, blood_vision_amount, 0.0, toggle_blood_vision_off_duration).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
-
+		toggle_puzzle_assets_on()
 #@export var delay_before_asset_switch: float = 1
 func send_signal_after_delay(new_state: bool):
 	if (new_state):
