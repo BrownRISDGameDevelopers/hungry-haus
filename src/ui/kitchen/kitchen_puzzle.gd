@@ -31,6 +31,8 @@ const VICTORY_LAYOUT : Array[Array] = [
 ## Only the slide puzzle 
 var eggs_items : Array[SlidePuzzlePiece]
 
+@export var solved_bg : TextureRect
+
 @export var puzzle_container : Control
 
 @onready var organs : Array = get_tree().get_nodes_in_group("fridge_organ")
@@ -215,6 +217,9 @@ func check_victory():
 				return false
 	show_victory()
 	complete()
+	if solved_bg:
+		var tween = Global.safe_tween(solved_bg)
+		tween.tween_property(solved_bg, "modulate", Color.WHITE, 0.8)
 	return true
 
 func show_victory():

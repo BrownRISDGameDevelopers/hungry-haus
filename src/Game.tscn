@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cah2eg11nbm47" path="res://asset/puzzles/kitchen/grocery-list-1.png" id="4_rgpsw"]
 [ext_resource type="Script" uid="uid://d08gdlqj02bom" path="res://src/ui/kitchen/kitchen_puzzle.gd" id="4_x2540"]
 [ext_resource type="PackedScene" uid="uid://chg877he58hdh" path="res://src/ui/kitchen/kitchen_puzzle.tscn" id="5_dbp7n"]
+[ext_resource type="Texture2D" uid="uid://um6vih0gtjpd" path="res://asset/puzzles/kitchen/kitchen-placemat.png" id="6_72vyi"]
 [ext_resource type="Texture2D" uid="uid://dgmcojsrr2bjb" path="res://asset/puzzles/kitchen/grocery-list-2.png" id="6_dlhd6"]
 [ext_resource type="PackedScene" uid="uid://ufmxovknsxku" path="res://src/ui/game_timer.tscn" id="6_eu8jo"]
 [ext_resource type="Script" uid="uid://c6f5kxliffepe" path="res://src/ui/intro_cutscene.gd" id="11_72vyi"]
@@ -362,6 +363,22 @@ puzzle_type = 1
 texture_filter = 1
 position = Vector2(161.75, 90.75)
 texture = ExtResource("4_rgpsw")
+
+[node name="Placemat" type="Control" parent="SubViewportContainer/2DViewport" groups=["puzzle"]]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_x2540")
+puzzle_type = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="SubViewportContainer/2DViewport/Placemat"]
+texture_filter = 1
+position = Vector2(161.75, 90.75)
+texture = ExtResource("6_72vyi")
 
 [node name="BadNote" type="Control" parent="SubViewportContainer/2DViewport" groups=["puzzle"]]
 visible = false

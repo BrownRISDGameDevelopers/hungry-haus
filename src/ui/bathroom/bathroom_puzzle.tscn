@@ -73,6 +73,11 @@ texture_hover = ExtResource("5_r2145")
 stretch_mode = 0
 script = ExtResource("6_sool8")
 
+[node name="TextureRect" type="TextureRect" parent="." index="2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [connection signal="pressed" from="BathroomPuzzleContainer/TextureButton" to="BathroomPuzzleContainer/TextureButton" method="_on_pressed"]
 [connection signal="pressed" from="BathroomPuzzleContainer/TextureButton3" to="BathroomPuzzleContainer/TextureButton3" method="_on_pressed"]
 [connection signal="pressed" from="BathroomPuzzleContainer/TextureButton4" to="BathroomPuzzleContainer/TextureButton4" method="_on_pressed"]

@@ -1,10 +1,10 @@
 [gd_scene load_steps=23 format=3 uid="uid://chg877he58hdh"]
 
 [ext_resource type="Script" uid="uid://d08gdlqj02bom" path="res://src/ui/kitchen/kitchen_puzzle.gd" id="1_i8rvj"]
-[ext_resource type="Texture2D" uid="uid://cfsii7dcganbc" path="res://asset/puzzles/kitchen/kitchen-puzzle-bg-1.png" id="2_12o7e"]
+[ext_resource type="Texture2D" uid="uid://beeeobyeggr62" path="res://asset/puzzles/kitchen/background/kitchen-puzzle-bg-1.png" id="2_12o7e"]
 [ext_resource type="PackedScene" uid="uid://dhsg5uesdkvql" path="res://src/ui/kitchen/slide_puzzle_piece.tscn" id="2_f5xa7"]
 [ext_resource type="Texture2D" uid="uid://dbbuxa7snkyti" path="res://asset/puzzles/kitchen/haus_jello.png" id="3_vttc1"]
-[ext_resource type="Texture2D" uid="uid://dy34ev2xwr1qv" path="res://asset/puzzles/kitchen/kitchen-puzzle-bg-2.png" id="3_xb32w"]
+[ext_resource type="Texture2D" uid="uid://df04s0idy1c8s" path="res://asset/puzzles/kitchen/background/kitchen-puzzle-bg-2.png" id="3_xb32w"]
 [ext_resource type="Texture2D" uid="uid://bnwyj5uyi7lnh" path="res://asset/puzzles/kitchen/brain.png" id="4_04p5n"]
 [ext_resource type="Texture2D" uid="uid://dpglktom1n676" path="res://asset/puzzles/kitchen/haus_orange-juice.png" id="4_umncn"]
 [ext_resource type="Texture2D" uid="uid://24ksfbkhv37d" path="res://asset/puzzles/kitchen/haus_produce.png" id="5_xdyl4"]
@@ -23,7 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://day0ko7uwhynh" path="res://asset/puzzles/kitchen/left kidney.png" id="18_tptug"]
 [ext_resource type="Texture2D" uid="uid://ckgpjidgkbgx8" path="res://asset/puzzles/kitchen/Intestines.png" id="20_5puoc"]
 
-[node name="KitchenPuzzle" type="Control" node_paths=PackedStringArray("puzzle_container") groups=["kitchen_puzzle"]]
+[node name="KitchenPuzzle" type="Control" node_paths=PackedStringArray("solved_bg", "puzzle_container") groups=["kitchen_puzzle"]]
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
@@ -35,6 +35,7 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(160, 90)
 script = ExtResource("1_i8rvj")
+solved_bg = NodePath("Screen_Container/SolvedBG")
 puzzle_container = NodePath("Screen_Container/PuzzleContainer")
 
 [node name="Screen_Container" type="Control" parent="."]
@@ -42,7 +43,21 @@ anchors_preset = 0
 offset_right = 320.0
 offset_bottom = 180.0
 
+[node name="GoodBG" type="TextureRect" parent="Screen_Container"]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 180.0
+texture = ExtResource("2_12o7e")
+
+[node name="SolvedBG" type="TextureRect" parent="Screen_Container"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 180.0
+texture = ExtResource("3_xb32w")
+
 [node name="ColorRect" type="ColorRect" parent="Screen_Container"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
