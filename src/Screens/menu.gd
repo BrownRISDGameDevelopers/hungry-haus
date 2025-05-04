@@ -33,11 +33,6 @@ func play_intro_cutscene():
 
 
 
-func _on_options_pressed() -> void:
-	pass # Replace with function body.
-
-
 func _on_credits_pressed() -> void:
 	var tween = Global.safe_tween(self)
 	tween.tween_property(credits_splash, "modulate:a", 1.0, 1.0).set_trans(Tween.TRANS_CUBIC)
-	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://chg877he58hdh"]
+[gd_scene load_steps=24 format=3 uid="uid://chg877he58hdh"]
 
 [ext_resource type="Script" uid="uid://d08gdlqj02bom" path="res://src/ui/kitchen/kitchen_puzzle.gd" id="1_i8rvj"]
 [ext_resource type="Texture2D" uid="uid://beeeobyeggr62" path="res://asset/puzzles/kitchen/background/kitchen-puzzle-bg-1.png" id="2_12o7e"]
@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://be8aheomgti78" path="res://asset/puzzles/kitchen/right kidney.png" id="16_vrwvt"]
 [ext_resource type="Texture2D" uid="uid://day0ko7uwhynh" path="res://asset/puzzles/kitchen/left kidney.png" id="18_tptug"]
 [ext_resource type="Texture2D" uid="uid://ckgpjidgkbgx8" path="res://asset/puzzles/kitchen/Intestines.png" id="20_5puoc"]
+[ext_resource type="PackedScene" uid="uid://qpsb1cu5mgjd" path="res://src/ui/x_button.tscn" id="23_xb32w"]
 
 [node name="KitchenPuzzle" type="Control" node_paths=PackedStringArray("solved_bg", "puzzle_container") groups=["kitchen_puzzle"]]
 texture_filter = 1
@@ -261,3 +262,8 @@ offset_right = 80.0
 offset_bottom = 160.0
 texture_normal = ExtResource("10_vv0va")
 type = 8
+
+[node name="XButton" parent="." instance=ExtResource("23_xb32w")]
+layout_mode = 0
+
+[connection signal="pressed" from="XButton" to="." method="_on_x_button_pressed"]

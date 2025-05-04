@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ucb4ni385yxx"]
+[gd_scene load_steps=10 format=3 uid="uid://ucb4ni385yxx"]
 
 [ext_resource type="PackedScene" uid="uid://cl6ia52rquthd" path="res://src/ui/puzzle.tscn" id="1_mb3a5"]
 [ext_resource type="Script" uid="uid://dwlke5d7l8ait" path="res://src/ui/bedroom/bedroom_puzzle.gd" id="2_yn5g8"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://737hpmn1celn" path="res://src/ui/bedroom/painting.tscn" id="4_lqruy"]
 [ext_resource type="Texture2D" uid="uid://uyxcosdrvp2r" path="res://asset/puzzles/bedroom/BigPaintingNoHand.png" id="5_gb1ac"]
 [ext_resource type="Texture2D" uid="uid://oo33ya8b6o27" path="res://asset/puzzles/bedroom/BigPaintingRedHand.png" id="6_2l7f4"]
+[ext_resource type="PackedScene" uid="uid://qpsb1cu5mgjd" path="res://src/ui/x_button.tscn" id="9_j3u1c"]
 
 [node name="BedroomPuzzle" instance=ExtResource("1_mb3a5")]
 offset_right = -960.0
@@ -142,3 +143,12 @@ offset_right = 269.0
 offset_bottom = 166.0
 type = 5
 initial_rotations = 3
+
+[node name="XButton" parent="." index="17" instance=ExtResource("9_j3u1c")]
+layout_mode = 0
+offset_left = 294.0
+offset_top = 2.0
+offset_right = 318.0
+offset_bottom = 26.0
+
+[connection signal="pressed" from="XButton" to="." method="_on_x_button_pressed"]

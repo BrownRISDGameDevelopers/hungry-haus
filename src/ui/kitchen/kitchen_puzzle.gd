@@ -257,3 +257,7 @@ func get_other_egg_piece(first_egg_piece : SlidePuzzlePiece):
 	for egg in eggs_items:
 		if egg != first_egg_piece:
 			return egg
+
+
+func _on_x_button_pressed() -> void:
+	toggle_puzzle_active()

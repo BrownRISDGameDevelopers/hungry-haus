@@ -75,3 +75,7 @@ func show_victory():
 # On ready, make them invisible
 # Add Area2d PaintingSlots where paintings that overlap with them move towards the closest one upon release. 
 # Each painting slot can hold a painting of a certain type, and can be validated for victory.  
+
+
+func _on_x_button_pressed() -> void:
+	toggle_puzzle_active()
