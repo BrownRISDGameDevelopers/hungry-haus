@@ -1,9 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://cb64ib71h0pqo"]
+[gd_scene load_steps=6 format=3 uid="uid://cb64ib71h0pqo"]
 
 [ext_resource type="Script" uid="uid://c3kao551oyio8" path="res://src/Screens/menu.gd" id="1_b4hyn"]
+[ext_resource type="Texture2D" uid="uid://qgitaypkyedg" path="res://asset/menu/Title_Screen.png" id="2_aosw5"]
+[ext_resource type="Texture2D" uid="uid://30ihe6gnlvjp" path="res://asset/menu/start.PNG" id="3_41gp4"]
+[ext_resource type="Texture2D" uid="uid://cuqlyf50jcxnk" path="res://asset/menu/credits.PNG" id="5_8jj0e"]
 
 [sub_resource type="GDScript" id="GDScript_03nda"]
-script/source = "extends Button
+script/source = "extends TextureButton
 "
 
 [node name="Menu" type="Control"]
@@ -15,62 +18,42 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_b4hyn")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="BG" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -320.0
+offset_top = -180.0
+offset_right = 320.0
+offset_bottom = 180.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+scale = Vector2(0.667, 0.667)
+pivot_offset = Vector2(960, 540)
+texture = ExtResource("2_aosw5")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -82.0
-offset_top = -285.0
-offset_right = 82.0
-offset_bottom = -10.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="Start" type="Button" parent="ColorRect/VBoxContainer"]
+[node name="Start" type="TextureButton" parent="BG"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
-text = "Start
-"
+offset_left = 148.426
+offset_top = 737.631
+offset_right = 1337.43
+offset_bottom = 943.631
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("3_41gp4")
 script = SubResource("GDScript_03nda")
 
-[node name="Options" type="Button" parent="ColorRect/VBoxContainer"]
+[node name="Credits" type="TextureButton" parent="BG"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
-text = "Options"
+offset_left = 170.914
+offset_top = 794.602
+offset_right = 1359.91
+offset_bottom = 1000.6
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("5_8jj0e")
 
-[node name="Credits" type="Button" parent="ColorRect/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 40
-text = "Credits"
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(640, 360)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 1.0
-offset_top = 133.0
-offset_right = 1.0
-offset_bottom = 333.0
-grow_horizontal = 2
-theme_override_font_sizes/normal_font_size = 48
-text = "Hungry Haus"
-fit_content = true
-autowrap_mode = 2
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[connection signal="pressed" from="ColorRect/VBoxContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="ColorRect/VBoxContainer/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="ColorRect/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="BG/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="BG/Credits" to="." method="_on_credits_pressed"]

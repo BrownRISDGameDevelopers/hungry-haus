@@ -66,6 +66,18 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0.2)
 
+[node name="GoodBG" type="TextureRect" parent="Screen_Container"]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 180.0
+texture = ExtResource("2_12o7e")
+
+[node name="EvilBG" type="TextureRect" parent="Screen_Container"]
+visible = false
+offset_right = 320.0
+offset_bottom = 180.0
+texture = ExtResource("3_xb32w")
+
 [node name="PuzzleContainer" type="Control" parent="Screen_Container" groups=["puzzle_container"]]
 unique_name_in_owner = true
 layout_mode = 1

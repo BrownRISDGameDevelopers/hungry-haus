@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://blna84bj33fox"]
+[gd_scene load_steps=23 format=3 uid="uid://blna84bj33fox"]
 
 [ext_resource type="PackedScene" uid="uid://cmylkhe7l8yw5" path="res://src/world/world.tscn" id="1_kqvf5"]
 [ext_resource type="PackedScene" uid="uid://drhdjb18rwo1i" path="res://src/ui/screen_shaders.tscn" id="2_dbp7n"]
@@ -11,6 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://um6vih0gtjpd" path="res://asset/puzzles/kitchen/kitchen-placemat.png" id="6_72vyi"]
 [ext_resource type="Texture2D" uid="uid://dgmcojsrr2bjb" path="res://asset/puzzles/kitchen/grocery-list-2.png" id="6_dlhd6"]
 [ext_resource type="PackedScene" uid="uid://ufmxovknsxku" path="res://src/ui/game_timer.tscn" id="6_eu8jo"]
+[ext_resource type="Script" uid="uid://c6f5kxliffepe" path="res://src/ui/intro_cutscene.gd" id="11_72vyi"]
+[ext_resource type="Texture2D" uid="uid://q32366vr7x35" path="res://asset/menu/Exorcist_ID.png" id="12_0rf6s"]
+[ext_resource type="Texture2D" uid="uid://0lxwrq014jpa" path="res://asset/menu/Controls.png" id="13_2fxc8"]
 
 [sub_resource type="Curve" id="Curve_eu8jo"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.44, 0.254218), 0.0, 0.0, 0, 0, Vector2(0.834286, 0.649044), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -418,6 +421,37 @@ offset_left = 8.5
 offset_top = 7.0
 offset_right = 40.5
 offset_bottom = 30.0
+
+[node name="IntroCutscene" type="Control" parent="SubViewportContainer/2DViewport"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("11_72vyi")
+
+[node name="BlackBG" type="ColorRect" parent="SubViewportContainer/2DViewport/IntroCutscene"]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 179.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="IDCard" type="Node2D" parent="SubViewportContainer/2DViewport/IntroCutscene"]
+position = Vector2(157.485, 59.01)
+rotation = 0.0349066
+
+[node name="Sprite2D" type="Sprite2D" parent="SubViewportContainer/2DViewport/IntroCutscene/IDCard"]
+scale = Vector2(0.41, 0.41)
+texture = ExtResource("12_0rf6s")
+
+[node name="Controls" type="Sprite2D" parent="SubViewportContainer/2DViewport/IntroCutscene"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(158, 122.745)
+scale = Vector2(0.565, 0.565)
+texture = ExtResource("13_2fxc8")
 
 [node name="VHSShader2" type="ColorRect" parent="SubViewportContainer/2DViewport"]
 unique_name_in_owner = true

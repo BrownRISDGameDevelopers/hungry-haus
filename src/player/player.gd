@@ -44,8 +44,8 @@ func _input(event: InputEvent) -> void:
 
 func _physics_process(delta: float) -> void:
 	velocity = _walk(delta) + _gravity(delta)
-	print_debug(self.camera.rotation)
-	print_debug(self.position)
+	#print_debug(self.camera.rotation)
+	#print_debug(self.position)
 	move_and_slide()
 
 func capture_mouse() -> void:
@@ -97,7 +97,7 @@ func _freeze_n_move():
 	var tween = Global.safe_tween(self)
 	BloodVision.disable_blood_vision()
 	var intermediate_basis = Basis(Vector3(-0.716801, 0.0, 0.697278), Vector3(-0.090391, 0.991562, -0.092922), Vector3(-0.691394, -0.129634, -0.710753))
-	print(global_rotate)
+	#print(global_rotate)
 	tween.tween_property(self.camera, "rotation", Vector3(.13, -2.37, 0), 5).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
 	tween.parallel().tween_property(self, "position", Vector3(13.275, 1.043, 7.1736), 5).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
 	#CALL ENDING FUNCTION
