@@ -265,5 +265,9 @@ type = 8
 
 [node name="XButton" parent="." instance=ExtResource("23_xb32w")]
 layout_mode = 0
+offset_left = 294.0
+offset_top = 2.0
+offset_right = 318.0
+offset_bottom = 26.0
 
 [connection signal="pressed" from="XButton" to="." method="_on_x_button_pressed"]

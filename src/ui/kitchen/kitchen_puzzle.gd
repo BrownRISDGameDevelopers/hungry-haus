@@ -260,4 +260,4 @@ func get_other_egg_piece(first_egg_piece : SlidePuzzlePiece):
 
 
 func _on_x_button_pressed() -> void:
-	toggle_puzzle_active()
+	toggle_puzzle_off()

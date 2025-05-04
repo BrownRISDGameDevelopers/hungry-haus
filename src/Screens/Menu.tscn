@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cb64ib71h0pqo"]
+[gd_scene load_steps=12 format=3 uid="uid://cb64ib71h0pqo"]
 
 [ext_resource type="Script" uid="uid://c3kao551oyio8" path="res://src/Screens/menu.gd" id="1_b4hyn"]
 [ext_resource type="Texture2D" uid="uid://qgitaypkyedg" path="res://asset/menu/Title_Screen.png" id="2_aosw5"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cuqlyf50jcxnk" path="res://asset/menu/credits.PNG" id="5_8jj0e"]
 [ext_resource type="Texture2D" uid="uid://b3i4oi0wj8pse" path="res://asset/menu/hover_credits.PNG" id="6_yjyrx"]
 [ext_resource type="Texture2D" uid="uid://d4ki2k1ttylnb" path="res://asset/menu/Credits_Fixed.PNG" id="7_yjyrx"]
+[ext_resource type="PackedScene" uid="uid://qpsb1cu5mgjd" path="res://src/ui/x_button.tscn" id="8_8jj0e"]
 
 [sub_resource type="GDScript" id="GDScript_03nda"]
 script/source = "extends TextureButton
@@ -324,6 +325,14 @@ scale = Vector2(0.667, 0.667)
 mouse_filter = 2
 texture = ExtResource("7_yjyrx")
 
+[node name="XButton" parent="CreditsSplash" instance=ExtResource("8_8jj0e")]
+layout_mode = 0
+offset_left = 1752.0
+offset_top = 25.695
+offset_right = 1776.0
+offset_bottom = 49.695
+scale = Vector2(6, 6)
+
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(640, 360)
 
@@ -342,3 +351,4 @@ mouse_filter = 2
 
 [connection signal="pressed" from="BG/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="BG/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="CreditsSplash/XButton" to="." method="_on_x_button_pressed"]
