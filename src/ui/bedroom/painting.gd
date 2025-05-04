@@ -57,6 +57,7 @@ var mouse_offset : Vector2
 @onready var sprite_holder: Node2D = %SpriteHolder
 @onready var painting_sprite: Sprite2D = $SpriteHolder/PaintingSprite
 
+@export_range(1, 3, 1) var initial_rotations := 1
 
 ## The minimum distance dragged before a rotation input turns to a drag input.
 const MIN_DRAG_DIST := 10.0
@@ -70,7 +71,7 @@ var inventory_pos : Vector2
 func _ready() -> void:
 	inventory_pos = global_position
 	# Rotate by a random amount (1-3 rotations)
-	for i in range(randi_range(1, 3)):
+	for i in range(initial_rotations):
 		rotate_clockwise(true)
 	# Then rotate painting sprite back by the same amount so original painting is upright 
 	painting_sprite.rotation = -rotation
@@ -116,7 +117,7 @@ func rotate_clockwise(instant := false):
 	var goal_rot = int(rot_state) * (PI / 2)
 	
 	if instant:
-		rotation = goal_rot
+		sprite_holder.rotation = goal_rot
 	else:
 		var tween = Global.safe_tween(sprite_holder)
 		tween.tween_property(sprite_holder, "rotation", lerp_angle(sprite_holder.rotation, goal_rot, 1.0), 0.3)\
