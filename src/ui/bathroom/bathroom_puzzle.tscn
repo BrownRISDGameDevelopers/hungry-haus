@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bfnojvvc0fc2h"]
+[gd_scene load_steps=12 format=3 uid="uid://bfnojvvc0fc2h"]
 
 [ext_resource type="PackedScene" uid="uid://cl6ia52rquthd" path="res://src/ui/puzzle.tscn" id="1_nymm8"]
 [ext_resource type="Texture2D" uid="uid://cv5rgwwjpeud6" path="res://asset/puzzles/bathroom/bentIntestine.PNG" id="2_3flqs"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c41qoxft2qh7v" path="res://asset/puzzles/bathroom/normalPipesBackground.PNG" id="8_w001a"]
 [ext_resource type="Texture2D" uid="uid://b4xksttw0jypn" path="res://asset/puzzles/bathroom/straightPipe.PNG" id="9_tpqp8"]
 [ext_resource type="Texture2D" uid="uid://c1i5l1a0j4wc2" path="res://asset/puzzles/bathroom/bentPipe.PNG" id="10_525kg"]
+[ext_resource type="PackedScene" uid="uid://qpsb1cu5mgjd" path="res://src/ui/x_button.tscn" id="11_c6tqd"]
 
 [node name="BathroomPuzzle" groups=["bathroom_puzzle", "puzzle"] instance=ExtResource("1_nymm8")]
 offset_right = -960.0
@@ -1151,6 +1152,13 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="XButton" parent="." index="3" instance=ExtResource("11_c6tqd")]
+layout_mode = 0
+offset_left = 294.0
+offset_top = 2.0
+offset_right = 318.0
+offset_bottom = 26.0
+
 [connection signal="pressed" from="EvilPuzzle/TextureButton" to="EvilPuzzle/TextureButton" method="_on_pressed"]
 [connection signal="pressed" from="EvilPuzzle/TextureButton2" to="EvilPuzzle/TextureButton2" method="_on_pressed"]
 [connection signal="pressed" from="EvilPuzzle/TextureButton3" to="EvilPuzzle/TextureButton3" method="_on_pressed"]
@@ -1195,3 +1203,4 @@ offset_bottom = 40.0
 [connection signal="pressed" from="EvilPuzzle/TextureButton42" to="EvilPuzzle/TextureButton42" method="_on_pressed"]
 [connection signal="pressed" from="EvilPuzzle/TextureButton43" to="EvilPuzzle/TextureButton43" method="_on_pressed"]
 [connection signal="pressed" from="EvilPuzzle/TextureButton44" to="EvilPuzzle/TextureButton44" method="_on_pressed"]
+[connection signal="pressed" from="XButton" to="." method="_on_x_button_pressed"]

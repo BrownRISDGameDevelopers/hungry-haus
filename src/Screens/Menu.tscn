@@ -296,9 +296,9 @@ texture = ExtResource("2_aosw5")
 
 [node name="Start" type="TextureButton" parent="BG"]
 layout_mode = 2
-offset_left = 148.426
+offset_left = 176.912
 offset_top = 737.631
-offset_right = 1337.43
+offset_right = 1365.92
 offset_bottom = 943.631
 scale = Vector2(0.2, 0.2)
 texture_normal = ExtResource("3_41gp4")
@@ -316,10 +316,12 @@ texture_normal = ExtResource("5_8jj0e")
 texture_hover = ExtResource("6_yjyrx")
 
 [node name="CreditsSplash" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 scale = Vector2(0.667, 0.667)
+mouse_filter = 2
 texture = ExtResource("7_yjyrx")
 
 [node name="Marker2D" type="Marker2D" parent="."]
