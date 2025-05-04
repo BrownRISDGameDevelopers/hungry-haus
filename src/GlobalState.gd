@@ -2,12 +2,12 @@ extends Node
 
 signal switched_room(to: Room.Type)
 
-var current_room : Room.Type = Room.Type.KITCHEN
+var current_room : Room.Type = Room.Type.BATHROOM
 
 func move_to_next_room():
 	current_room = (int(current_room) + 1) as Room.Type
 	switched_room.emit(current_room)
-	print("Moved to: " , current_room) 
+	print("Moved to: " , current_room)
 
 func lose():
 	print("LOST THE GAME!!!!!!!!")

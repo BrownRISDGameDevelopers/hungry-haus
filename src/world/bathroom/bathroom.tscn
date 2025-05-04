@@ -130,17 +130,23 @@ visible = false
 [node name="Vanity" parent="Node3D/HHBATH_ALTFINAL" index="12"]
 visible = false
 
-[node name="HHBATH_NORMALFINAL2" parent="Node3D" index="2" groups=["enable_off_blood_vision"] instance=ExtResource("2_u7pik")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0, -0.44031)
+[node name="Mirror WOrld" type="Node3D" parent="Node3D" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.44031)
 
-[node name="Vanity" parent="Node3D/HHBATH_NORMALFINAL2" index="12"]
+[node name="HHBATH_NORMALFINAL2" parent="Node3D/Mirror WOrld" index="0" groups=["enable_off_blood_vision"] instance=ExtResource("2_u7pik")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0, -0.035029)
+
+[node name="Vanity" parent="Node3D/Mirror WOrld/HHBATH_NORMALFINAL2" index="12"]
 visible = false
 
-[node name="HHBATH_ALTFINAL2" parent="Node3D" index="3" groups=["enable_on_blood_vision"] instance=ExtResource("3_b6y1o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0, -0.44031)
+[node name="HH_MAIN_CHARACTER" parent="Node3D/Mirror WOrld" index="1" instance=ExtResource("7_c6pn2")]
+transform = Transform3D(0.967851, 0, 0, 0, 0.967851, 0, 0, 0, 0.967851, -0.000272579, 0.0315933, -0.0417008)
+
+[node name="HHBATH_ALTFINAL2" parent="Node3D/Mirror WOrld" index="2" groups=["enable_on_blood_vision"] instance=ExtResource("3_b6y1o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0, -0.035029)
 visible = false
 
-[node name="Vanity" parent="Node3D/HHBATH_ALTFINAL2" index="12"]
+[node name="Vanity" parent="Node3D/Mirror WOrld/HHBATH_ALTFINAL2" index="12"]
 visible = false
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="5"]
@@ -200,10 +206,7 @@ visible = false
 light_color = Color(1, 0.901961, 0.878431, 1)
 light_energy = 0.371
 
-[node name="HH_MAIN_CHARACTER" parent="." index="8" instance=ExtResource("7_c6pn2")]
-transform = Transform3D(16.1486, 0, 0, 0, 16.1486, 0, 0, 0, 16.1486, -0.567807, 0.527134, -6.44159)
-
 [editable path="Node3D/HHBATH_NORMALFINAL"]
 [editable path="Node3D/HHBATH_ALTFINAL"]
-[editable path="Node3D/HHBATH_NORMALFINAL2"]
-[editable path="Node3D/HHBATH_ALTFINAL2"]
+[editable path="Node3D/Mirror WOrld/HHBATH_NORMALFINAL2"]
+[editable path="Node3D/Mirror WOrld/HHBATH_ALTFINAL2"]
