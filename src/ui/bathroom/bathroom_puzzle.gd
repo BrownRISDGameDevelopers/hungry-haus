@@ -42,6 +42,7 @@ func show_victory():
 	tween.tween_property(self, "scale", Vector2(1.05, 1.05), 1.0).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
 	tween.parallel().tween_property(self, "modulate", Color(1.0, 0.5, 0.5), 3.5).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
 	tween.tween_callback(toggle_puzzle_active)
+	SfxPlayer._play("PuzzleComplete3")
 
 
 func _on_x_button_pressed() -> void:
