@@ -39,8 +39,8 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		look_dir = event.relative * 0.001
 		if can_move: _rotate_camera()
-	if event.is_action_pressed("freeze_n_stuff"):
-		_freeze_n_move()
+	#if event.is_action_pressed("freeze_n_stuff"):
+		#_freeze_n_move()
 
 func _physics_process(delta: float) -> void:
 	velocity = _walk(delta) + _gravity(delta)
