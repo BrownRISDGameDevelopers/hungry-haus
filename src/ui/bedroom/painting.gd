@@ -75,6 +75,11 @@ func _ready() -> void:
 		rotate_clockwise(true)
 	# Then rotate painting sprite back by the same amount so original painting is upright 
 	painting_sprite.rotation = -sprite_holder.rotation
+	
+	# Assign sprite frames
+	scratches.frame = type
+	painting_sprite.frame = type
+	numbers.frame = type
 
 ## On hover, wiggle the painting left and right to show it can be rotated on click
 func hover():

@@ -431,6 +431,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("11_72vyi")
+do_cutscene = false
 
 [node name="BlackBG" type="ColorRect" parent="SubViewportContainer/2DViewport/IntroCutscene"]
 layout_mode = 0

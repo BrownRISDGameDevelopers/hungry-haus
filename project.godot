@@ -43,6 +43,8 @@ puzzle=""
 puzzle_container=""
 screenshaders=""
 bedroom_solved=""
+2d_normal_vision=""
+2d_blood_vision=""
 
 [input]
 
