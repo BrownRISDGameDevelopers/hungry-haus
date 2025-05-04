@@ -88,19 +88,19 @@ correct_painting_type = 5
 [node name="Painting" parent="." index="11" instance=ExtResource("4_lqruy")]
 z_index = 1
 layout_mode = 0
-offset_left = 44.0
-offset_top = 6.0
-offset_right = 94.0
-offset_bottom = 56.0
+offset_left = 219.0
+offset_top = 62.0
+offset_right = 269.0
+offset_bottom = 112.0
 initial_rotations = 2
 
 [node name="Painting2" parent="." index="12" instance=ExtResource("4_lqruy")]
 z_index = 1
 layout_mode = 0
 offset_left = 44.0
-offset_top = 61.0
+offset_top = 116.0
 offset_right = 94.0
-offset_bottom = 111.0
+offset_bottom = 166.0
 type = 2
 initial_rotations = 3
 
@@ -108,9 +108,9 @@ initial_rotations = 3
 z_index = 1
 layout_mode = 0
 offset_left = 44.0
-offset_top = 116.0
+offset_top = 62.0
 offset_right = 94.0
-offset_bottom = 166.0
+offset_bottom = 112.0
 type = 4
 initial_rotations = 2
 
@@ -118,18 +118,18 @@ initial_rotations = 2
 z_index = 1
 layout_mode = 0
 offset_left = 219.0
-offset_top = 8.0
+offset_top = 116.0
 offset_right = 269.0
-offset_bottom = 58.0
+offset_bottom = 166.0
 type = 1
 
 [node name="Painting5" parent="." index="15" instance=ExtResource("4_lqruy")]
 z_index = 1
 layout_mode = 0
-offset_left = 219.0
-offset_top = 62.0
-offset_right = 269.0
-offset_bottom = 112.0
+offset_left = 44.0
+offset_top = 8.0
+offset_right = 94.0
+offset_bottom = 58.0
 type = 3
 initial_rotations = 2
 
@@ -137,8 +137,8 @@ initial_rotations = 2
 z_index = 1
 layout_mode = 0
 offset_left = 219.0
-offset_top = 116.0
+offset_top = 8.0
 offset_right = 269.0
-offset_bottom = 166.0
+offset_bottom = 58.0
 type = 5
 initial_rotations = 3
