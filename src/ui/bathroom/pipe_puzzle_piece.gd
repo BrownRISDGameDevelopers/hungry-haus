@@ -27,7 +27,7 @@ func _ready():
 	
 	if rotation < 0:
 		rotation += TAU
-	rot_state = int(rotation/(PI/2))
+	rot_state = int((rotation + 0.01)/(PI/2)) % 4
 	
 	winning_rotation = rot_state
 	

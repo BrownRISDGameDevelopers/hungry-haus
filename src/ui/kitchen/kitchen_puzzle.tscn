@@ -38,6 +38,9 @@ pivot_offset = Vector2(160, 90)
 script = ExtResource("1_i8rvj")
 solved_bg = NodePath("Screen_Container/SolvedBG")
 puzzle_container = NodePath("Screen_Container/PuzzleContainer")
+puzzle_type = null
+room_type = null
+force_visible = null
 
 [node name="Screen_Container" type="Control" parent="."]
 anchors_preset = 0

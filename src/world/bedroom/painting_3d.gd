@@ -24,3 +24,4 @@ func interact() -> void:
 		print(puzzle.inventory)
 		collected = true
 		paintingsHolder.hide()
+		SfxPlayer._play("DropPainting")

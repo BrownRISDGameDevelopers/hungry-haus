@@ -241,6 +241,7 @@ func show_victory():
 		tween.parallel().tween_property(organ, "modulate", COLOR_VISIBLE, 0.25).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
 		tween.parallel().tween_property(food, "self_modulate", COLOR_TRANSPARENT, 0.25).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
 	tween.tween_callback(toggle_puzzle_active) 
+	SfxPlayer._play("PuzzleComplete1")
 
 # Get the eggs
 func get_eggs():
@@ -261,3 +262,7 @@ func get_other_egg_piece(first_egg_piece : SlidePuzzlePiece):
 
 func _on_x_button_pressed() -> void:
 	toggle_puzzle_off()
+
+#func toggle_puzzle_active():
+	#if !puzzle_active: SfxPlayer._play("FridgeOpen")
+	#super.toggle_puzzle_active()

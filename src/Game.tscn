@@ -435,10 +435,10 @@ offset_bottom = 0.0
 visible = false
 offset_right = -320.0
 offset_bottom = -180.0
-inventory_ui = NodePath("../BedroomInventory")
 puzzle_type = 3
 room_type = 1
 force_visible = false
+inventory_ui = NodePath("../BedroomInventory")
 
 [node name="BedroomLock" parent="SubViewportContainer/2DViewport" instance=ExtResource("14_goodv")]
 visible = false
@@ -462,7 +462,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("11_72vyi")
-do_cutscene = false
 
 [node name="BlackBG" type="ColorRect" parent="SubViewportContainer/2DViewport/IntroCutscene"]
 layout_mode = 0

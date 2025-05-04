@@ -31,12 +31,13 @@ default_font = ExtResource("4_8rbt3")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qynm1"]
 
-[node name="BedroomLock" type="Control" groups=["puzzle"]]
+[node name="BedroomLock" type="Control" groups=["bedroom_lock", "puzzle"]]
 layout_mode = 3
 anchor_right = 0.25
 anchor_bottom = 0.25
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(160, 90)
 script = ExtResource("1_ujuyf")
 puzzle_type = 4
 room_type = 1
@@ -208,3 +209,5 @@ offset_left = 294.0
 offset_top = 2.0
 offset_right = 318.0
 offset_bottom = 26.0
+
+[connection signal="pressed" from="XButton" to="." method="_on_x_button_pressed"]

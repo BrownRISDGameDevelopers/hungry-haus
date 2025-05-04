@@ -1,0 +1,55 @@
+[gd_scene load_steps=11 format=3 uid="uid://cwe8wsb64kuo8"]
+
+[ext_resource type="Script" uid="uid://yewy1kvulauw" path="res://src/sfx_player.gd" id="1_m6snm"]
+[ext_resource type="AudioStream" uid="uid://bwn6b35n5arq4" path="res://asset/audio/puzzle_complete.wav" id="2_yogon"]
+[ext_resource type="AudioStream" uid="uid://dtyvf2mq46wnq" path="res://asset/audio/puzzle_complete_2.wav" id="3_b2kpf"]
+[ext_resource type="AudioStream" uid="uid://21ydbuosa3vq" path="res://asset/audio/puzzle_complete_3.wav" id="4_ulq2a"]
+[ext_resource type="AudioStream" uid="uid://bnof2xk82f5vr" path="res://asset/audio/grab_painting.wav" id="5_vy36e"]
+[ext_resource type="AudioStream" uid="uid://cgwr54v3swbya" path="res://asset/audio/drop_painting.wav" id="6_65orb"]
+[ext_resource type="AudioStream" uid="uid://cfx86am1oisb8" path="res://asset/audio/fridge_close.wav" id="7_pytig"]
+[ext_resource type="AudioStream" uid="uid://b0tqjky7ygdxg" path="res://asset/audio/fridge_move_item.wav" id="8_xwylj"]
+[ext_resource type="AudioStream" uid="uid://2yvnloljswxh" path="res://asset/audio/open_fridge.wav" id="9_0b28o"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_cke3q"]
+random_pitch = 1.5
+streams_count = 1
+stream_0/stream = ExtResource("8_xwylj")
+
+[node name="SFXPlayer" type="Node"]
+script = ExtResource("1_m6snm")
+
+[node name="PuzzleComplete1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_yogon")
+volume_db = -6.753
+max_polyphony = 3
+
+[node name="PuzzleComplete2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_b2kpf")
+volume_db = -6.753
+max_polyphony = 3
+
+[node name="PuzzleComplete3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ulq2a")
+volume_db = -6.753
+max_polyphony = 3
+
+[node name="GrabPainting" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_vy36e")
+max_polyphony = 3
+
+[node name="DropPainting" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_65orb")
+volume_db = -10.805
+max_polyphony = 3
+
+[node name="FridgeClose" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_pytig")
+max_polyphony = 3
+
+[node name="FridgeMoveItem" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_cke3q")
+max_polyphony = 3
+
+[node name="FridgeOpen" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_0b28o")
+max_polyphony = 3
