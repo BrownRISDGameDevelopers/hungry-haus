@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://nudkj8c1bvbk"]
+[gd_scene load_steps=25 format=3 uid="uid://nudkj8c1bvbk"]
 
 [ext_resource type="PackedScene" uid="uid://b7d183kvilajh" path="res://src/world/room.tscn" id="1_oyc66"]
 [ext_resource type="Script" uid="uid://61yiknqya65" path="res://src/world/bedroom/bedroom.gd" id="2_5h70c"]
@@ -11,6 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://oo33ya8b6o27" path="res://asset/puzzles/bedroom/BigPaintingRedHand.png" id="9_lrqe7"]
 [ext_resource type="Texture2D" uid="uid://cofbe6vxi1rdg" path="res://asset/puzzles/bedroom/Painting_Sheet_Overlay_Evil.png" id="9_vk10u"]
 [ext_resource type="PackedScene" uid="uid://woltie6y4gmu" path="res://asset/3d/bedroom/HH_BED_ChainAndLock.fbx" id="11_vk10u"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vk10u"]
+albedo_color = Color(0.105408, 0.0194991, 0.00158983, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_s0n1g"]
 size = Vector3(0.442383, 6.69659, 5.42529)
@@ -54,7 +57,7 @@ script = ExtResource("2_5h70c")
 [node name="OmniLight3D" type="OmniLight3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.199078, 2.88147, -0.186148)
 light_color = Color(1, 0.901961, 0.784314, 1)
-light_energy = 4.886
+light_energy = 1.581
 shadow_enabled = true
 shadow_blur = 10.0
 omni_range = 5.448
@@ -62,6 +65,12 @@ omni_attenuation = 1.962
 
 [node name="bedroom" parent="." index="1" instance=ExtResource("4_s0n1g")]
 transform = Transform3D(0.52, 0, 0, 0, 0.52, 0, 0, 0, 0.52, 0.232444, 0.101141, -0.239876)
+
+[node name="ARMCHAIR_Left" parent="bedroom" index="0"]
+material_override = SubResource("StandardMaterial3D_vk10u")
+
+[node name="ARMCHAIR_Right" parent="bedroom" index="1"]
+material_override = SubResource("StandardMaterial3D_vk10u")
 
 [node name="BEDFRAME" parent="bedroom" index="3"]
 transform = Transform3D(0.025, 0, 0, 0, -4.17233e-09, -0.002, 0, 0.035, -2.38419e-10, 0.0466554, 0.679309, 4.89467)
