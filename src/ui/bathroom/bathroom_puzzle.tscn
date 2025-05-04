@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://c7b3mpxs4w5ft" path="res://src/ui/bathroom/bathroom_puzzle.gd" id="2_c6tqd"]
 [ext_resource type="Texture2D" uid="uid://dtbck04dq8wr2" path="res://asset/puzzles/bathroom/bloodVisionPipesBackground.PNG" id="2_upyta"]
 [ext_resource type="Texture2D" uid="uid://bvhb2fhdiejot" path="res://asset/puzzles/bathroom/straightIntestine.PNG" id="6_r2145"]
-[ext_resource type="Script" uid="uid://bng7v40kuono2" path="res://src/ui/bathroom/pipe_puzzle_piece.gd" id="6_sool8"]
+[ext_resource type="Script" path="res://src/ui/bathroom/pipe_puzzle_piece.gd" id="6_sool8"]
 [ext_resource type="Texture2D" uid="uid://betkisrsoyouj" path="res://asset/puzzles/bathroom/TShapeIntestine.PNG" id="7_r2145"]
 [ext_resource type="Texture2D" uid="uid://c41qoxft2qh7v" path="res://asset/puzzles/bathroom/normalPipesBackground.PNG" id="8_w001a"]
 [ext_resource type="Texture2D" uid="uid://b4xksttw0jypn" path="res://asset/puzzles/bathroom/straightPipe.PNG" id="9_tpqp8"]

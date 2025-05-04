@@ -22,7 +22,8 @@ var rot_state : Rotation
 @export var isStraight : bool = false
 
 func _ready():
-	pressed.connect(_on_pressed)
+	if not pressed.is_connected(_on_pressed):
+		pressed.connect(_on_pressed)
 	
 	if rotation < 0:
 		rotation += TAU

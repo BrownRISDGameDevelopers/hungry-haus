@@ -37,7 +37,11 @@ func disable_blood_vision():
 		blood_vision_disabled = true
 	else:
 		blood_vision_disabled = true
-	
+
+func toggle_puzzle_assets():
+	var tween = Global.safe_tween(self)
+	# Tween in opacity of everything in 
+
 
 var toggle_blood_vision_on_duration: float = 2.7
 func toggle_blood_vision_on():
