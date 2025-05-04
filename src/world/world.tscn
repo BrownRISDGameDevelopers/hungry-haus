@@ -10,7 +10,7 @@
 script = ExtResource("1_1k4gi")
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("2_6fy3g")]
-transform = Transform3D(-0.981407, 0, -0.19194, 0, 1, 0, 0.19194, 0, -0.981407, -0.0921096, 1.06735, 0.823466)
+transform = Transform3D(-0.981407, 0, -0.19194, 0, 1, 0, 0.19194, 0, -0.981407, -1.5303, 1.06735, -6.22414)
 
 [node name="Bathroom" parent="." instance=ExtResource("3_43c6p")]
 transform = Transform3D(-0.729112, 0, -0.684394, 0, 1, 0, 0.684394, 0, -0.729112, 9.29884, 0.384888, 3.72582)

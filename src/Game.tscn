@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://blna84bj33fox"]
+[gd_scene load_steps=25 format=3 uid="uid://blna84bj33fox"]
 
 [ext_resource type="PackedScene" uid="uid://cmylkhe7l8yw5" path="res://src/world/world.tscn" id="1_kqvf5"]
 [ext_resource type="PackedScene" uid="uid://drhdjb18rwo1i" path="res://src/ui/screen_shaders.tscn" id="2_dbp7n"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://ufmxovknsxku" path="res://src/ui/game_timer.tscn" id="6_eu8jo"]
 [ext_resource type="Script" uid="uid://c6f5kxliffepe" path="res://src/ui/intro_cutscene.gd" id="11_72vyi"]
 [ext_resource type="Texture2D" uid="uid://q32366vr7x35" path="res://asset/menu/Exorcist_ID.png" id="12_0rf6s"]
+[ext_resource type="FontFile" uid="uid://c18as554715mf" path="res://asset/fonts/KindlyRewind-BOon.ttf" id="12_lva8y"]
 [ext_resource type="Texture2D" uid="uid://0lxwrq014jpa" path="res://asset/menu/Controls.png" id="13_2fxc8"]
 
 [sub_resource type="Curve" id="Curve_eu8jo"]
@@ -421,6 +422,9 @@ offset_left = 8.5
 offset_top = 7.0
 offset_right = 40.5
 offset_bottom = 30.0
+theme_override_colors/font_color = Color(1, 1, 1, 0.807843)
+theme_override_fonts/font = ExtResource("12_lva8y")
+theme_override_font_sizes/font_size = 12
 
 [node name="IntroCutscene" type="Control" parent="SubViewportContainer/2DViewport"]
 layout_mode = 3
