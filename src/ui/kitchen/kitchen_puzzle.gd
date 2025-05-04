@@ -240,7 +240,7 @@ func show_victory():
 		food.disabled = true
 		tween.parallel().tween_property(organ, "modulate", COLOR_VISIBLE, 0.25).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
 		tween.parallel().tween_property(food, "self_modulate", COLOR_TRANSPARENT, 0.25).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
-	#tween.tween_callback(toggle_puzzle_active) 
+	tween.tween_callback(toggle_puzzle_active) 
 	SfxPlayer._play("PuzzleComplete1")
 
 # Get the eggs
