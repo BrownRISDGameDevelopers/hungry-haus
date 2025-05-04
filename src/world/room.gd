@@ -43,9 +43,9 @@ func _ready() -> void:
 	puzzles_completed.connect(door.open)
 
 # USE TO TEST IF DOORS OPEN
-func _unhandled_input(event):
-	if event.is_action_pressed("jump"):
-		puzzles_completed.emit()
+#func _unhandled_input(event):
+	#if event.is_action_pressed("jump"):
+		#puzzles_completed.emit()
 	
 
 func complete_one_puzzle():
