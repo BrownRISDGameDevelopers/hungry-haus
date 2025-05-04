@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cwe8wsb64kuo8"]
+[gd_scene load_steps=11 format=3 uid="uid://cwe8wsb64kuo8"]
 
 [ext_resource type="Script" uid="uid://yewy1kvulauw" path="res://src/sfx_player.gd" id="1_m6snm"]
 [ext_resource type="AudioStream" uid="uid://bwn6b35n5arq4" path="res://asset/audio/puzzle_complete.wav" id="2_yogon"]
@@ -9,6 +9,11 @@
 [ext_resource type="AudioStream" uid="uid://cfx86am1oisb8" path="res://asset/audio/fridge_close.wav" id="7_pytig"]
 [ext_resource type="AudioStream" uid="uid://b0tqjky7ygdxg" path="res://asset/audio/fridge_move_item.wav" id="8_xwylj"]
 [ext_resource type="AudioStream" uid="uid://2yvnloljswxh" path="res://asset/audio/open_fridge.wav" id="9_0b28o"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_cke3q"]
+random_pitch = 1.5
+streams_count = 1
+stream_0/stream = ExtResource("8_xwylj")
 
 [node name="SFXPlayer" type="Node"]
 script = ExtResource("1_m6snm")
@@ -42,7 +47,7 @@ stream = ExtResource("7_pytig")
 max_polyphony = 3
 
 [node name="FridgeMoveItem" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_xwylj")
+stream = SubResource("AudioStreamRandomizer_cke3q")
 max_polyphony = 3
 
 [node name="FridgeOpen" type="AudioStreamPlayer" parent="."]
