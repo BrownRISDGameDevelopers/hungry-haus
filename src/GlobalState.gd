@@ -2,7 +2,7 @@ extends Node
 
 signal switched_room(to: Room.Type)
 
-var current_room : Room.Type = Room.Type.BATHROOM
+var current_room : Room.Type = Room.Type.BEDROOM
 
 func move_to_next_room():
 	current_room = (int(current_room) + 1) as Room.Type

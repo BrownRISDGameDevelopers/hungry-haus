@@ -19,7 +19,7 @@ script = ExtResource("2_c6tqd")
 puzzle_type = 5
 room_type = 2
 
-[node name="EvilPuzzle" type="Control" parent="." index="0"]
+[node name="EvilPuzzle" type="Control" parent="." index="0" groups=["2d_blood_vision"]]
 visible = false
 anchors_preset = 0
 offset_left = -2.0
@@ -560,7 +560,7 @@ texture_normal = ExtResource("2_3flqs")
 stretch_mode = 0
 script = ExtResource("6_sool8")
 
-[node name="NormalPuzzle" type="Control" parent="." index="1"]
+[node name="NormalPuzzle" type="Control" parent="." index="1" groups=["2d_normal_vision"]]
 anchors_preset = 0
 offset_left = -2.0
 offset_right = 38.0

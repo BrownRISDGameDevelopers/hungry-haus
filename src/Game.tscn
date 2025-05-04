@@ -49,7 +49,7 @@ adjustment_color_correction = SubResource("CurveXYZTexture_x2540")
 
 [sub_resource type="Compositor" id="Compositor_rgpsw"]
 
-[sub_resource type="Shader" id="Shader_eu8jo"]
+[sub_resource type="Shader" id="Shader_2fxc8"]
 code = "/*
 Shader from Godot Shaders - the free shader library.
 godotshaders.com/shader/VHS-and-CRT-monitor-effect
@@ -284,7 +284,7 @@ void fragment()
 }"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_eu8jo"]
-shader = SubResource("Shader_eu8jo")
+shader = SubResource("Shader_2fxc8")
 shader_parameter/overlay = true
 shader_parameter/scanlines_opacity = 0.59
 shader_parameter/scanlines_width = 0.153
