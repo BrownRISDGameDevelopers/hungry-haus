@@ -44,7 +44,7 @@ func _ready():
 		Player.player.can_move = true
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("interact"):
+	if Input.is_anything_pressed():
 		start_game.emit()
 
 func shake_card():

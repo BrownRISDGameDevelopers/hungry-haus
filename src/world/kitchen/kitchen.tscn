@@ -172,10 +172,10 @@ visible = false
 visible = false
 
 [node name="plates" parent="KitchenNormal" index="41"]
-transform = Transform3D(9.42872, 0.996822, 6.66215e-09, -1.81073e-16, -1.13025e-06, 0.531561, 0.996822, -9.42871, -6.30158e-08, 2.0103, 0.695538, 0.516802)
+transform = Transform3D(9.48126, 0, 0, 0, -4.14439e-07, 0.531561, 0, -9.48126, -2.32353e-08, 1.81185, 0.695538, -0.0555345)
 
 [node name="silverware" parent="KitchenNormal" index="42"]
-transform = Transform3D(-0.735197, -0.00274575, -2.13624, -0.0113835, -0.178937, 0.456611, -0.289326, 0.0140174, 5.41036, 1.82246, 0.685918, 0.475864)
+transform = Transform3D(-0.761541, -0.0012568, -1.55558, -0.0113835, -0.178937, 0.456611, -0.210427, 0.0142284, 5.60497, 1.62074, 0.685918, -0.0764961)
 
 [node name="fridgedoor2" type="MeshInstance3D" parent="KitchenNormal" index="46"]
 transform = Transform3D(6.23211e-07, 45.7943, 0, 0, 0, 62.1041, 3.48525, -9.55343e-06, 0, -0.430568, 0.581632, 1.15454)

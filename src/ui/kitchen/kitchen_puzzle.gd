@@ -213,8 +213,13 @@ func check_victory():
 		for j in range(NUM_COLUMNS):
 			var type = FridgeItem.NONE if not puzzle_array[i][j] else puzzle_array[i][j].type
 			if type != VICTORY_LAYOUT[i][j]:
-				# print("not victory")
-				return false
+				match type:
+					FridgeItem.PRODUCE: if VICTORY_LAYOUT[i][j] != FridgeItem.ORANGE_JUICE: return false
+					FridgeItem.ORANGE_JUICE: if VICTORY_LAYOUT[i][j] != FridgeItem.PRODUCE: return false
+					FridgeItem.MILK: if VICTORY_LAYOUT[i][j] != FridgeItem.BAKING_SODA: return false
+					FridgeItem.BAKING_SODA: if VICTORY_LAYOUT[i][j] != FridgeItem.MILK: return false
+					_:
+						return false
 	show_victory()
 	complete()
 	if solved_bg:

@@ -31,8 +31,8 @@ func _ready():
 	
 	winning_rotation = rot_state
 	
-	#for i in range(randi_range(1,3)):
-		#rotate_clockwise()
+	for i in range(randi_range(1,3)):
+		rotate_clockwise()
 	
 
 ## Rotates the piece, changing its rotation state. Called on click
