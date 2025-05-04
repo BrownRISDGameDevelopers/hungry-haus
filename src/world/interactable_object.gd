@@ -39,7 +39,7 @@ func _process(_delta: float) -> void:
 			Global.hide_3d_outline(mesh)
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("interact") && visible && get_parent().visible && highlighted:
+	if event.is_action_pressed("interact") && visible && get_parent().visible && highlighted && Player.player.can_move:
 		interact()
 
 ## Opens this interactable's puzzle if it's highlighted.

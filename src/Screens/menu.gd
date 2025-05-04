@@ -6,6 +6,11 @@ extends Control
 
 var final_pos = Vector2(-2300, -1000)
 
+func _ready():
+	var tween = Global.safe_tween(self)
+	tween.tween_property(self, "modulate", Color.WHITE, 2.0).set_trans(Tween.TRANS_CUBIC)
+	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
+
 func _on_start_pressed() -> void:
 	play_intro_cutscene()
 

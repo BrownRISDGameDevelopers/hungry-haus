@@ -25,10 +25,13 @@ var jump_vel: Vector3 # Jumping velocity
 
 var can_move: bool = true
 var can_highlight: bool = true
+var can_look: bool = true
+
 
 var BloodVision: Node
 
 @onready var camera: Camera3D = $Camera3D
+@onready var hands: Node3D = $Camera3D/Hands
 
 func _ready() -> void:
 	capture_mouse()
@@ -55,8 +58,9 @@ func release_mouse() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
 
 func _rotate_camera(sens_mod: float = 1.0) -> void:
-	camera.rotation.y -= look_dir.x * camera_sens * sens_mod
-	camera.rotation.x = clamp(camera.rotation.x - look_dir.y * camera_sens * sens_mod, -1.5, 1.5)
+	if can_look:
+		camera.rotation.y -= look_dir.x * camera_sens * sens_mod
+		camera.rotation.x = clamp(camera.rotation.x - look_dir.y * camera_sens * sens_mod, -1.5, 1.5)
 
 func _walk(delta: float) -> Vector3:
 	move_dir = Input.get_vector(&"move_left", &"move_right", &"move_forward", &"move_backward")
@@ -91,23 +95,42 @@ func is_looking_at(obj: Node3D, thresh_modifier := 1.0):
 	return displacement.angle_to(player_looking) < thresh_radians * thresh_modifier * (0.6 + 2.4 * distance_modifier / clipping_distance)
 
 func _freeze_n_move():
+	can_look = false
 	can_move = false
 	can_highlight = false
 	self.set_physics_process(false)
 	var tween = Global.safe_tween(self)
-	BloodVision.disable_blood_vision()
+	get_tree().get_first_node_in_group("mirror_blocker").hide()
 	var intermediate_basis = Basis(Vector3(-0.716801, 0.0, 0.697278), Vector3(-0.090391, 0.991562, -0.092922), Vector3(-0.691394, -0.129634, -0.710753))
 	#print(global_rotate)
-	tween.tween_property(self.camera, "rotation", Vector3(.13, -2.37, 0), 5).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
-	tween.parallel().tween_property(self, "position", Vector3(13.275, 1.043, 7.1736), 5).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(self.camera, "rotation", Vector3(deg_to_rad(-47.0), deg_to_rad(-250), 0), 0.1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+	tween.parallel().tween_property(self, "position", Vector3(13.275, 1.043, 7.1736), 2).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
 	#CALL ENDING FUNCTION
+	tween.tween_callback(BloodVision.disable_blood_vision)
 	
-	tween.tween_property(self.camera, "rotation", Vector3(0, -2.37, 0), 2).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
-	tween.parallel().tween_property(self, "position", Vector3(13.275, 1.2, 7.1736), 2).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
-	tween.tween_property(self, "position", Vector3(13.275, 1.2, 7.1736) -  intermediate_basis * Vector3(0, 0, 0.25), 2).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(self.camera, "rotation", Vector3(deg_to_rad(0.0), deg_to_rad(-250), 0), 4).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+	#tween.parallel().tween_property(self, "position", Vector3(13.275, 1.2, 7.1736), 2).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+	tween.parallel().tween_property(self, "position", Vector3(13.275, 1.2, 7.1736) -  intermediate_basis * Vector3(0, 0, 0.4), 4).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
 
-
+func lose():
+	can_look = false
+	can_move = false
+	can_highlight = false
+	self.set_physics_process(false)
+	BloodVision.disable_blood_vision()
+	for puzzle: Puzzle in get_tree().get_nodes_in_group("puzzle"):
+		puzzle.toggle_puzzle_off()
 	
+	SfxPlayer._play("PuzzleComplete3")
+	SfxPlayer.stop("BGMusic")
 	
-	
-	
+	var tween = Global.safe_tween(self)
+	tween.tween_property(hands, "rotation:x", 0.0, 3).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN_OUT)
+	tween.parallel().tween_property(camera, "rotation:x", deg_to_rad(-50.0), 3.0).set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(hands, "rotation:x", deg_to_rad(10.0), 3.7 / 2).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
+	tween.tween_property(hands, "rotation:x", deg_to_rad(-10.0), 3.7 / 2).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
+	tween.tween_property(hands, "rotation:x", deg_to_rad(-60.0), 9.1 - 6.7).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
+	tween.parallel().tween_property(camera, "rotation:x", deg_to_rad(-80.0), 9.1 - 6.7).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
+	var tween2 = create_tween()
+	tween2.tween_callback(IntroCutscene.inst.black_screen).set_delay(9.1)
+	tween2.tween_callback(get_tree().change_scene_to_file.bind("res://src/Screens/Menu.tscn")).set_delay(2.0)

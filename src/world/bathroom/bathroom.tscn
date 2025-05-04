@@ -105,7 +105,7 @@ script = ExtResource("3_jvjcq")
 puzzle_type = 5
 mesh = NodePath("Vanity_Clear")
 
-[node name="Mirror_Blocker" type="Sprite3D" parent="VanityPuzzle" index="0"]
+[node name="Mirror_Blocker" type="Sprite3D" parent="VanityPuzzle" index="0" groups=["mirror_blocker"]]
 transform = Transform3D(0.0181763, 0, 0, 0, 0.0181763, 0, 0, 0, 0.0181763, 1.86265e-08, 0.0456759, -0.0176744)
 texture_filter = 0
 texture = ExtResource("4_gtssa")
@@ -140,7 +140,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0, -0.035029)
 visible = false
 
 [node name="HH_MAIN_CHARACTER" parent="Node3D/Mirror WOrld" index="1" instance=ExtResource("7_c6pn2")]
-transform = Transform3D(0.967851, 0, 0, 0, 0.967851, 0, 0, 0, 0.967851, -0.000272579, 0.0315933, -0.0417008)
+transform = Transform3D(0.967851, 0, 0, 0, 0.967851, 0, 0, 0, 0.967851, -0.000272583, 0.0381249, -0.0545041)
 
 [node name="HHBATH_ALTFINAL2" parent="Node3D/Mirror WOrld" index="2" groups=["enable_on_blood_vision"] instance=ExtResource("3_b6y1o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0, -0.035029)

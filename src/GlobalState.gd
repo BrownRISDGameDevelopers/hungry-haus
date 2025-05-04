@@ -11,4 +11,5 @@ func move_to_next_room():
 
 func lose():
 	print("LOST THE GAME!!!!!!!!")
-	# TODO trigger jumpscare
+	
+	Player.player.lose()

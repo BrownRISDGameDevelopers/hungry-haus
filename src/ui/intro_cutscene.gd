@@ -2,6 +2,8 @@ extends Control
 
 class_name IntroCutscene
 
+static var inst : IntroCutscene
+
 signal start_game
 
 @export var do_cutscene := true
@@ -15,6 +17,8 @@ signal start_game
 
 
 func _ready():
+	inst = self
+	SfxPlayer._play("BGMusic")
 	if do_cutscene:
 		Player.player.can_move = false
 		var tween = Global.safe_tween(self)
@@ -47,6 +51,9 @@ func _input(event: InputEvent) -> void:
 	if Input.is_anything_pressed():
 		start_game.emit()
 
+func black_screen():
+	black_bg.modulate = Color.WHITE
+
 func shake_card():
 	var tween = create_tween()
 	for i in range(10):
@@ -56,6 +63,8 @@ func shake_card():
 
 func start_game_after_input():
 	await start_game
+	
+	GameTimer.inst.start()
 	# Hide controls and put card in pocket, enable movement
 	var tween = Global.safe_tween(self).set_parallel()
 	tween.tween_property(controls, "modulate:a", 0.0, 1.0).set_trans(Tween.TRANS_CUBIC)

@@ -430,6 +430,7 @@ offset_bottom = -180.0
 visible = false
 offset_right = 0.0
 offset_bottom = 0.0
+force_visible = false
 
 [node name="BedroomPuzzle" parent="SubViewportContainer/2DViewport" node_paths=PackedStringArray("inventory_ui") groups=["bedroom_puzzle", "puzzle"] instance=ExtResource("4_eu8jo")]
 visible = false

@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bp36emxlxtkhg"]
+[gd_scene load_steps=4 format=3 uid="uid://bp36emxlxtkhg"]
 
 [ext_resource type="Script" uid="uid://b37jjhgj4urbr" path="res://src/player/player.gd" id="1_4anbu"]
+[ext_resource type="PackedScene" uid="uid://4afg40bqil7y" path="res://asset/3d/main_character/HH_MC_Hands.fbx" id="2_rxibo"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4anbu"]
 
@@ -18,3 +19,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.518324, 0)
 light_energy = 0.28
 omni_range = 8.042
 omni_attenuation = 0.603
+
+[node name="Hands" parent="Camera3D" instance=ExtResource("2_rxibo")]
+transform = Transform3D(40, 0, 0, 0, -15.1782, 37.0084, 0, -37.0084, -15.1782, -0.317, -0.69755, -0.333663)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]

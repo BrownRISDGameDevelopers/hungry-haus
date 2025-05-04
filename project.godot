@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Hungry Haus"
-run/main_scene="uid://blna84bj33fox"
+run/main_scene="uid://cb64ib71h0pqo"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -47,6 +47,7 @@ bedroom_solved=""
 2d_normal_vision=""
 2d_blood_vision=""
 bedroom_lock=""
+mirror_blocker=""
 
 [input]
 
@@ -101,3 +102,4 @@ freeze_n_stuff={
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)
