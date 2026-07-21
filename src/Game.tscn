@@ -436,10 +436,10 @@ force_visible = false
 visible = false
 offset_right = -320.0
 offset_bottom = -180.0
+inventory_ui = NodePath("../BedroomInventory")
 puzzle_type = 3
 room_type = 1
 force_visible = false
-inventory_ui = NodePath("../BedroomInventory")
 
 [node name="BedroomLock" parent="SubViewportContainer/2DViewport" instance=ExtResource("14_goodv")]
 visible = false

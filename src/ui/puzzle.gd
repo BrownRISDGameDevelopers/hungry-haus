@@ -80,3 +80,6 @@ func complete():
 	if not already_complete: # Can only be completed once
 		completed.emit()
 		already_complete = true
+
+func reset():
+	already_complete = false

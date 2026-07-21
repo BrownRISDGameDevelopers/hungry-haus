@@ -12,6 +12,7 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
 
 func _on_start_pressed() -> void:
+	GlobalState.current_room = Room.Type.KITCHEN
 	play_intro_cutscene()
 
 

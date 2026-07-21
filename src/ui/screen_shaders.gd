@@ -4,7 +4,7 @@ class_name ScreenShaders
 
 
 static var blood_vision_on := false
-static var blood_vision_disabled := false
+@onready var blood_vision_disabled := false
 var blood_vision_amount := 0.0
 
 @onready var red_shader: ColorRect = %RedShader
@@ -23,6 +23,7 @@ var blood_vision_amount := 0.0
 
 
 func _ready():
+	print(blood_vision_disabled)
 	for asset in get_tree().get_nodes_in_group("2d_blood_vision"):
 		asset.visible = false
 
@@ -44,6 +45,9 @@ func disable_blood_vision():
 		blood_vision_disabled = true
 	else:
 		blood_vision_disabled = true
+		
+func enable_blood_vision():
+	blood_vision_disabled = false
 
 func toggle_puzzle_assets_on():
 	var tween = Global.safe_tween(node)

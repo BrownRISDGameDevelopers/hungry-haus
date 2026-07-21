@@ -11,9 +11,6 @@ static var player: Player
 
 var jumping: bool = false
 
-
-
-
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var move_dir: Vector2 # Input direction for movement
@@ -37,6 +34,7 @@ func _ready() -> void:
 	capture_mouse()
 	player = self
 	BloodVision = get_tree().get_nodes_in_group("screenshaders")[0]
+	print(GlobalState.current_room)
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
@@ -93,11 +91,14 @@ func is_looking_at(obj: Node3D, thresh_modifier := 1.0):
 		return false
 	
 	return displacement.angle_to(player_looking) < thresh_radians * thresh_modifier * (0.6 + 2.4 * distance_modifier / clipping_distance)
+	
+func toggle_player():
+	can_look = !can_look
+	can_move = !can_move
+	can_highlight = !can_highlight
 
 func _freeze_n_move():
-	can_look = false
-	can_move = false
-	can_highlight = false
+	toggle_player()
 	self.set_physics_process(false)
 	var tween = Global.safe_tween(self)
 	get_tree().get_first_node_in_group("mirror_blocker").hide()
@@ -111,6 +112,10 @@ func _freeze_n_move():
 	tween.tween_property(self.camera, "rotation", Vector3(deg_to_rad(0.0), deg_to_rad(-250), 0), 4).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
 	#tween.parallel().tween_property(self, "position", Vector3(13.275, 1.2, 7.1736), 2).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
 	tween.parallel().tween_property(self, "position", Vector3(13.275, 1.2, 7.1736) -  intermediate_basis * Vector3(0, 0, 0.4), 4).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+	
+	var tween2 = create_tween()
+	tween2.tween_callback(toggle_player)
+	tween2.tween_callback(BloodVision.enable_blood_vision).set_delay(1.0)
 
 func lose():
 	can_look = false
@@ -133,4 +138,5 @@ func lose():
 	tween.parallel().tween_property(camera, "rotation:x", deg_to_rad(-80.0), 9.1 - 6.7).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
 	var tween2 = create_tween()
 	tween2.tween_callback(IntroCutscene.inst.black_screen).set_delay(9.1)
+	tween2.tween_callback(BloodVision.enable_blood_vision).set_delay(1.0)
 	tween2.tween_callback(get_tree().change_scene_to_file.bind("res://src/Screens/Menu.tscn")).set_delay(2.0)
