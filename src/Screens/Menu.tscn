@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cb64ib71h0pqo"]
+[gd_scene format=3 uid="uid://cb64ib71h0pqo"]
 
 [ext_resource type="Script" uid="uid://c3kao551oyio8" path="res://src/Screens/menu.gd" id="1_b4hyn"]
 [ext_resource type="Texture2D" uid="uid://qgitaypkyedg" path="res://asset/menu/Title_Screen.png" id="2_aosw5"]
@@ -271,7 +271,7 @@ shader_parameter/clip_warp = false
 shader_parameter/vignette_intensity = 0.0
 shader_parameter/vignette_opacity = 0.0
 
-[node name="Menu" type="Control"]
+[node name="Menu" type="Control" unique_id=776537669]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 3
 anchors_preset = 15
@@ -281,7 +281,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_b4hyn")
 
-[node name="BG" type="TextureRect" parent="."]
+[node name="BG" type="TextureRect" parent="." unique_id=1341866107]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -296,8 +296,8 @@ scale = Vector2(0.667, 0.667)
 pivot_offset = Vector2(960, 540)
 texture = ExtResource("2_aosw5")
 
-[node name="Start" type="TextureButton" parent="BG"]
-layout_mode = 2
+[node name="Start" type="TextureButton" parent="BG" unique_id=585445541]
+layout_mode = 0
 offset_left = 176.912
 offset_top = 737.631
 offset_right = 1365.92
@@ -307,8 +307,8 @@ texture_normal = ExtResource("3_41gp4")
 texture_hover = ExtResource("4_41gp4")
 script = SubResource("GDScript_03nda")
 
-[node name="Credits" type="TextureButton" parent="BG"]
-layout_mode = 2
+[node name="Credits" type="TextureButton" parent="BG" unique_id=1057948523]
+layout_mode = 0
 offset_left = 170.914
 offset_top = 794.602
 offset_right = 1359.91
@@ -317,7 +317,7 @@ scale = Vector2(0.2, 0.2)
 texture_normal = ExtResource("5_8jj0e")
 texture_hover = ExtResource("6_yjyrx")
 
-[node name="CreditsSplash" type="TextureRect" parent="."]
+[node name="CreditsSplash" type="TextureRect" parent="." unique_id=32075012]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_right = 1920.0
@@ -326,7 +326,7 @@ scale = Vector2(0.667, 0.667)
 mouse_filter = 2
 texture = ExtResource("7_8jj0e")
 
-[node name="XButton" parent="CreditsSplash" instance=ExtResource("8_8jj0e")]
+[node name="XButton" parent="CreditsSplash" unique_id=444209418 instance=ExtResource("8_8jj0e")]
 layout_mode = 0
 offset_left = 1752.0
 offset_top = 25.695
@@ -334,12 +334,12 @@ offset_right = 1776.0
 offset_bottom = 49.695
 scale = Vector2(6, 6)
 
-[node name="Marker2D" type="Marker2D" parent="."]
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1037702049]
 position = Vector2(640, 360)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1473540130]
 
-[node name="VHSShader2" type="ColorRect" parent="CanvasLayer"]
+[node name="VHSShader2" type="ColorRect" parent="CanvasLayer" unique_id=624104382]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_ibx2b")
 anchors_preset = 15

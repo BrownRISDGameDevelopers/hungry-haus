@@ -64,7 +64,7 @@ func shake_card():
 func start_game_after_input():
 	await start_game
 	
-	GameTimer.inst.start()
+	#GameTimer.inst.start()
 	# Hide controls and put card in pocket, enable movement
 	var tween = Global.safe_tween(self).set_parallel()
 	tween.tween_property(controls, "modulate:a", 0.0, 1.0).set_trans(Tween.TRANS_CUBIC)
