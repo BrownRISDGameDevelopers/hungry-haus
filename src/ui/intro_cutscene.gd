@@ -52,7 +52,16 @@ func _input(event: InputEvent) -> void:
 		start_game.emit()
 
 func black_screen():
-	black_bg.modulate = Color.WHITE
+	black_bg.modulate.a = 0.0
+	black_bg.visible = true
+
+	var tween = create_tween()
+	tween.tween_property(
+		black_bg,
+		"modulate:a",
+		1.0,
+		0.5
+	)
 
 func shake_card():
 	var tween = create_tween()
@@ -72,4 +81,4 @@ func start_game_after_input():
 	tween.tween_property(id_card, "position:x", id_card_pos.x + 50, 1.0).set_trans(Tween.TRANS_BACK)
 	tween.tween_property(id_card, "position:y", id_card_pos.y + 200, 1.5).set_trans(Tween.TRANS_BACK).set_delay(0.5).set_ease(Tween.EASE_IN_OUT)
 	tween.tween_property(id_card, "scale", Vector2.ONE * 0.8, 1.5).set_trans(Tween.TRANS_CUBIC).set_delay(0.5).set_ease(Tween.EASE_OUT)
-	tween.chain().tween_property(Player.player, "can_move", true, 0.0)
+	tween.chain().tween_callback(Player.player.open_game)

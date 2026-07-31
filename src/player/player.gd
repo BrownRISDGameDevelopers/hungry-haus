@@ -30,6 +30,9 @@ var BloodVision: Node
 @onready var camera: Camera3D = $Camera3D
 @onready var hands: Node3D = $Camera3D/Hands
 
+@onready var pause_screen: Control = get_tree().get_first_node_in_group("pause")
+@onready var view_ui: Sprite2D = get_tree().get_first_node_in_group("view_ui")
+
 func _ready() -> void:
 	capture_mouse()
 	player = self
@@ -42,6 +45,10 @@ func _input(event: InputEvent) -> void:
 		if can_move: _rotate_camera()
 	#if event.is_action_pressed("freeze_n_stuff"):
 		#_freeze_n_move()
+	if Input.is_action_pressed("pause") and can_move:
+		get_viewport().set_input_as_handled()
+		pause_screen.open()
+		open_puzzle()
 
 func _physics_process(delta: float) -> void:
 	velocity = _walk(delta) + _gravity(delta)
@@ -118,10 +125,6 @@ func _freeze_n_move():
 	tween2.tween_callback(BloodVision.enable_blood_vision).set_delay(1.0)
 
 func lose():
-	can_look = false
-	can_move = false
-	can_highlight = false
-	self.set_physics_process(false)
 	BloodVision.disable_blood_vision()
 	for puzzle: Puzzle in get_tree().get_nodes_in_group("puzzle"):
 		puzzle.toggle_puzzle_off()
@@ -129,14 +132,32 @@ func lose():
 	SfxPlayer._play("PuzzleComplete3")
 	SfxPlayer.stop("BGMusic")
 	
+func open_game():
+	can_look = false
+	can_move = false
+	can_highlight = false
+	release_mouse()
+	self.set_physics_process(false)
+	
 	var tween = Global.safe_tween(self)
 	tween.tween_property(hands, "rotation:x", 0.0, 3).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN_OUT)
 	tween.parallel().tween_property(camera, "rotation:x", deg_to_rad(-50.0), 3.0).set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property(hands, "rotation:x", deg_to_rad(10.0), 3.7 / 2).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
-	tween.tween_property(hands, "rotation:x", deg_to_rad(-10.0), 3.7 / 2).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
-	tween.tween_property(hands, "rotation:x", deg_to_rad(-60.0), 9.1 - 6.7).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
-	tween.parallel().tween_property(camera, "rotation:x", deg_to_rad(-80.0), 9.1 - 6.7).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
+	
+	tween.tween_property(camera, "rotation:x", 0.0, 3.0).set_trans(Tween.TRANS_CUBIC)
+	tween.parallel().tween_property(hands, "rotation:x", deg_to_rad(-180.0), 1.5).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
+	
+	await tween.finished
+	
+	can_look = true
+	can_move = true
+	can_highlight = true
+	self.set_physics_process(true)
+	view_ui.visible = true
+	capture_mouse()
+	
+func back_to_menu():
 	var tween2 = create_tween()
-	tween2.tween_callback(IntroCutscene.inst.black_screen).set_delay(9.1)
-	tween2.tween_callback(BloodVision.enable_blood_vision).set_delay(1.0)
+	tween2.tween_callback(IntroCutscene.inst.black_screen)
+	view_ui.visible = false
 	tween2.tween_callback(get_tree().change_scene_to_file.bind("res://src/Screens/Menu.tscn")).set_delay(2.0)

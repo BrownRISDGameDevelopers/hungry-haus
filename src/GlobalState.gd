@@ -13,3 +13,6 @@ func lose():
 	print("LOST THE GAME!!!!!!!!")
 	
 	Player.player.lose()
+
+func back_to_menu():
+	Player.player.back_to_menu()

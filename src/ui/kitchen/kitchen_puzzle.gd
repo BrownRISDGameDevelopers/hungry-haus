@@ -262,6 +262,10 @@ func get_other_egg_piece(first_egg_piece : SlidePuzzlePiece):
 
 func _on_x_button_pressed() -> void:
 	toggle_puzzle_off()
+	
+func _input(event):
+	if event.is_action_pressed("pause"):
+		_on_x_button_pressed()
 
 #func toggle_puzzle_active():
 	#if !puzzle_active: SfxPlayer._play("FridgeOpen")
