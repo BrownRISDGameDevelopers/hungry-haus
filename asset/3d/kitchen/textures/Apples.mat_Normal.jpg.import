@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b2m1pqv0egxqd"
 path.s3tc="res://.godot/imported/Apples.mat_Normal.jpg-70c6e00d00720f91acd6cc34e984f633.s3tc.ctex"
+path.etc2="res://.godot/imported/Apples.mat_Normal.jpg-70c6e00d00720f91acd6cc34e984f633.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://asset/3d/kitchen/textures/Apples.mat_Normal.jpg"
-dest_files=["res://.godot/imported/Apples.mat_Normal.jpg-70c6e00d00720f91acd6cc34e984f633.s3tc.ctex"]
+dest_files=["res://.godot/imported/Apples.mat_Normal.jpg-70c6e00d00720f91acd6cc34e984f633.s3tc.ctex", "res://.godot/imported/Apples.mat_Normal.jpg-70c6e00d00720f91acd6cc34e984f633.etc2.ctex"]
 
 [params]
 

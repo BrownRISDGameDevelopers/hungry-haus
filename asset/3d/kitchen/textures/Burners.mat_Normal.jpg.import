@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://jkyru1esxisi"
 path.s3tc="res://.godot/imported/Burners.mat_Normal.jpg-064d55089cef4c68a66f9a39c1374773.s3tc.ctex"
+path.etc2="res://.godot/imported/Burners.mat_Normal.jpg-064d55089cef4c68a66f9a39c1374773.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://asset/3d/kitchen/textures/Burners.mat_Normal.jpg"
-dest_files=["res://.godot/imported/Burners.mat_Normal.jpg-064d55089cef4c68a66f9a39c1374773.s3tc.ctex"]
+dest_files=["res://.godot/imported/Burners.mat_Normal.jpg-064d55089cef4c68a66f9a39c1374773.s3tc.ctex", "res://.godot/imported/Burners.mat_Normal.jpg-064d55089cef4c68a66f9a39c1374773.etc2.ctex"]
 
 [params]
 

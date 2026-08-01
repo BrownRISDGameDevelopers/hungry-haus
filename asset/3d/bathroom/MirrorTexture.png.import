@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cqvujewdw4auk"
 path.s3tc="res://.godot/imported/MirrorTexture.png-c85e046c89906219f25ecfd530c3b7b5.s3tc.ctex"
+path.etc2="res://.godot/imported/MirrorTexture.png-c85e046c89906219f25ecfd530c3b7b5.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://asset/3d/bathroom/MirrorTexture.png"
-dest_files=["res://.godot/imported/MirrorTexture.png-c85e046c89906219f25ecfd530c3b7b5.s3tc.ctex"]
+dest_files=["res://.godot/imported/MirrorTexture.png-c85e046c89906219f25ecfd530c3b7b5.s3tc.ctex", "res://.godot/imported/MirrorTexture.png-c85e046c89906219f25ecfd530c3b7b5.etc2.ctex"]
 
 [params]
 

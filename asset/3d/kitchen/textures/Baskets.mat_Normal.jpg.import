@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cfcldq2kyggf3"
 path.s3tc="res://.godot/imported/Baskets.mat_Normal.jpg-27b3fe2507a9dbc4f98a3ae8720389d6.s3tc.ctex"
+path.etc2="res://.godot/imported/Baskets.mat_Normal.jpg-27b3fe2507a9dbc4f98a3ae8720389d6.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://asset/3d/kitchen/textures/Baskets.mat_Normal.jpg"
-dest_files=["res://.godot/imported/Baskets.mat_Normal.jpg-27b3fe2507a9dbc4f98a3ae8720389d6.s3tc.ctex"]
+dest_files=["res://.godot/imported/Baskets.mat_Normal.jpg-27b3fe2507a9dbc4f98a3ae8720389d6.s3tc.ctex", "res://.godot/imported/Baskets.mat_Normal.jpg-27b3fe2507a9dbc4f98a3ae8720389d6.etc2.ctex"]
 
 [params]
 

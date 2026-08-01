@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://77410lu0yvs5"
 path.s3tc="res://.godot/imported/Door.mat_Normal.jpg-24eaf9e42c4f8711d2a65afc3e47fc24.s3tc.ctex"
+path.etc2="res://.godot/imported/Door.mat_Normal.jpg-24eaf9e42c4f8711d2a65afc3e47fc24.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://asset/3d/kitchen/textures/Door.mat_Normal.jpg"
-dest_files=["res://.godot/imported/Door.mat_Normal.jpg-24eaf9e42c4f8711d2a65afc3e47fc24.s3tc.ctex"]
+dest_files=["res://.godot/imported/Door.mat_Normal.jpg-24eaf9e42c4f8711d2a65afc3e47fc24.s3tc.ctex", "res://.godot/imported/Door.mat_Normal.jpg-24eaf9e42c4f8711d2a65afc3e47fc24.etc2.ctex"]
 
 [params]
 

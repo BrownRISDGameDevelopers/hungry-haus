@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://yoou2uuaw15t"
 path.s3tc="res://.godot/imported/placemat_0.png-9239d5d3599f1fd164855fedc3d1be63.s3tc.ctex"
+path.etc2="res://.godot/imported/placemat_0.png-9239d5d3599f1fd164855fedc3d1be63.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://asset/3d/kitchen/textures/placemat_0.png"
-dest_files=["res://.godot/imported/placemat_0.png-9239d5d3599f1fd164855fedc3d1be63.s3tc.ctex"]
+dest_files=["res://.godot/imported/placemat_0.png-9239d5d3599f1fd164855fedc3d1be63.s3tc.ctex", "res://.godot/imported/placemat_0.png-9239d5d3599f1fd164855fedc3d1be63.etc2.ctex"]
 
 [params]
 

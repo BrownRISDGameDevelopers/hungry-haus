@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cofbe6vxi1rdg"
 path.s3tc="res://.godot/imported/Painting_Sheet_Overlay_Evil.png-e7c0fd8aa6384d81b8c0744f4253ec7d.s3tc.ctex"
+path.etc2="res://.godot/imported/Painting_Sheet_Overlay_Evil.png-e7c0fd8aa6384d81b8c0744f4253ec7d.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://asset/puzzles/bedroom/Painting_Sheet_Overlay_Evil.png"
-dest_files=["res://.godot/imported/Painting_Sheet_Overlay_Evil.png-e7c0fd8aa6384d81b8c0744f4253ec7d.s3tc.ctex"]
+dest_files=["res://.godot/imported/Painting_Sheet_Overlay_Evil.png-e7c0fd8aa6384d81b8c0744f4253ec7d.s3tc.ctex", "res://.godot/imported/Painting_Sheet_Overlay_Evil.png-e7c0fd8aa6384d81b8c0744f4253ec7d.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dej7b7vrgo30t"
 path.s3tc="res://.godot/imported/Bottles.mat_Emission.jpg-fe193e3ff734eb833a3da1e04c4a0c6d.s3tc.ctex"
+path.etc2="res://.godot/imported/Bottles.mat_Emission.jpg-fe193e3ff734eb833a3da1e04c4a0c6d.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://asset/3d/kitchen/textures/Bottles.mat_Emission.jpg"
-dest_files=["res://.godot/imported/Bottles.mat_Emission.jpg-fe193e3ff734eb833a3da1e04c4a0c6d.s3tc.ctex"]
+dest_files=["res://.godot/imported/Bottles.mat_Emission.jpg-fe193e3ff734eb833a3da1e04c4a0c6d.s3tc.ctex", "res://.godot/imported/Bottles.mat_Emission.jpg-fe193e3ff734eb833a3da1e04c4a0c6d.etc2.ctex"]
 
 [params]
 

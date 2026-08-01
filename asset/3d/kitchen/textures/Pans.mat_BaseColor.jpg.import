@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bgjtwsf5wrc4k"
 path.s3tc="res://.godot/imported/Pans.mat_BaseColor.jpg-3f1f22971f1f83cd95d80f289cf748b4.s3tc.ctex"
+path.etc2="res://.godot/imported/Pans.mat_BaseColor.jpg-3f1f22971f1f83cd95d80f289cf748b4.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://asset/3d/kitchen/textures/Pans.mat_BaseColor.jpg"
-dest_files=["res://.godot/imported/Pans.mat_BaseColor.jpg-3f1f22971f1f83cd95d80f289cf748b4.s3tc.ctex"]
+dest_files=["res://.godot/imported/Pans.mat_BaseColor.jpg-3f1f22971f1f83cd95d80f289cf748b4.s3tc.ctex", "res://.godot/imported/Pans.mat_BaseColor.jpg-3f1f22971f1f83cd95d80f289cf748b4.etc2.ctex"]
 
 [params]
 

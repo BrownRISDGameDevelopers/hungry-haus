@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://1pryg0saxceh"
 path.s3tc="res://.godot/imported/Bowls.mat_Normal.jpg-2154ae6ee486305f5df4e048548859c8.s3tc.ctex"
+path.etc2="res://.godot/imported/Bowls.mat_Normal.jpg-2154ae6ee486305f5df4e048548859c8.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://asset/3d/kitchen/textures/Bowls.mat_Normal.jpg"
-dest_files=["res://.godot/imported/Bowls.mat_Normal.jpg-2154ae6ee486305f5df4e048548859c8.s3tc.ctex"]
+dest_files=["res://.godot/imported/Bowls.mat_Normal.jpg-2154ae6ee486305f5df4e048548859c8.s3tc.ctex", "res://.godot/imported/Bowls.mat_Normal.jpg-2154ae6ee486305f5df4e048548859c8.etc2.ctex"]
 
 [params]
 

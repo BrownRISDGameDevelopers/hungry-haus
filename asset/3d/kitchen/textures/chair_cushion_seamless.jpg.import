@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://do1ji74hrii1i"
 path.s3tc="res://.godot/imported/chair_cushion_seamless.jpg-6c245ebb2109f94b175ec2b52f9d8441.s3tc.ctex"
+path.etc2="res://.godot/imported/chair_cushion_seamless.jpg-6c245ebb2109f94b175ec2b52f9d8441.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://asset/3d/kitchen/textures/chair_cushion_seamless.jpg"
-dest_files=["res://.godot/imported/chair_cushion_seamless.jpg-6c245ebb2109f94b175ec2b52f9d8441.s3tc.ctex"]
+dest_files=["res://.godot/imported/chair_cushion_seamless.jpg-6c245ebb2109f94b175ec2b52f9d8441.s3tc.ctex", "res://.godot/imported/chair_cushion_seamless.jpg-6c245ebb2109f94b175ec2b52f9d8441.etc2.ctex"]
 
 [params]
 

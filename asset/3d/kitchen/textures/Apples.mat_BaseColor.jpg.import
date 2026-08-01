@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b18wdmk1qrrma"
 path.s3tc="res://.godot/imported/Apples.mat_BaseColor.jpg-1387226b46c316e800056bfabde2c5e4.s3tc.ctex"
+path.etc2="res://.godot/imported/Apples.mat_BaseColor.jpg-1387226b46c316e800056bfabde2c5e4.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://asset/3d/kitchen/textures/Apples.mat_BaseColor.jpg"
-dest_files=["res://.godot/imported/Apples.mat_BaseColor.jpg-1387226b46c316e800056bfabde2c5e4.s3tc.ctex"]
+dest_files=["res://.godot/imported/Apples.mat_BaseColor.jpg-1387226b46c316e800056bfabde2c5e4.s3tc.ctex", "res://.godot/imported/Apples.mat_BaseColor.jpg-1387226b46c316e800056bfabde2c5e4.etc2.ctex"]
 
 [params]
 

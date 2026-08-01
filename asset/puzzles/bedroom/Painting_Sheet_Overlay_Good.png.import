@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ds6wn1n40vq67"
 path.s3tc="res://.godot/imported/Painting_Sheet_Overlay_Good.png-cfa747b977c628a66e1d5059eb09e0a6.s3tc.ctex"
+path.etc2="res://.godot/imported/Painting_Sheet_Overlay_Good.png-cfa747b977c628a66e1d5059eb09e0a6.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://asset/puzzles/bedroom/Painting_Sheet_Overlay_Good.png"
-dest_files=["res://.godot/imported/Painting_Sheet_Overlay_Good.png-cfa747b977c628a66e1d5059eb09e0a6.s3tc.ctex"]
+dest_files=["res://.godot/imported/Painting_Sheet_Overlay_Good.png-cfa747b977c628a66e1d5059eb09e0a6.s3tc.ctex", "res://.godot/imported/Painting_Sheet_Overlay_Good.png-cfa747b977c628a66e1d5059eb09e0a6.etc2.ctex"]
 
 [params]
 

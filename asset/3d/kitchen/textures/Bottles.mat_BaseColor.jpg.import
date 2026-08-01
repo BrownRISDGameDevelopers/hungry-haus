@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://tpluweklktsp"
 path.s3tc="res://.godot/imported/Bottles.mat_BaseColor.jpg-6823387e1c901a555c0fb1149dc713f9.s3tc.ctex"
+path.etc2="res://.godot/imported/Bottles.mat_BaseColor.jpg-6823387e1c901a555c0fb1149dc713f9.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://asset/3d/kitchen/textures/Bottles.mat_BaseColor.jpg"
-dest_files=["res://.godot/imported/Bottles.mat_BaseColor.jpg-6823387e1c901a555c0fb1149dc713f9.s3tc.ctex"]
+dest_files=["res://.godot/imported/Bottles.mat_BaseColor.jpg-6823387e1c901a555c0fb1149dc713f9.s3tc.ctex", "res://.godot/imported/Bottles.mat_BaseColor.jpg-6823387e1c901a555c0fb1149dc713f9.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://oo33ya8b6o27"
 path.s3tc="res://.godot/imported/BigPaintingRedHand.png-f7ca8e624fad700e88b278b2c7f23bc1.s3tc.ctex"
+path.etc2="res://.godot/imported/BigPaintingRedHand.png-f7ca8e624fad700e88b278b2c7f23bc1.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://asset/puzzles/bedroom/BigPaintingRedHand.png"
-dest_files=["res://.godot/imported/BigPaintingRedHand.png-f7ca8e624fad700e88b278b2c7f23bc1.s3tc.ctex"]
+dest_files=["res://.godot/imported/BigPaintingRedHand.png-f7ca8e624fad700e88b278b2c7f23bc1.s3tc.ctex", "res://.godot/imported/BigPaintingRedHand.png-f7ca8e624fad700e88b278b2c7f23bc1.etc2.ctex"]
 
 [params]
 

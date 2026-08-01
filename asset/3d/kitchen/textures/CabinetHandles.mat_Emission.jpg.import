@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bgay88x7r04tq"
 path.s3tc="res://.godot/imported/CabinetHandles.mat_Emission.jpg-4c4248434ea0e992ce3d1e710e4b7502.s3tc.ctex"
+path.etc2="res://.godot/imported/CabinetHandles.mat_Emission.jpg-4c4248434ea0e992ce3d1e710e4b7502.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://asset/3d/kitchen/textures/CabinetHandles.mat_Emission.jpg"
-dest_files=["res://.godot/imported/CabinetHandles.mat_Emission.jpg-4c4248434ea0e992ce3d1e710e4b7502.s3tc.ctex"]
+dest_files=["res://.godot/imported/CabinetHandles.mat_Emission.jpg-4c4248434ea0e992ce3d1e710e4b7502.s3tc.ctex", "res://.godot/imported/CabinetHandles.mat_Emission.jpg-4c4248434ea0e992ce3d1e710e4b7502.etc2.ctex"]
 
 [params]
 

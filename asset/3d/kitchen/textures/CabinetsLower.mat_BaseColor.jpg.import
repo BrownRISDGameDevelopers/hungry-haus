@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cn5gsoteyypcr"
 path.s3tc="res://.godot/imported/CabinetsLower.mat_BaseColor.jpg-872ccf5d39e55859ba2ac12265081476.s3tc.ctex"
+path.etc2="res://.godot/imported/CabinetsLower.mat_BaseColor.jpg-872ccf5d39e55859ba2ac12265081476.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://asset/3d/kitchen/textures/CabinetsLower.mat_BaseColor.jpg"
-dest_files=["res://.godot/imported/CabinetsLower.mat_BaseColor.jpg-872ccf5d39e55859ba2ac12265081476.s3tc.ctex"]
+dest_files=["res://.godot/imported/CabinetsLower.mat_BaseColor.jpg-872ccf5d39e55859ba2ac12265081476.s3tc.ctex", "res://.godot/imported/CabinetsLower.mat_BaseColor.jpg-872ccf5d39e55859ba2ac12265081476.etc2.ctex"]
 
 [params]
 

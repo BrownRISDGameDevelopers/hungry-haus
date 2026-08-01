@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dovpr0ro0d12o"
 path.s3tc="res://.godot/imported/Lightfixture.mat_Emission.jpg-811d0e6d4fe4b46735799396ac4f74cb.s3tc.ctex"
+path.etc2="res://.godot/imported/Lightfixture.mat_Emission.jpg-811d0e6d4fe4b46735799396ac4f74cb.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://asset/3d/kitchen/textures/Lightfixture.mat_Emission.jpg"
-dest_files=["res://.godot/imported/Lightfixture.mat_Emission.jpg-811d0e6d4fe4b46735799396ac4f74cb.s3tc.ctex"]
+dest_files=["res://.godot/imported/Lightfixture.mat_Emission.jpg-811d0e6d4fe4b46735799396ac4f74cb.s3tc.ctex", "res://.godot/imported/Lightfixture.mat_Emission.jpg-811d0e6d4fe4b46735799396ac4f74cb.etc2.ctex"]
 
 [params]
 

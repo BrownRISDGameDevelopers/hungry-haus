@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://0mjdp0vtyf8d"
 path.s3tc="res://.godot/imported/Fridge.mat_Normal.jpg-a94cc574c3fa1f8644e88034eb7c4c4a.s3tc.ctex"
+path.etc2="res://.godot/imported/Fridge.mat_Normal.jpg-a94cc574c3fa1f8644e88034eb7c4c4a.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://asset/3d/kitchen/textures/Fridge.mat_Normal.jpg"
-dest_files=["res://.godot/imported/Fridge.mat_Normal.jpg-a94cc574c3fa1f8644e88034eb7c4c4a.s3tc.ctex"]
+dest_files=["res://.godot/imported/Fridge.mat_Normal.jpg-a94cc574c3fa1f8644e88034eb7c4c4a.s3tc.ctex", "res://.godot/imported/Fridge.mat_Normal.jpg-a94cc574c3fa1f8644e88034eb7c4c4a.etc2.ctex"]
 
 [params]
 

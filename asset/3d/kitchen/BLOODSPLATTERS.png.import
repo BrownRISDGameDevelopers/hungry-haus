@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dq3y0fc00hkhk"
 path.s3tc="res://.godot/imported/BLOODSPLATTERS.png-e42a21bc600256781eb59aba7481dfce.s3tc.ctex"
+path.etc2="res://.godot/imported/BLOODSPLATTERS.png-e42a21bc600256781eb59aba7481dfce.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://asset/3d/kitchen/BLOODSPLATTERS.png"
-dest_files=["res://.godot/imported/BLOODSPLATTERS.png-e42a21bc600256781eb59aba7481dfce.s3tc.ctex"]
+dest_files=["res://.godot/imported/BLOODSPLATTERS.png-e42a21bc600256781eb59aba7481dfce.s3tc.ctex", "res://.godot/imported/BLOODSPLATTERS.png-e42a21bc600256781eb59aba7481dfce.etc2.ctex"]
 
 [params]
 

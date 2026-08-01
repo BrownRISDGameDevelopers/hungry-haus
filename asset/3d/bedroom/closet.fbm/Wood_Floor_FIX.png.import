@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cjw4dwtspbmsd"
 path.s3tc="res://.godot/imported/Wood_Floor_FIX.png-582910d7feba4d8d76ef82b13de03c22.s3tc.ctex"
+path.etc2="res://.godot/imported/Wood_Floor_FIX.png-582910d7feba4d8d76ef82b13de03c22.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://asset/3d/bedroom/closet.fbm/Wood_Floor_FIX.png"
-dest_files=["res://.godot/imported/Wood_Floor_FIX.png-582910d7feba4d8d76ef82b13de03c22.s3tc.ctex"]
+dest_files=["res://.godot/imported/Wood_Floor_FIX.png-582910d7feba4d8d76ef82b13de03c22.s3tc.ctex", "res://.godot/imported/Wood_Floor_FIX.png-582910d7feba4d8d76ef82b13de03c22.etc2.ctex"]
 
 [params]
 

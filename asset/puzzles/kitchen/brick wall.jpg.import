@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cd014b10ibjpj"
 path.s3tc="res://.godot/imported/brick wall.jpg-8797040bdd4488c76242fa56612f654e.s3tc.ctex"
+path.etc2="res://.godot/imported/brick wall.jpg-8797040bdd4488c76242fa56612f654e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://asset/puzzles/kitchen/brick wall.jpg"
-dest_files=["res://.godot/imported/brick wall.jpg-8797040bdd4488c76242fa56612f654e.s3tc.ctex"]
+dest_files=["res://.godot/imported/brick wall.jpg-8797040bdd4488c76242fa56612f654e.s3tc.ctex", "res://.godot/imported/brick wall.jpg-8797040bdd4488c76242fa56612f654e.etc2.ctex"]
 
 [params]
 

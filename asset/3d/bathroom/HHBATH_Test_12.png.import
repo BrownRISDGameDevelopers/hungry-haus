@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://balxn5yho8lll"
 path.s3tc="res://.godot/imported/HHBATH_Test_12.png-112ff193765065ec3260bf2a7fa5eefb.s3tc.ctex"
+path.etc2="res://.godot/imported/HHBATH_Test_12.png-112ff193765065ec3260bf2a7fa5eefb.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://asset/3d/bathroom/HHBATH_Test_12.png"
-dest_files=["res://.godot/imported/HHBATH_Test_12.png-112ff193765065ec3260bf2a7fa5eefb.s3tc.ctex"]
+dest_files=["res://.godot/imported/HHBATH_Test_12.png-112ff193765065ec3260bf2a7fa5eefb.s3tc.ctex", "res://.godot/imported/HHBATH_Test_12.png-112ff193765065ec3260bf2a7fa5eefb.etc2.ctex"]
 
 [params]
 

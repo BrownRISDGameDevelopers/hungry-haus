@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dwn47fjuo6br4"
 path.s3tc="res://.godot/imported/Sink.mat_BaseColor.jpg-1d6ad691b007798a983a695b58a0214e.s3tc.ctex"
+path.etc2="res://.godot/imported/Sink.mat_BaseColor.jpg-1d6ad691b007798a983a695b58a0214e.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://asset/3d/kitchen/textures/Sink.mat_BaseColor.jpg"
-dest_files=["res://.godot/imported/Sink.mat_BaseColor.jpg-1d6ad691b007798a983a695b58a0214e.s3tc.ctex"]
+dest_files=["res://.godot/imported/Sink.mat_BaseColor.jpg-1d6ad691b007798a983a695b58a0214e.s3tc.ctex", "res://.godot/imported/Sink.mat_BaseColor.jpg-1d6ad691b007798a983a695b58a0214e.etc2.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://uyxcosdrvp2r"
 path.s3tc="res://.godot/imported/BigPaintingNoHand.png-8a2da5fdcba07c68bb6c4bbce7ff078f.s3tc.ctex"
+path.etc2="res://.godot/imported/BigPaintingNoHand.png-8a2da5fdcba07c68bb6c4bbce7ff078f.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://asset/puzzles/bedroom/BigPaintingNoHand.png"
-dest_files=["res://.godot/imported/BigPaintingNoHand.png-8a2da5fdcba07c68bb6c4bbce7ff078f.s3tc.ctex"]
+dest_files=["res://.godot/imported/BigPaintingNoHand.png-8a2da5fdcba07c68bb6c4bbce7ff078f.s3tc.ctex", "res://.godot/imported/BigPaintingNoHand.png-8a2da5fdcba07c68bb6c4bbce7ff078f.etc2.ctex"]
 
 [params]
 
